@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>Taka test</title>
+		
+		<script type="text/javascript" src="Taka.js"></script>
+		<script type="text/javascript" src="utils/BoxUtil.js"></script>
+		<script type="text/javascript" src="core/Config.js"></script>
+		<script type="text/javascript" src="core/Control.js"></script>
+		<script type="text/javascript" src="core/Engine.js"></script>
+		<script type="text/javascript" src="core/Renderer.js"></script>
+		<script type="text/javascript" src="core/Timer.js"></script>
+		<script type="text/javascript" src="assets/Cache.js"></script>
+		<script type="text/javascript" src="assets/Assets.js"></script>
+		<script type="text/javascript" src="vehicles/Ship.js"></script>
+		<script type="text/javascript" src="vehicles/Player.js"></script>
+		<script type="text/javascript" src="vehicles/Drone.js"></script>
+		<script type="text/javascript" src="vehicles/formations/Formation.js"></script>
+		<script type="text/javascript" src="vehicles/formations/A5.js"></script>
+		<script type="text/javascript" src="vehicles/formations/V5.js"></script>
+		<script type="text/javascript" src="ordnance/Bullet.js"></script>
+		<script type="text/javascript" src="ordnance/PlayerBullet.js"></script>
+		<script type="text/javascript" src="ordnance/SmallBullet.js"></script>
+		<script type="text/javascript" src="effects/Effect.js"></script>
+		<script type="text/javascript" src="effects/Explosion.js"></script>
+		<script type="text/javascript" src="levels/Level.js"></script>
+		<script type="text/javascript" src="levels/Test.js"></script>
+		
+	</head>
+	
+	<body>
+		<div style="width:100%">
+			<div style="width:300px; margin:10px auto;">
+				movement: arrow keys<br />
+				shoot: space<br />
+				pause: escape<br />
+				<canvas id="TakaCanvas" width="300" height="400"></canvas>
+				<div id="tracker"></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var framenum = 0;
+		var tracker = document.getElementById('tracker');	
+		var canvas = document.getElementById('TakaCanvas');
+		
+		Taka.core.Engine.Player(new Taka.vehicles.Player(121,300));
+		Taka.core.Engine.Level(new Taka.levels.Test());
+
+		var callback = function() {
+			framenum++;
+			tracker.innerHTML = 'frame: '+framenum+'<br />fps:'+Taka.core.Engine.FPS();
+		}
+		
+		Taka.start(canvas, callback);
+	</script>
+</html>
