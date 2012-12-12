@@ -3,8 +3,8 @@ Taka.assets.Assets = (function() {
 
 	return {
 		create: function(key, path) {
-			var sprite = _cache.fetchSprite('player');
-			if (sprite == null) {
+			var sprite = _cache.fetchSprite(key);
+			if (sprite === null) {
 				sprite = new Image();
 				sprite.src = path;
 				_cache.addSprite(sprite, key);

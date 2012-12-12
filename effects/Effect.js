@@ -5,6 +5,8 @@
 		this.height = height;
 		this.x = x - (width / 2);
 		this.y = y - (height / 2);
+        this.velX = velX;
+        this.velY = velY;
 	};
 	Effect.prototype.sprites = null;
 	Effect.prototype.width = 0;
@@ -31,7 +33,7 @@
 	
 	Effect.prototype.getSprite = function() {
 		this.frame++;
-		if (this.frame == this.sprites.length-1) this.finished = true;
+		if (this.frame === this.sprites.length-1) this.finished = true;
 		return this.sprites[this.frame];
 	};
 	

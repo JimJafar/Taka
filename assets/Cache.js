@@ -35,7 +35,7 @@ Taka.assets.Cache = (function() {
 		 */
 		removeSprite: function(key) {
 			var index = _keys.indexOf(key);
-			if (index == -1) return;
+			if (index === -1) return;
 
 			_sprites[key] = null;
 			delete _sprites[key];

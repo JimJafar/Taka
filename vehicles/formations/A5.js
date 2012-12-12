@@ -5,7 +5,7 @@
 	Taka.extend(A5, Taka.vehicles.formations.Formation);
 
 	A5.prototype.update = function(frame) {
-		if (frame == this.startFrame) {
+		if (frame === this.startFrame) {
 			Taka.core.Engine.addEnemy(new this.shipType(this.x, -60, -1, 2));
 			Taka.core.Engine.addEnemy(new this.shipType(this.x - 30, -40, -1, 2));
 			Taka.core.Engine.addEnemy(new this.shipType(this.x + 30, -40, -1, 2));

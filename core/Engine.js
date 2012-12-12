@@ -117,7 +117,9 @@ Taka.core.Engine = (function() {
 	};
 	
 	var _updateBullets = function() {
-		var bullet, newX, newY;
+		var bullet;
+        var newX
+        var newY;
 
 		for (var i=_pBullets.length-1;i>=0;i--) {
 			bullet = _pBullets[i];
@@ -283,7 +285,7 @@ Taka.core.Engine = (function() {
 			return _level;
 		},
 
-				/**
+		/**
 		 * @name Player
 		 * @function Player Gets or sets the player's ship
 		 * @param ship Optional instance of Taka.vehicles.Ship

@@ -4,7 +4,7 @@
  * @property fps The target frames per second for the game engine
  */
 Taka.core.Config = {
-	fps: 30,
+	fps: 60,
 	buttons: {
 		up: 38,
 		down: 40,

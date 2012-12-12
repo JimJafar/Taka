@@ -5,12 +5,12 @@
 	Taka.extend(V5, Taka.vehicles.formations.Formation);
 
 	V5.prototype.update = function(frame) {
-		if (frame == this.startFrame) {
-			Taka.core.Engine.addEnemy(new this.shipType(this.x, -20, 1, 2));
-			Taka.core.Engine.addEnemy(new this.shipType(this.x - 30, -40, 1, 2));
-			Taka.core.Engine.addEnemy(new this.shipType(this.x + 30, -40, 1, 2));
-			Taka.core.Engine.addEnemy(new this.shipType(this.x - 60, -60, 1, 2));
-			Taka.core.Engine.addEnemy(new this.shipType(this.x + 60, -60, 1, 2));
+		if (frame === this.startFrame) {
+			Taka.core.Engine.addEnemy(new this.shipType(this.x, -20, 0.5, 1));
+			Taka.core.Engine.addEnemy(new this.shipType(this.x - 30, -40, 0.5, 1));
+			Taka.core.Engine.addEnemy(new this.shipType(this.x + 30, -40, 0.5, 1));
+			Taka.core.Engine.addEnemy(new this.shipType(this.x - 60, -60, 0.5, 1));
+			Taka.core.Engine.addEnemy(new this.shipType(this.x + 60, -60, 0.5, 1));
 		}
 	};
 
