@@ -108,6 +108,7 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <backgroundJavaScriptTimeout>1000</backgroundJavaScriptTimeout>
                     <baseDir>${project.build.directory}/jasmine</baseDir>
                     <includes>
                         **/SpecRunner.html
