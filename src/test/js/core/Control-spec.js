@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 describe('Taka.core.Control', function() {
     "use strict";
     var control = Taka.core.Control;

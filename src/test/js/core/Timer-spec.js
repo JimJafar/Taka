@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 describe('Taka.core.Timer', function() {
     "use strict";
     it('should start the timer and call the callback on tick', function() {

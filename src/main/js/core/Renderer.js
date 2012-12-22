@@ -65,6 +65,8 @@ Taka.core.Renderer = (function() {
          * @public
          */
         Render: function(_frame) {
+            var i;
+
             // clear the canvas
             _context.clearRect(0, 0, _canvasWidth, _canvasHeight);
 
@@ -79,7 +81,7 @@ Taka.core.Renderer = (function() {
             // draw the enemies
             var enemies = Taka.core.Engine.Enemies();
             var enemy;
-            for (var i=enemies.length-1; i>=0; i--) {
+            for (i=enemies.length-1; i>=0; i--) {
                 enemy = enemies[i];
                 _context.drawImage(enemy.getSprite(), enemy.x, enemy.y);
             }
@@ -87,14 +89,14 @@ Taka.core.Renderer = (function() {
             // draw the player bullets
             var bullets = Taka.core.Engine.PlayerBullets();
             var bullet;
-            for (var i=bullets.length-1; i>=0; i--) {
+            for (i=bullets.length-1; i>=0; i--) {
                 bullet = bullets[i];
                 _context.drawImage(bullet.getSprite(), bullet.x, bullet.y);
             }
 
             // draw the enemy bullets
             bullets = Taka.core.Engine.EnemyBullets();
-            for (var i=bullets.length-1; i>=0; i--) {
+            for (i=bullets.length-1; i>=0; i--) {
                 bullet = bullets[i];
                 _context.drawImage(bullet.getSprite(), bullet.x, bullet.y);
             }
@@ -102,7 +104,7 @@ Taka.core.Renderer = (function() {
             // draw the effects
             var effects = Taka.core.Engine.Effects();
             var effect;
-            for (var i=effects.length-1; i>=0; i--) {
+            for (i=effects.length-1; i>=0; i--) {
                 effect = effects[i];
                 _context.drawImage(effect.getSprite(), effect.x, effect.y);
             }

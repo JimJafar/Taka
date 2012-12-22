@@ -1,3 +1,4 @@
+/*global document:false */
 /**
  * @name Taka
  * @namespace Taka The Taka namespace
@@ -60,9 +61,9 @@ Taka.vehicles = {};
 Taka.vehicles.formations = {};
 
 /**
- * @function extend Enables inheritance
- * @param {} dest The child class
- * @param {} source The parent class
+ * extend Enables inheritance
+ * @param {*} dest The child class
+ * @param {*} source The parent class
  * @type void
  **/
 Taka.extend=function(dest,source){
@@ -70,8 +71,9 @@ Taka.extend=function(dest,source){
     if (!dest || !source) {
         return;
     }
-    for(proto in source.prototype){
-        dest.prototype[proto]=source.prototype[proto];
+    /*jshint forin:false */
+    for(var proto in source.prototype) {
+        dest.prototype[proto] = source.prototype[proto];
     }
     dest.prototype.Super=source;
 };

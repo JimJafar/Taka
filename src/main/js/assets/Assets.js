@@ -1,3 +1,4 @@
+/*global Image:false */
 var Taka = (Taka) ? Taka : {};
 
 Taka.assets.Assets = (function() {

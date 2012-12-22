@@ -135,10 +135,11 @@ Taka.core.Engine = (function() {
      */
     var _updateBullets = function() {
         var bullet;
-        var newX
+        var newX;
         var newY;
+        var i;
 
-        for (var i=_pBullets.length-1;i>=0;i--) {
+        for (i = _pBullets.length -1; i >= 0; i--) {
             bullet = _pBullets[i];
 
             bullet.updateVelocity();
@@ -152,7 +153,7 @@ Taka.core.Engine = (function() {
                 continue;
             }
         }
-        for (var i=_eBullets.length-1;i>=0;i--) {
+        for (i = _eBullets.length -1; i >= 0; i--) {
             bullet = _eBullets[i];
 
             bullet.updateVelocity();
@@ -176,7 +177,7 @@ Taka.core.Engine = (function() {
      */
     var _updateEnemies = function() {
         var enemy;
-        for (var i=_enemies.length-1;i>=0;i--) {
+        for (var i = _enemies.length -1; i >= 0; i--) {
             enemy = _enemies[i];
 
             enemy.update();
@@ -203,7 +204,7 @@ Taka.core.Engine = (function() {
 
     var _updateFormations = function(frame) {
         var formation;
-        for (var i=_formations.length-1;i>=0;i--) {
+        for (var i = _formations.length -1; i >= 0; i--) {
             formation = _formations[i];
 
             formation.update(frame);
@@ -213,7 +214,7 @@ Taka.core.Engine = (function() {
 
     var _updateEffects = function(){
         var effect;
-        for (var i=_effects.length-1; i>=0; i--) {
+        for (var i = _effects.length -1; i >= 0; i--) {
             effect = _effects[i];
             if (effect.finished) {
                 _effects.splice(i, 1);
@@ -224,9 +225,9 @@ Taka.core.Engine = (function() {
     var _doCollisions = function() {
         var enemy, bullet;
         // enemies and bullets
-        for (var i=_enemies.length-1; i>=0; i--) {
+        for (var i = _enemies.length -1; i >= 0; i--) {
             enemy = _enemies[i];
-            for (var ii=_pBullets.length-1; ii>=0; ii--) {
+            for (var ii = _pBullets.length -1; ii >= 0; ii--) {
                 bullet = _pBullets[ii];
                 if (Taka.utils.BoxUtil.Intersect(enemy, bullet)) {
                     _enemies.splice(i, 1);

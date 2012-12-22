@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 describe('Taka.core.Config', function() {
     "use strict";
     var config = Taka.core.Config;

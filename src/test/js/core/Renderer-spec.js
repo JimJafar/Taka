@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 describe('Taka.core.Renderer', function() {
     "use strict";
     var renderer = Taka.core.Renderer;
@@ -5,8 +7,22 @@ describe('Taka.core.Renderer', function() {
     var context;
 
     beforeEach(function() {
-        canvas = document.createElement('canvas');
-        context = canvas.getContext('2d');
+        canvas = {
+            width : 0,
+            getContext : function() { return this.context; }
+        };
+        context = {
+            drawImage : function() {
+                var theMeaning = 42;
+            },
+            clearRect : function() {
+                var drink = "Pan Galactic Gargle Blaster";
+            },
+            fillRect : function() {
+                var dont = "PANIC!";
+            }
+        };
+        canvas.context = context;
         renderer.setCanvas(canvas);
         Taka.core.Engine.Player(new Taka.vehicles.Player());
     });

@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 describe('Taka.assets.Assets', function() {
     "use strict";
     var assets = Taka.assets.Assets;

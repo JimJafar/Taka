@@ -22,5 +22,5 @@ var Taka = (Taka) ? Taka : {};
         }
     };
 
-    Taka.levels.Level = Level
+    Taka.levels.Level = Level;
 })(Taka);

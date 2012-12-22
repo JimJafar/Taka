@@ -64,8 +64,8 @@ var Taka = (Taka) ? Taka : {};
         return this.sprite;
     };
 
-    Ship.prototype._getBullet = function(type) {
-        return new type(this.x + (this.width / 2), this.y);
+    Ship.prototype._getBullet = function(Type) {
+        return new Type(this.x + (this.width / 2), this.y);
     };
 
     Taka.vehicles.Ship = Ship;
