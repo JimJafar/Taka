@@ -9,7 +9,7 @@
     <groupId>net.sangwine</groupId>
     <artifactId>taka</artifactId>
     <version>0.1.0</version>
-    <packaging>js</packaging>
+    <!--<packaging>js</packaging>-->
 
     <name>Taka</name>
     <description>A pure JavaScript &amp; Canvas SHMUP engine</description>
@@ -27,6 +27,7 @@
     </dependencies>
 
     <build>
+        <!--
         <extensions>
             <extension>
                 <groupId>org.codehaus.mojo</groupId>
@@ -34,6 +35,7 @@
                 <version>2.0.0-alpha-1</version>
             </extension>
         </extensions>
+        -->
 
         <plugins>
             <plugin>
