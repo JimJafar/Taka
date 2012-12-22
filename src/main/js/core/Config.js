@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 /**
  * @name Config
  * @class Config Global configuration settings

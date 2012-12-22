@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 (function(Taka) {
 	var A5 = function(shipType, startFrame, x, y) {
 		this.Super(shipType, startFrame, x, y);

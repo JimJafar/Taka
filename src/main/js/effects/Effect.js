@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 (function(Taka) {
 	var Effect = function(sprites, width, height, x, y, velX, velY) {
 		this.sprites = sprites;

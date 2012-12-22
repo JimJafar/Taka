@@ -1,6 +1,8 @@
+var Taka = (Taka) ? Taka : {};
+
 (function(Taka) {
 	var Player = function(x, y) {
-		var sprite = Taka.assets.Assets.create('Player', 'assets/vehicles/Player.png');
+		var sprite = Taka.assets.Assets.create('Player', 'src/main/resources/vehicles/Player.png');
 		var width = 59;
 		var height = 43;
 		var speed = 3;

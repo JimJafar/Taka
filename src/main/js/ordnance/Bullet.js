@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 (function(Taka) {
 	var Bullet = function(sprite, width, height, x, y, speed) {
 		this.sprite = sprite;

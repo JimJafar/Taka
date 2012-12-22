@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 (function(Taka) {
 	var Ship = function(sprite, width, height, x, y, speed, fireFreq) {
 		this.sprite = sprite;

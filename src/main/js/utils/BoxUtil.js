@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 var BoxUtil = {
 	Top: function(box) {
 		return box.y;

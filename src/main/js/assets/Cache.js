@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 /**
  * @name Cache
  * @class Cache The game asset cache (singleton)
@@ -17,6 +19,15 @@ Taka.assets.Cache = (function() {
 	var _keys = [];
 
 	return {
+        /**
+         * @name spriteCount
+         * @function spriteCount Returns the number of sprites in the cache
+         * @return {Number}
+         */
+        spriteCount: function() {
+            return _keys.length;
+        },
+
 		/**
 		 * @name addSprite
 		 * @function addSprite Adds a sprite to the cache
@@ -68,7 +79,7 @@ Taka.assets.Cache = (function() {
 		 */
 		clear: function() {
 			for (var i = _keys.length - 1; i >= 0; i--) {
-				_keys[i] = null;
+				_sprites[_keys[i]] = null;
 			}
 			_sprites = {};
 			_keys = [];

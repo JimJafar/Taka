@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 /**
  * @name Control
  * @class Control Handles user input (singleton)

@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 /**
  * @name Timer
  * @class Timer The main game timer (singleton)

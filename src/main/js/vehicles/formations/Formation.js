@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 (function(Taka) {
 	var Formation = function(shipType, startFrame, x, y) {
 		this.shipType = shipType;

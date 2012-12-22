@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 /**
  * @name Renderer
  * @class Renderer The game renderer (singleton)

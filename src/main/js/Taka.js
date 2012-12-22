@@ -66,6 +66,9 @@ Taka.vehicles.formations = {};
  * @type void
  **/
 Taka.extend=function(dest,source){
+    if (!dest || !source) {
+        return;
+    }
 	for(proto in source.prototype){
 		dest.prototype[proto]=source.prototype[proto];
 	}

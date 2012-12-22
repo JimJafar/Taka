@@ -1,6 +1,8 @@
+var Taka = (Taka) ? Taka : {};
+
 (function() {
 	var SmallBullet = function(x, y) {
-		var sprite = Taka.assets.Assets.create('SmallBullet', 'assets/ordnance/SmallBullet.png');
+		var sprite = Taka.assets.Assets.create('SmallBullet', 'src/main/resources/ordnance/SmallBullet.png');
 		var width = 17;
 		var height = 16;
 		var speed = 4;

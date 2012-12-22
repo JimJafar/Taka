@@ -1,3 +1,5 @@
+var Taka = (Taka) ? Taka : {};
+
 /**
  * @name Engine
  * @class Engine The game engine (singleton)
@@ -93,6 +95,11 @@ Taka.core.Engine = (function() {
 	 */
 	var _paused = false;
 
+    /**
+     * @name _updatePlayer
+     * @function _updatePlayer Updates the player ship's position and state
+     * @private
+     */
 	var _updatePlayer = function() {
 		if (!_player) return;
 		
@@ -115,7 +122,12 @@ Taka.core.Engine = (function() {
 			_player.firedLast = now;
 		}
 	};
-	
+
+    /**
+     * @name _updateBullets
+     * @function _updateBullets Updates all the on-screen bullets
+     * @private
+     */
 	var _updateBullets = function() {
 		var bullet;
         var newX
@@ -151,7 +163,12 @@ Taka.core.Engine = (function() {
 		}
 		bullet = null; 
 	};
-	
+
+    /**
+     * @name _updateEnemies
+     * @function _updateEnemies Updates all the on-screen enemies
+     * @private
+     */
 	var _updateEnemies = function() {
 		var enemy;
 		for (var i=_enemies.length-1;i>=0;i--) {
