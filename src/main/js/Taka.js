@@ -69,10 +69,10 @@ Taka.extend=function(dest,source){
     if (!dest || !source) {
         return;
     }
-    for(proto in source.prototype){
-        dest.prototype[proto]=source.prototype[proto];
-    }
-    dest.prototype.Super=source;
+	for(proto in source.prototype){
+		dest.prototype[proto]=source.prototype[proto];
+	}
+	dest.prototype.Super=source;
 };
 
 /**
@@ -83,9 +83,9 @@ Taka.extend=function(dest,source){
  * @public
  */
 Taka.start = function(canvas, callback) {
-    Taka.core.Timer.start(canvas, callback);
-    document.onkeyup = Taka.core.Control.keyUp;
-    document.onkeydown = Taka.core.Control.keyDown;
+	Taka.core.Timer.start(canvas, callback);
+	document.onkeyup = Taka.core.Control.keyUp;
+	document.onkeydown = Taka.core.Control.keyDown;
 };
 
 /**
@@ -94,7 +94,7 @@ Taka.start = function(canvas, callback) {
  * @public
  */
 Taka.stop = function() {
-    Taka.core.Timer.stop();
-    document.onkeyup = null;
-    document.onkeydown = null;
+	Taka.core.Timer.stop();
+	document.onkeyup = null;
+	document.onkeydown = null;
 };
