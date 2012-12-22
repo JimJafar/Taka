@@ -5,28 +5,28 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<title>Taka test</title>
 		
-		<script type="text/javascript" src="Taka.js"></script>
-		<script type="text/javascript" src="utils/BoxUtil.js"></script>
-		<script type="text/javascript" src="core/Config.js"></script>
-		<script type="text/javascript" src="core/Control.js"></script>
-		<script type="text/javascript" src="core/Engine.js"></script>
-		<script type="text/javascript" src="core/Renderer.js"></script>
-		<script type="text/javascript" src="core/Timer.js"></script>
-		<script type="text/javascript" src="assets/Cache.js"></script>
-		<script type="text/javascript" src="assets/Assets.js"></script>
-		<script type="text/javascript" src="vehicles/Ship.js"></script>
-		<script type="text/javascript" src="vehicles/Player.js"></script>
-		<script type="text/javascript" src="vehicles/Drone.js"></script>
-		<script type="text/javascript" src="vehicles/formations/Formation.js"></script>
-		<script type="text/javascript" src="vehicles/formations/A5.js"></script>
-		<script type="text/javascript" src="vehicles/formations/V5.js"></script>
-		<script type="text/javascript" src="ordnance/Bullet.js"></script>
-		<script type="text/javascript" src="ordnance/PlayerBullet.js"></script>
-		<script type="text/javascript" src="ordnance/SmallBullet.js"></script>
-		<script type="text/javascript" src="effects/Effect.js"></script>
-		<script type="text/javascript" src="effects/Explosion.js"></script>
-		<script type="text/javascript" src="levels/Level.js"></script>
-		<script type="text/javascript" src="levels/Test.js"></script>
+		<script src="src/main/js/Taka.js"></script>
+		<script src="src/main/js/utils/BoxUtil.js"></script>
+		<script src="src/main/js/core/Config.js"></script>
+		<script src="src/main/js/core/Control.js"></script>
+		<script src="src/main/js/core/Engine.js"></script>
+		<script src="src/main/js/core/Renderer.js"></script>
+		<script src="src/main/js/core/Timer.js"></script>
+		<script src="src/main/js/assets/Cache.js"></script>
+		<script src="src/main/js/assets/Assets.js"></script>
+		<script src="src/main/js/vehicles/Ship.js"></script>
+		<script src="src/main/js/vehicles/Player.js"></script>
+		<script src="src/main/js/vehicles/Drone.js"></script>
+		<script src="src/main/js/vehicles/formations/Formation.js"></script>
+		<script src="src/main/js/vehicles/formations/A5.js"></script>
+		<script src="src/main/js/vehicles/formations/V5.js"></script>
+		<script src="src/main/js/ordnance/Bullet.js"></script>
+		<script src="src/main/js/ordnance/PlayerBullet.js"></script>
+		<script src="src/main/js/ordnance/SmallBullet.js"></script>
+		<script src="src/main/js/effects/Effect.js"></script>
+		<script src="src/main/js/effects/Explosion.js"></script>
+		<script src="src/main/js/levels/Level.js"></script>
+		<script src="src/main/js/levels/Test.js"></script>
 		
 	</head>
 	
@@ -52,7 +52,7 @@
 		var callback = function() {
 			framenum++;
 			tracker.innerHTML = 'frame: '+framenum+'<br />fps:'+Taka.core.Engine.FPS();
-		}
+		};
 		
 		Taka.start(canvas, callback);
 	</script>
