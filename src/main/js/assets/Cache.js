@@ -6,6 +6,7 @@ var Taka = (Taka) ? Taka : {};
  * @author Jim Sangwine
  */
 Taka.assets.Cache = (function() {
+    "use strict";
     /**
      * @name _sprites
      * @field _sprites A collection of all sprites so far loaded
@@ -46,7 +47,9 @@ Taka.assets.Cache = (function() {
          */
         removeSprite: function(key) {
             var index = _keys.indexOf(key);
-            if (index === -1) return;
+            if (index === -1) {
+                return;
+            }
 
             _sprites[key] = null;
             delete _sprites[key];
@@ -69,7 +72,9 @@ Taka.assets.Cache = (function() {
          * @param key
          */
         fetchSprite: function(key) {
-            if (!_sprites.hasOwnProperty(key)) return null;
+            if (!_sprites.hasOwnProperty(key)) {
+                return null;
+            }
             return _sprites[key];
         },
 

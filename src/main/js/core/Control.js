@@ -6,6 +6,7 @@ var Taka = (Taka) ? Taka : {};
  * @author Jim Sangwine
  */
 Taka.core.Control = (function() {
+    "use strict";
     return {
         /**
          * @name keyDown

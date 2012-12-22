@@ -1,6 +1,7 @@
 var Taka = (Taka) ? Taka : {};
 
 (function(Taka) {
+    "use strict";
     var Player = function(x, y) {
         var sprite = Taka.assets.Assets.load('Player', 'src/main/resources/vehicles/Player.png');
         var width = 59;

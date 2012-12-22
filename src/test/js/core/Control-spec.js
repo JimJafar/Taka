@@ -1,4 +1,5 @@
 describe('Taka.core.Control', function() {
+    "use strict";
     var control = Taka.core.Control;
     var player;
     var buttons = Taka.core.Config.buttons;

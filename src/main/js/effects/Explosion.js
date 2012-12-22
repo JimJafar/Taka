@@ -1,6 +1,7 @@
 var Taka = (Taka) ? Taka : {};
 
 (function() {
+    "use strict";
     var Explosion = function(x, y, velX, velY) {
         var sprites = [];
         for (var i=0; i<7; i++) {

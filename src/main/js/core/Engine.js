@@ -6,6 +6,7 @@ var Taka = (Taka) ? Taka : {};
  * @author Jim Sangwine
  */
 Taka.core.Engine = (function() {
+    "use strict";
     /**
      * @name _screenWidth
      * @field _screenWidth The width of the game screen (canvas) in pixels
@@ -101,7 +102,9 @@ Taka.core.Engine = (function() {
      * @private
      */
     var _updatePlayer = function() {
-        if (!_player) return;
+        if (!_player) {
+            return;
+        }
 
         // movement
         _player.update();
@@ -109,11 +112,13 @@ Taka.core.Engine = (function() {
         var newX = _player.x + _player.velX;
         var newY = _player.y + _player.velY;
 
-        if (newX <= _screenWidth - _player.width && newX >= 0)
+        if (newX <= _screenWidth - _player.width && newX >= 0) {
             _player.x = newX;
+        }
 
-        if (newY <= _screenHeight - _player.height && newY >= 0)
+        if (newY <= _screenHeight - _player.height && newY >= 0) {
             _player.y = newY;
+        }
 
         // firing
         var now = new Date().getTime();
@@ -380,8 +385,11 @@ Taka.core.Engine = (function() {
          */
         Pause: function() {
             _paused = !_paused;
-            if (_paused) Taka.core.Timer.stop();
-            else Taka.core.Timer.start(Taka.core.Renderer.getCanvas());
+            if (_paused) {
+                Taka.core.Timer.stop();
+            } else {
+                Taka.core.Timer.start(Taka.core.Renderer.getCanvas());
+            }
         },
 
         /**

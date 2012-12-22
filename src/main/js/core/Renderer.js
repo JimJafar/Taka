@@ -6,6 +6,7 @@ var Taka = (Taka) ? Taka : {};
  * @author Jim Sangwine
  */
 Taka.core.Renderer = (function() {
+    "use strict";
     /**
      * @name _canvas
      * @function _canvas A reference to the canvas DOM object the game will be rendered in

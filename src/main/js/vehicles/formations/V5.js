@@ -1,6 +1,7 @@
 var Taka = (Taka) ? Taka : {};
 
 (function(Taka) {
+    "use strict";
     var V5 = function(shipType, startFrame, x, y) {
         this.Super(shipType, startFrame, x, y);
     };

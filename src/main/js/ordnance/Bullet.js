@@ -1,6 +1,7 @@
 var Taka = (Taka) ? Taka : {};
 
 (function(Taka) {
+    "use strict";
     var Bullet = function(sprite, width, height, x, y, speed) {
         this.sprite = sprite;
         this.width = width;
@@ -24,10 +25,18 @@ var Taka = (Taka) ? Taka : {};
 
     Bullet.prototype.updateVelocity = function() {
         this.velX = this.velY = 0;
-        if (this.moveUp) this.velY = -this.speed;
-        if (this.moveDown) this.velY = this.speed;
-        if (this.moveLeft) this.velX = -this.speed;
-        if (this.moveRight) this.velX = this.speed;
+        if (this.moveUp) {
+            this.velY = -this.speed;
+        }
+        if (this.moveDown) {
+            this.velY = this.speed;
+        }
+        if (this.moveLeft) {
+            this.velX = -this.speed;
+        }
+        if (this.moveRight) {
+            this.velX = this.speed;
+        }
     };
 
     Bullet.prototype.getVelocity = function() {

@@ -1,4 +1,5 @@
 describe('Taka.assets.Assets', function() {
+    "use strict";
     var assets = Taka.assets.Assets;
     var cache = Taka.assets.Cache;
 

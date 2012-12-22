@@ -1,4 +1,5 @@
 describe('Taka.effects.Effect', function() {
+    "use strict";
 
     var effect;
 

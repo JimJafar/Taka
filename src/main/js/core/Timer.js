@@ -6,6 +6,7 @@ var Taka = (Taka) ? Taka : {};
  * @author Jim Sangwine
  */
 Taka.core.Timer = (function() {
+    "use strict";
     /**
      * @name _run
      * @field _run A flag indicating whether the engine is/should be running

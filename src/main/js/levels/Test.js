@@ -1,6 +1,7 @@
 var Taka = (Taka) ? Taka : {};
 
 (function(Taka) {
+    "use strict";
     var Test = function() {
         this.setTriggers();
         this.Super();

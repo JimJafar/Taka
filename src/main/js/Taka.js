@@ -66,6 +66,7 @@ Taka.vehicles.formations = {};
  * @type void
  **/
 Taka.extend=function(dest,source){
+    "use strict";
     if (!dest || !source) {
         return;
     }
@@ -83,6 +84,7 @@ Taka.extend=function(dest,source){
  * @public
  */
 Taka.start = function(canvas, callback) {
+    "use strict";
     Taka.core.Timer.start(canvas, callback);
     document.onkeyup = Taka.core.Control.keyUp;
     document.onkeydown = Taka.core.Control.keyDown;
@@ -94,6 +96,7 @@ Taka.start = function(canvas, callback) {
  * @public
  */
 Taka.stop = function() {
+    "use strict";
     Taka.core.Timer.stop();
     document.onkeyup = null;
     document.onkeydown = null;

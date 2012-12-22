@@ -1,6 +1,7 @@
 var Taka = (Taka) ? Taka : {};
 
 Taka.assets.Assets = (function() {
+    "use strict";
     var _cache = Taka.assets.Cache;
 
     return {

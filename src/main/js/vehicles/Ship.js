@@ -1,6 +1,7 @@
 var Taka = (Taka) ? Taka : {};
 
 (function(Taka) {
+    "use strict";
     var Ship = function(sprite, width, height, x, y, speed, fireFreq) {
         this.sprite = sprite;
         this.width = width;
@@ -32,10 +33,18 @@ var Taka = (Taka) ? Taka : {};
 
     Ship.prototype._updateVelocity = function() {
         this.velX = this.velY = 0;
-        if (this.moveUp) this.velY = -this.speed;
-        if (this.moveDown) this.velY = this.speed;
-        if (this.moveLeft) this.velX = -this.speed;
-        if (this.moveRight) this.velX = this.speed;
+        if (this.moveUp) {
+            this.velY = -this.speed;
+        }
+        if (this.moveDown) {
+            this.velY = this.speed;
+        }
+        if (this.moveLeft) {
+            this.velX = -this.speed;
+        }
+        if (this.moveRight) {
+            this.velX = this.speed;
+        }
     };
 
     Ship.prototype.getVelocity = function() {

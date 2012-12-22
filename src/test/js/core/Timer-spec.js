@@ -1,4 +1,5 @@
 describe('Taka.core.Timer', function() {
+    "use strict";
     it('should start the timer and call the callback on tick', function() {
         Taka.core.Engine.Level(new Taka.levels.Level());
         Taka.core.Engine.Enemies().length = 0;

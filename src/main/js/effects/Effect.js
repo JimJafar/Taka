@@ -1,6 +1,7 @@
 var Taka = (Taka) ? Taka : {};
 
 (function(Taka) {
+    "use strict";
     /**
      * Base class for animated effects
      * @param {array} sprites

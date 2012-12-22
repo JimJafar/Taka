@@ -1,4 +1,5 @@
 describe('Taka.assets.Cache', function() {
+    "use strict";
     var cache = Taka.assets.Cache;
 
     beforeEach(function() {

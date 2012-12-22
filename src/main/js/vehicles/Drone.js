@@ -1,6 +1,7 @@
 var Taka = (Taka) ? Taka : {};
 
 (function(Taka) {
+    "use strict";
     var Drone = function(x, y, velX, velY) {
         var sprite = Taka.assets.Assets.load('Drone', 'src/main/resources/vehicles/Drone.png');
         var width = 32;
