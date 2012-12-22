@@ -18,6 +18,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>ro.isdc.wro4j</groupId>
+            <artifactId>wro4j-extensions</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <extensions>
             <extension>
@@ -80,6 +88,34 @@
                     <specExcludes>
                         <exclude>lib/**/*.js</exclude>
                     </specExcludes>
+                </configuration>
+            </plugin>
+            <!--
+                JSHint
+                mvn wro4j:jshint
+            -->
+            <plugin>
+                <groupId>ro.isdc.wro4j</groupId>
+                <artifactId>wro4j-maven-plugin</artifactId>
+                <version>1.6.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jshint</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <options>devel,evil,noarg</options>
+                    <targetGroups>Taka</targetGroups>
+                    <minimize>true</minimize>
+                    <destinationFolder>${basedir}/build/</destinationFolder>
+                    <!--<cssDestinationFolder>d:/static/css/</cssDestinationFolder>-->
+                    <jsDestinationFolder>${basedir}/build/js/</jsDestinationFolder>
+                    <contextFolder>${basedir}/src/main/js/</contextFolder>
+                    <wroFile>${basedir}/build/wro.groovy</wroFile>
+                    <!--<wroManagerFactory>com.mycompany.MyCustomWroManagerFactory</wroManagerFactory>-->
+                    <ignoreMissingResources>false</ignoreMissingResources>
                 </configuration>
             </plugin>
         </plugins>
