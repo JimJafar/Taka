@@ -10,7 +10,7 @@ Taka.assets.Assets = (function() {
          * @param {string} path The path to the image file
          * @return {Image}
          */
-		create: function(key, path) {
+		load: function(key, path) {
 			var sprite = _cache.fetchSprite(key);
 			if (sprite === null) {
 				sprite = new Image();

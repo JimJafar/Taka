@@ -3,7 +3,7 @@ describe('Taka.assets.Assets', function() {
     var cache = Taka.assets.Cache;
 
     it('should create a new Image instance and add it to the cache if the sprite is not already cached', function() {
-        var sprite = assets.create('theKey', '/path/to/img');
+        var sprite = assets.load('theKey', '/path/to/img');
         expect(sprite.src.indexOf('/path/to/img')).not.toBe(-1);
         expect(cache.hasSprite('theKey')).toBe(true);
     });
@@ -12,7 +12,7 @@ describe('Taka.assets.Assets', function() {
         var cachedSprite = { src : '/path/to/42.png' };
         cache.addSprite(cachedSprite, '42');
 
-        var fetchedSprite = assets.create('42', null);
+        var fetchedSprite = assets.load('42', null);
         expect(fetchedSprite.src.indexOf('/path/to/42.png')).not.toBe(-1);
     });
 });

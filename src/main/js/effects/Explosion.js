@@ -4,7 +4,7 @@ var Taka = (Taka) ? Taka : {};
 	var Explosion = function(x, y, velX, velY) {
 		var sprites = [];
 		for (var i=0; i<7; i++) {
-			sprites[i] = Taka.assets.Assets.create('Explosion'+i, 'src/main/resources/effects/explosion-0'+i+'.png');
+			sprites[i] = Taka.assets.Assets.load('Explosion'+i, 'src/main/resources/effects/explosion-0'+i+'.png');
 		}
 		
 		var width = 60;
