@@ -37,6 +37,7 @@
         </extensions>
         -->
 
+        <!-- Jasmine BDD Plugin -->
         <plugins>
             <plugin>
                 <groupId>com.github.searls</groupId>
@@ -92,6 +93,29 @@
                     </specExcludes>
                 </configuration>
             </plugin>
+
+            <!-- Saga code coverage plugin -->
+            <plugin>
+                <groupId>com.github.timurstrekalov</groupId>
+                <artifactId>saga-maven-plugin</artifactId>
+                <version>1.3.0</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>coverage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <baseDir>${project.build.directory}/jasmine</baseDir>
+                    <includes>
+                        **/SpecRunner.html
+                    </includes>
+                    <outputDir>${project.build.directory}/coverage</outputDir>
+                </configuration>
+            </plugin>
+
             <!--
                 JSHint
                 mvn wro4j:jshint
