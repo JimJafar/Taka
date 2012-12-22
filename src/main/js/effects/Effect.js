@@ -9,19 +9,15 @@ var Taka = (Taka) ? Taka : {};
 		this.y = y - (height / 2);
         this.velX = velX;
         this.velY = velY;
+        this.finished = false;
+        this.frame = -1;
 	};
-	Effect.prototype.sprites = null;
-	Effect.prototype.width = 0;
-	Effect.prototype.height = 0;
-	Effect.prototype.x = 0;
-	Effect.prototype.y = 0;
-	Effect.prototype.velX = 0;
-	Effect.prototype.velY = 0;
-	Effect.prototype.finished = false;
-	Effect.prototype.frame = -1;
-	
+
 	Effect.prototype.getVelocity = function() {
-		return { x: this.velX, y: this.velY };
+		return {
+            x : this.velX,
+            y : this.velY
+        };
 	};
 	
 	Effect.prototype.setPos = function(x,y) {
@@ -30,12 +26,18 @@ var Taka = (Taka) ? Taka : {};
 	};
 	
 	Effect.prototype.getPos = function() {
-		return { x: this.x, y: this.y };
+		return {
+            x : this.x,
+            y : this.y
+        };
 	};
 	
 	Effect.prototype.getSprite = function() {
 		this.frame++;
-		if (this.frame === this.sprites.length-1) this.finished = true;
+		if (this.frame === this.sprites.length-1)
+        {
+            this.finished = true;
+        }
 		return this.sprites[this.frame];
 	};
 	
