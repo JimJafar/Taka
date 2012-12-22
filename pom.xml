@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.sangwine</groupId>
+    <artifactId>taka</artifactId>
+    <version>0.1.0</version>
+    <packaging>js</packaging>
+
+    <name>Taka</name>
+    <description>A pure JavaScript &amp; Canvas SHMUP engine</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>javascript-maven-plugin</artifactId>
+                <version>2.0.0-alpha-1</version>
+            </extension>
+        </extensions>
+
+        <plugins>
+            <plugin>
+                <groupId>com.github.searls</groupId>
+                <artifactId>jasmine-maven-plugin</artifactId>
+                <version>1.2.0.0</version>
+
+                <extensions>true</extensions>
+
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <jsSrcDir>${project.basedir}/src/main/js</jsSrcDir>
+                    <sourceIncludes>
+                        <include>Taka.js</include>
+                        <include>utils/BoxUtil.js</include>
+                        <include>core/Config.js</include>
+                        <include>core/Control.js</include>
+                        <include>core/Engine.js</include>
+                        <include>core/Renderer.js</include>
+                        <include>core/Timer.js</include>
+                        <include>assets/Cache.js</include>
+                        <include>assets/Assets.js</include>
+                        <include>vehicles/Ship.js</include>
+                        <include>vehicles/Player.js</include>
+                        <include>vehicles/Drone.js</include>
+                        <include>vehicles/formations/Formation.js</include>
+                        <include>vehicles/formations/A5.js</include>
+                        <include>vehicles/formations/V5.js</include>
+                        <include>ordnance/Bullet.js</include>
+                        <include>ordnance/PlayerBullet.js</include>
+                        <include>ordnance/SmallBullet.js</include>
+                        <include>effects/Effect.js</include>
+                        <include>effects/Explosion.js</include>
+                        <include>levels/Level.js</include>
+                    </sourceIncludes>
+                    <!--
+                    <preloadSources>
+                        <source>${project.basedir}/js/libs/jquery.1.6.4.js</source>
+                    </preloadSources>
+                    -->
+                    <jsTestSrcDir>${project.basedir}/src/test/js</jsTestSrcDir>
+                    <specIncludes>
+                        <include>**/*.js</include>
+                    </specIncludes>
+                    <specExcludes>
+                        <exclude>lib/**/*.js</exclude>
+                    </specExcludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
