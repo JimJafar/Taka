@@ -37,7 +37,12 @@
         </extensions>
         -->
 
-        <!-- Jasmine BDD Plugin -->
+        <!--
+            Jasmine BDD Plugin
+            mvn test
+            mvn jasmine:test
+            mvn jasmine:bdd
+        -->
         <plugins>
             <plugin>
                 <groupId>com.github.searls</groupId>
@@ -48,6 +53,7 @@
 
                 <executions>
                     <execution>
+                        <phase>test</phase>
                         <goals>
                             <goal>test</goal>
                         </goals>
@@ -94,14 +100,18 @@
                 </configuration>
             </plugin>
 
-            <!-- Saga code coverage plugin -->
+            <!--
+                Saga code coverage plugin
+                mvn test
+                mvn saga:coverage
+            -->
             <plugin>
                 <groupId>com.github.timurstrekalov</groupId>
                 <artifactId>saga-maven-plugin</artifactId>
                 <version>1.3.0</version>
                 <executions>
                     <execution>
-                        <phase>verify</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>coverage</goal>
                         </goals>
@@ -119,7 +129,12 @@
 
             <!--
                 JSHint
+                mvn validate
                 mvn wro4j:jshint
+
+                Google Closure Compiler
+                mvn compile
+                mvn wro4j:run
             -->
             <plugin>
                 <groupId>ro.isdc.wro4j</groupId>
@@ -127,8 +142,16 @@
                 <version>1.6.1</version>
                 <executions>
                     <execution>
+                        <id>package</id>
+                        <phase>package</phase>
                         <goals>
                             <goal>jshint</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
                             <goal>run</goal>
                         </goals>
                     </execution>
