@@ -53,7 +53,9 @@
 
 		var callback = function() {
 			framenum++;
-			tracker.innerHTML = 'frame: '+framenum+'<br />fps:'+Taka.core.Engine.FPS();
+			tracker.innerHTML = 'frame: ' + framenum +
+                                '<br />fps:' + Taka.core.Engine.FPS() +
+                                '<br />life: ' + Taka.core.Engine.Player().life;
 		};
 		
 		Taka.start(canvas, callback);
