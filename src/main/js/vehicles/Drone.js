@@ -7,9 +7,10 @@ var Taka = (Taka) ? Taka : {};
         var width = 32;
         var height = 31;
         var speed = 2;
+        var life = 1;
         var fireFreq = 3600;
 
-        this.Super(sprite, width, height, x, y, speed, fireFreq);
+        this.Super(sprite, width, height, x, y, speed, life, fireFreq);
 
         this.velX = velX;
         this.velY = velY;

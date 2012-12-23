@@ -2,30 +2,25 @@ var Taka = (Taka) ? Taka : {};
 
 (function(Taka) {
     "use strict";
-    var Ship = function(sprite, width, height, x, y, speed, fireFreq) {
+    var Ship = function(sprite, width, height, x, y, speed, life, fireFreq) {
         this.sprite = sprite;
         this.width = width;
         this.height = height;
         this.x = x;
         this.y = y;
         this.speed = speed;
+        this.life = life;
         this.fireFreq = fireFreq;
+
+        this.firedLast = new Date().getTime();
+        this.moveUp = false;
+        this.moveDown = false;
+        this.moveLeft = false;
+        this.moveRight = false;
+        this.fire = false;
+        this.velX = 0;
+        this.velY = 0;
     };
-    Ship.prototype.sprite = null;
-    Ship.prototype.width = 0;
-    Ship.prototype.height = 0;
-    Ship.prototype.x = 0;
-    Ship.prototype.y = 0;
-    Ship.prototype.speed = 2;
-    Ship.prototype.fireFreq = 20;
-    Ship.prototype.firedLast = new Date().getTime();
-    Ship.prototype.moveUp = false;
-    Ship.prototype.moveDown = false;
-    Ship.prototype.moveLeft = false;
-    Ship.prototype.moveRight = false;
-    Ship.prototype.fire = false;
-    Ship.prototype.velX = 0;
-    Ship.prototype.velY = 0;
 
     Ship.prototype.update = function() {
         this._updateVelocity();
@@ -66,6 +61,14 @@ var Taka = (Taka) ? Taka : {};
 
     Ship.prototype._getBullet = function(Type) {
         return new Type(this.x + (this.width / 2), this.y);
+    };
+
+    Ship.prototype.hit = function(damage) {
+       this.life -= damage;
+    };
+
+    Ship.prototype.dead = function() {
+        return this.life <= 0;
     };
 
     Taka.vehicles.Ship = Ship;

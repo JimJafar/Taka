@@ -7,9 +7,10 @@ var Taka = (Taka) ? Taka : {};
         var width = 59;
         var height = 43;
         var speed = 3;
+        var life = 5;
         var fireFreq = 300;
 
-        this.Super(sprite, width, height, x, y, speed, fireFreq);
+        this.Super(sprite, width, height, x, y, speed, life, fireFreq);
     };
     Taka.extend(Player, Taka.vehicles.Ship);
 

@@ -103,3 +103,8 @@ Taka.stop = function() {
     document.onkeyup = null;
     document.onkeydown = null;
 };
+
+Taka.gameOver = function() {
+    "use strict";
+    Taka.stop();
+};

@@ -7,10 +7,12 @@ var Taka = (Taka) ? Taka : {};
         var width = 17;
         var height = 16;
         var speed = 4;
-        this.moveDown = true;
         x -= 9;
+        var damage = 1;
 
-        this.Super(sprite, width, height, x, y, speed);
+        this.Super(sprite, width, height, x, y, speed, damage);
+
+        this.moveDown = true;
     };
     Taka.extend(SmallBullet, Taka.ordnance.Bullet);
 

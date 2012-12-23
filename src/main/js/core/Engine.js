@@ -223,16 +223,39 @@ Taka.core.Engine = (function() {
     };
 
     var _doCollisions = function() {
-        var enemy, bullet;
-        // enemies and bullets
-        for (var i = _enemies.length -1; i >= 0; i--) {
+        var i;
+        var ii;
+        var enemy;
+        var bullet;
+        var center;
+
+        // between enemies and player bullets
+        for (i = _enemies.length -1; i >= 0; i--) {
             enemy = _enemies[i];
-            for (var ii = _pBullets.length -1; ii >= 0; ii--) {
+            for (ii = _pBullets.length -1; ii >= 0; ii--) {
                 bullet = _pBullets[ii];
                 if (Taka.utils.BoxUtil.Intersect(enemy, bullet)) {
-                    _enemies.splice(i, 1);
+                    enemy.hit(bullet.damage);
                     _pBullets.splice(ii, 1);
-                    _effects.push(new Taka.effects.Explosion(enemy.x + (enemy.width / 2), enemy.y + (enemy.height / 2)));
+                    if (enemy.dead()) {
+                        _enemies.splice(i, 1);
+                        center = Taka.utils.BoxUtil.Center(enemy);
+                        _effects.push(new Taka.effects.Explosion(center.x, center.y));
+                    }
+                }
+            }
+        }
+
+        // between enemy bullets and the player
+        for (i = _eBullets.length -1; i>= 0; i--) {
+            bullet = _eBullets[i];
+            if (Taka.utils.BoxUtil.Intersect(_player, bullet)) {
+                _player.hit(bullet.damage);
+                _eBullets.splice(i, 1);
+                center = Taka.utils.BoxUtil.Center(_player);
+                _effects.push(new Taka.effects.Explosion(center.x, center.y));
+                if(_player.dead()) {
+                    Taka.gameOver();
                 }
             }
         }

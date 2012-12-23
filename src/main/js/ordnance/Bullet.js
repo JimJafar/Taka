@@ -2,26 +2,22 @@ var Taka = (Taka) ? Taka : {};
 
 (function(Taka) {
     "use strict";
-    var Bullet = function(sprite, width, height, x, y, speed) {
+    var Bullet = function(sprite, width, height, x, y, speed, damage) {
         this.sprite = sprite;
         this.width = width;
         this.height = height;
         this.x = x;
         this.y = y;
         this.speed = speed;
+        this.damage = damage;
+
+        this.moveUp = false;
+        this.moveDown = false;
+        this.moveLeft = false;
+        this.moveRight = false;
+        this.velX = 0;
+        this.velY = 0;
     };
-    Bullet.prototype.sprite = null;
-    Bullet.prototype.width = 0;
-    Bullet.prototype.height = 0;
-    Bullet.prototype.x = 0;
-    Bullet.prototype.y = 0;
-    Bullet.prototype.speed = 2;
-    Bullet.prototype.moveUp = false;
-    Bullet.prototype.moveDown = false;
-    Bullet.prototype.moveLeft = false;
-    Bullet.prototype.moveRight = false;
-    Bullet.prototype.velX = 0;
-    Bullet.prototype.velY = 0;
 
     Bullet.prototype.updateVelocity = function() {
         this.velX = this.velY = 0;
