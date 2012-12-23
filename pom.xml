@@ -113,7 +113,7 @@
                     <includes>
                         **/SpecRunner.html
                     </includes>
-                    <outputDir>${project.build.directory}/coverage</outputDir>
+                    <outputDir>${project.basedir}/build-test/coverage</outputDir>
                 </configuration>
             </plugin>
 

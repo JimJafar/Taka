@@ -1,0 +1,43 @@
+load:
+  - jstd-jasmine-lib/jasmine-1.1.0.js
+  - jstd-jasmine-lib/JasmineAdapter-1.1.2.js
+  - ../src/main/js/Taka.js
+  - ../src/main/js/utils/BoxUtil.js
+  - ../src/main/js/core/Config.js
+  - ../src/main/js/core/Control.js
+  - ../src/main/js/core/Engine.js
+  - ../src/main/js/core/Renderer.js
+  - ../src/main/js/core/Timer.js
+  - ../src/main/js/assets/Cache.js
+  - ../src/main/js/assets/Assets.js
+  - ../src/main/js/vehicles/Ship.js
+  - ../src/main/js/vehicles/Player.js
+  - ../src/main/js/vehicles/Drone.js
+  - ../src/main/js/vehicles/formations/Formation.js
+  - ../src/main/js/vehicles/formations/A5.js
+  - ../src/main/js/vehicles/formations/V5.js
+  - ../src/main/js/ordnance/Bullet.js
+  - ../src/main/js/ordnance/PlayerBullet.js
+  - ../src/main/js/ordnance/SmallBullet.js
+  - ../src/main/js/effects/Effect.js
+  - ../src/main/js/effects/Explosion.js
+  - ../src/main/js/levels/Level.js
+
+test:
+  - ../src/test/js/**/*.js
+
+exclude:
+# - src/test/js/
+
+#serve:
+# - css/main.css
+
+#proxy:
+# - {matcher: "*", server: "http://localhost/whatever"}
+
+#plugin:
+# - name: "coverage"
+#   jar: "lib/jstestdriver/coverage.jar"
+#   module: "com.google.jstestdriver.coverage.CoverageModule"
+
+timeout: 90

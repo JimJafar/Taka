@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Total coverage report</title>
+<style>
+    body {
+        margin: 0;
+        padding: 18px 10px;
+        font: 0.8125em Verdana, sans-serif;
+    }
+
+    h1 {
+        font-size: 1.2em;
+        margin: 0;
+        padding-left: 10px;
+        padding-bottom: 5px;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    .stats {
+        width: 100%;
+    }
+
+    .stats-header th {
+        color: white;
+    }
+
+    .stats-header th {
+        text-align: right;
+    }
+
+    .stats-header th:first-child {
+        text-align: left;
+    }
+
+    .stats td.statements,
+    .stats td.executed,
+    .stats td.coverage {
+        text-align: right;
+    }
+
+    .stats > thead th,
+    .stats > thead td,
+    .stats > tbody > tr > td {
+        padding: 4px 10px;
+    }
+
+    .stats > thead th {
+        font-size: 0.85em;
+    }
+
+    .stats > thead > tr:first-child th {
+        background-color: #758691;
+    }
+
+    .stats > thead th:first-child,
+    .stats > thead td:first-child,
+    .stats > tbody > tr > td:first-child {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+
+    .stats > thead th:last-child,
+    .stats > thead td:last-child,
+    .stats > tbody > tr > td:last-child {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    .stats > tbody > tr:nth-child(4n + 1) {
+        background-color: #e7e8e9;
+    }
+
+    .stats > tbody > tr:nth-child(2n + 1) {
+        cursor: pointer;
+    }
+
+    .stats > tbody > tr:nth-child(2n + 1):hover {
+        background-color: #b1c7d4;
+    }
+
+    .stats tr.no-statements {
+        opacity: 0.6;
+    }
+
+    a, a:hover, a:visited, a:active {
+        color: black;
+        text-decoration: none;
+    }
+
+    .bar-container {
+        padding: 2px;
+        padding-right: 8px;
+        width: 15%;
+    }
+
+    .bar {
+        background-color: #DDD;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 8px 8px 8px 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.5);
+        height: 7px;
+        padding: 1px;
+        position: relative;
+        width: 100%;
+    }
+
+    .bar > span {
+        background-color: #AEDB4B;
+        border-radius: 6px 6px 6px 6px;
+        box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.2) inset, 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+        display: block;
+        height: 100%;
+    }
+
+    .bar > span:before {
+        position: absolute;
+        width: 25%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-right: 1px solid rgba(0,0,0,0.1);
+        content: ' ';
+    }
+    .bar > span:after {
+        position: absolute;
+        width: 25%;
+        height: 100%;
+        left: 50%;
+        top: 0;
+        border-left: 1px solid rgba(0,0,0,0.1);
+        border-right: 1px solid rgba(0,0,0,0.1);
+        content: ' ';
+    }
+
+    /* line by line coverage styles */
+
+    .line-coverage {
+        margin: 10px 0px;
+    }
+
+    .line-coverage th {
+        border-right: 1px solid #758691;
+    }
+
+    .line-coverage th div,
+    .line-coverage td div {
+        text-align: center;
+    }
+
+    .line-coverage th div {
+        margin: 0px 10px 0px 4px;
+    }
+
+    .line-coverage td div {
+        padding: 2px 6px 2px 4px;
+        margin: 0;
+    }
+
+    .line-coverage th,
+    .line-coverage td,
+    .line-coverage pre {
+        padding: 0;
+        margin: 0;
+
+        font-size: 1.05em;
+        font-weight: normal;
+        font-family: Courier New;
+    }
+
+    .line-coverage th div, 
+    .line-coverage td.times-executed div {
+        border-radius: 0 5px 5px 0;
+        color: rgba(0, 0, 0, 0.8);
+        font-size: 0.9em;
+    }
+
+    .line-coverage td pre {
+        margin-left: 8px;
+    }
+
+    .line-coverage tr.covered td.times-executed div {
+        background-color: #aedb4b;
+    }
+
+    .line-coverage tr.not-covered td.times-executed div {
+        background-color: #ff8134;
+    }
+
+    .line-coverage span.keyword {
+        color: #000080;
+        font-weight: bold;
+    }
+
+    .line-coverage span.string {
+        color: #008000;
+    }
+
+    .line-coverage span.number {
+        color: #0000ff;
+    }
+
+    .line-coverage a {
+        color: black;
+    }
+
+    .line-coverage-cell > div {
+        color: #FF8134;
+    }
+
+    .line-coverage-cell > div > a {
+        color: #FF8134;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .stats > thead td {
+        font-weight: bold;
+    }
+
+    .footer {
+        padding-top: 5px;
+        text-align: right;
+        font-style: italic;
+        font-size: 0.85em;
+        opacity: 0.7;
+    }
+
+    .footer a {
+        text-decoration: underline;
+    }
+</style>
+<script type="text/javascript">
+    (function () {
+        var reservedKeywords = [
+            "break",
+            "case",
+            "catch",
+            "continue",
+            "debugger",
+            "default",
+            "delete",
+            "do",
+            "else",
+            "false",
+            "finally",
+            "for",
+            "function",
+            "if",
+            "in",
+            "instanceof",
+            "new",
+            "null",
+            "return",
+            "switch",
+            "this",
+            "true",
+            "throw",
+            "try",
+            "typeof",
+            "var",
+            "void",
+            "while",
+            "with"
+        ];
+
+        String.prototype.reverse = function () {
+            return this.split('').reverse().join('');
+        };
+
+        var reservedKeywordsPattern = new RegExp('\\b(' + reservedKeywords.join('|') + ')\\b', 'g');
+        var jsStringPattern = /('(?!\\').*'|"(?!\\").*")/g;
+        var jsNumberPattern = /\b(\d+(?:\.\d+)?)\b/g;
+
+        function el(type) {
+            return document.createElement(type);
+        }
+
+        function withText(node, text) {
+            node.innerHTML = text;
+            return node;
+        }
+
+        function maybeAppendMissedLines(id, frag, missed, data) {
+            if (missed.length === 0) {
+                return;
+            }
+
+            var rangeAnchors = [];
+            var range;
+
+            for (var i = 0, len = missed.length; i < len; i++) {
+                var start = missed[i];
+                var end = start;
+
+                range = [start];
+
+                for (var j = i + 1; j < len; j++) {
+                    var missedLineNr = missed[j];
+                    var consecutive = false;
+
+                    // consecutive missed lines
+                    if (missedLineNr === end + 1) {
+                        consecutive = true;
+                    } else {
+                        // let's check if all lines in between are not executable
+                        var dataIdx = end;
+
+                        while (dataIdx < missedLineNr) {
+                            if (data[dataIdx][0] > -1) {
+                                if (data[dataIdx][0] === 0) {
+                                    missedLineNr = dataIdx + 1;
+                                    consecutive = true;
+                                }
+
+                                break;
+                            }
+
+                            dataIdx++;
+                        }
+                    }
+
+                    if (consecutive) {
+                        end = missedLineNr;
+                        i = j;
+                    }
+                }
+
+                range[1] = end;
+
+                var rangeStr = start === end ? start : start + '-' + end;
+                rangeAnchors.push('<a href="' + '#' + id + '-' + start + '">' + rangeStr + '</a>');
+            }
+
+            frag.appendChild(withText(el('div'), 'Missed lines: ' + rangeAnchors.join(', ')));
+        }
+
+        function createSourceTable(id, dataEl) {
+            var d = document;
+
+            var data = eval(dataEl.innerHTML);
+            var td = dataEl.parentNode;
+            td.removeChild(dataEl);
+
+            var frag = d.createDocumentFragment();
+
+            var table = el('table');
+            table.className = 'line-coverage';
+
+            var missed = [];
+
+            for (var i = 0, len = data.length; i < len; i++) {
+                var tr = el('tr');
+                var record = data[i];
+
+                var timesExecuted = record[0];
+                var src = record[1];
+                var executable = timesExecuted > -1;
+                var lineNr = i + 1;
+
+                if (timesExecuted === 0) {
+                    missed.push(lineNr);
+                }
+
+                tr.className = !executable ? 'not-executable' : timesExecuted > 0 ? 'covered' : 'not-covered';
+                table.appendChild(tr);
+
+                var lineNrNode = el('th');
+
+                var anchor = el('a');
+                anchor.setAttribute('name', id + '-' + lineNr);
+                anchor.appendChild(withText(el('div'), lineNr));
+
+                lineNrNode.appendChild(anchor);
+                tr.appendChild(lineNrNode);
+
+                var timesExecutedNode = el('td');
+                timesExecutedNode.className = 'times-executed';
+                timesExecutedNode.appendChild(withText(el('div'), executable ? (timesExecuted || '!') : '&nbsp;'));
+                tr.appendChild(timesExecutedNode);
+
+                var srcNode = el('td');
+
+                var styledSrc = src
+                    .reverse().replace(jsStringPattern, '>naps/<$1>"gnirts"=ssalc naps<').reverse()
+                    .replace(jsNumberPattern, '<span class="number">$1</span>')
+                    .replace(reservedKeywordsPattern, '<span class="keyword">$1</span>');
+
+                srcNode.appendChild(withText(el('pre'), styledSrc));
+
+                tr.appendChild(srcNode);
+            }
+
+            maybeAppendMissedLines(id, frag, missed, data);
+            frag.appendChild(table);
+
+            td.appendChild(frag.cloneNode(true));
+        }
+
+        window.__coverage_toggleSection = function (hash) {
+            var d = document;
+            var id = hash.indexOf('-') > -1 ? hash.substring(0, hash.indexOf('-')) : hash;
+
+            var srcRow = d.getElementById('__src_' + id);
+            if (!srcRow) {
+                return;
+            }
+
+            var dataEl = d.getElementById('__data_' + id);
+
+            if (dataEl) {
+                createSourceTable(id, dataEl);
+            }
+
+            var show = srcRow.style.display === 'none';
+
+            if (show) {
+                srcRow.style.display = '';
+                window.location.hash = "#" + hash;
+            } else {
+                srcRow.style.display = 'none';
+                window.location.hash = '#closed';
+            }
+        }
+
+        window.onload = function () {
+            if (window.location.hash) {
+                __coverage_toggleSection(window.location.hash.substr(1));
+            }
+        };
+
+    })();
+</script>
+</head>
+<body>
+    <h1>Total coverage report</h1>
+    <table class="stats">
+        <thead>
+            <tr class="stats-header">
+                <th>File</th>
+                <th>Statements</th>
+                <th>Executed</th>
+                <th>Coverage</th>
+                <th></th>
+            </tr>
+            <tr class="stats-header ">
+                <td>Total</td>
+                <td class="statements">814</td>
+                <td class="executed">670</td>
+                <td class="coverage">
+                        82&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 82%; background-color: rgb(190, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="no-statements" onclick="__coverage_toggleSection('c237fac8b26679d2aa8d7e1be967b5a4'); return false;">
+                <td><a href="#">target/jasmine/spec/<strong>Taka-spec.js</strong></a></td>
+                <td class="statements">0</td>
+                <td class="executed">0</td>
+                <td class="coverage">
+                        -
+                </td>
+                <td class="bar-container">
+                </td>
+            </tr>
+            <tr id="__src_c237fac8b26679d2aa8d7e1be967b5a4" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_c237fac8b26679d2aa8d7e1be967b5a4">[[-1,'\/\/\/**'],[-1,'\/\/ * @name Taka'],[-1,'\/\/ * @namespace Taka The Taka namespace'],[-1,'\/\/ * @author Jim Sangwine'],[-1,'\/\/ *\/'],[-1,'\/\/var Taka = {};'],[-1,'\/\/'],[-1,'\/\/\/**'],[-1,'\/\/ * @name Taka.utils'],[-1,'\/\/ * @namespace Taka.utils The Taka.utils namespace'],[-1,'\/\/ *\/'],[-1,'\/\/Taka.utils = {};'],[-1,'\/\/'],[-1,'\/\/\/**'],[-1,'\/\/ * @name Taka.core'],[-1,'\/\/ * @namespace Taka.core The Taka.core namespace'],[-1,'\/\/ *\/'],[-1,'\/\/Taka.core = {};'],[-1,'\/\/'],[-1,'\/\/\/**'],[-1,'\/\/ * @name Taka.assets'],[-1,'\/\/ * @namespace Taka.assets The Taka.assets namespace'],[-1,'\/\/ *\/'],[-1,'\/\/Taka.assets = {};'],[-1,'\/\/'],[-1,'\/\/\/**'],[-1,'\/\/ * @name Taka.levels'],[-1,'\/\/ * @namespace Taka.levels The Taka.levels namespace'],[-1,'\/\/ *\/'],[-1,'\/\/Taka.levels = {};'],[-1,'\/\/'],[-1,'\/\/\/**'],[-1,'\/\/ * @name Taka.ordnance'],[-1,'\/\/ * @namespace Taka.ordnance The Taka.ordnance namespace'],[-1,'\/\/ *\/'],[-1,'\/\/Taka.ordnance = {};'],[-1,'\/\/'],[-1,'\/\/\/**'],[-1,'\/\/ * @name Taka.effects'],[-1,'\/\/ * @namespace Taka.effects The Taka.effects namespace'],[-1,'\/\/ *\/'],[-1,'\/\/Taka.effects = {};'],[-1,'\/\/'],[-1,'\/\/\/**'],[-1,'\/\/ * @name Taka.ordnance.formations'],[-1,'\/\/ * @namespace Taka.ordnance.formations The Taka.ordnance.formations namespace'],[-1,'\/\/ *\/'],[-1,'\/\/Taka.ordnance.formations = {};'],[-1,'\/\/'],[-1,'\/\/\/**'],[-1,'\/\/ * @name Taka.vehicles'],[-1,'\/\/ * @namespace Taka.vehicles The Taka.vehicles namespace'],[-1,'\/\/ *\/'],[-1,'\/\/Taka.vehicles = {};'],[-1,'\/\/'],[-1,'\/\/\/**'],[-1,'\/\/ * @name Taka.vehicles.formations'],[-1,'\/\/ * @namespace Taka.vehicles.formations The Taka.vehicles.formations namespace'],[-1,'\/\/ *\/'],[-1,'\/\/Taka.vehicles.formations = {};'],[-1,'\/\/'],[-1,'\/\/\/**'],[-1,'\/\/ * @function extend Enables inheritance'],[-1,'\/\/ * @param {} dest The child class'],[-1,'\/\/ * @param {} source The parent class'],[-1,'\/\/ * @type void'],[-1,'\/\/ **\/'],[-1,'\/\/Taka.extend=function(dest,source){'],[-1,'\/\/    for(proto in source.prototype){'],[-1,'\/\/        dest.prototype[proto]=source.prototype[proto];'],[-1,'\/\/    }'],[-1,'\/\/    dest.prototype.Super=source;'],[-1,'\/\/};'],[-1,'\/\/'],[-1,'\/\/\/**'],[-1,'\/\/ * @name start'],[-1,'\/\/ * @function start Starts the game engine'],[-1,'\/\/ * @param canvas The canvas to render to'],[-1,'\/\/ * @param callback An optional callback function to be invoked on every frame'],[-1,'\/\/ * @public'],[-1,'\/\/ *\/'],[-1,'\/\/Taka.start = function(canvas, callback) {'],[-1,'\/\/    Taka.core.Timer.start(canvas, callback);'],[-1,'\/\/    document.onkeyup = Taka.core.Control.keyUp;'],[-1,'\/\/    document.onkeydown = Taka.core.Control.keyDown;'],[-1,'\/\/};'],[-1,'\/\/'],[-1,'\/\/\/**'],[-1,'\/\/ * @name stop'],[-1,'\/\/ * @function stop Stops the game engine'],[-1,'\/\/ * @public'],[-1,'\/\/ *\/'],[-1,'\/\/Taka.stop = function() {'],[-1,'\/\/    Taka.core.Timer.stop();'],[-1,'\/\/    document.onkeyup = null;'],[-1,'\/\/    document.onkeydown = null;'],[-1,'\/\/};']]</p></td>
+            </tr><tr class="no-statements" onclick="__coverage_toggleSection('00ca01ffa84f2bb66ea2883cc586a5dd'); return false;">
+                <td><a href="#">target/jasmine/spec/ordnance/<strong>Bullet-spec.js</strong></a></td>
+                <td class="statements">0</td>
+                <td class="executed">0</td>
+                <td class="coverage">
+                        -
+                </td>
+                <td class="bar-container">
+                </td>
+            </tr>
+            <tr id="__src_00ca01ffa84f2bb66ea2883cc586a5dd" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_00ca01ffa84f2bb66ea2883cc586a5dd">[[-1,'\/*'],[-1,'(function(Taka) {'],[-1,'    var Bullet = function(sprite, width, height, x, y, speed) {'],[-1,'        this.sprite = sprite;'],[-1,'        this.width = width;'],[-1,'        this.height = height;'],[-1,'        this.x = x;'],[-1,'        this.y = y;'],[-1,'        this.speed = speed;'],[-1,'    };'],[-1,'    Bullet.prototype.sprite = null;'],[-1,'    Bullet.prototype.width = 0;'],[-1,'    Bullet.prototype.height = 0;'],[-1,'    Bullet.prototype.x = 0;'],[-1,'    Bullet.prototype.y = 0;'],[-1,'    Bullet.prototype.speed = 2;'],[-1,'    Bullet.prototype.moveUp = false;'],[-1,'    Bullet.prototype.moveDown = false;'],[-1,'    Bullet.prototype.moveLeft = false;'],[-1,'    Bullet.prototype.moveRight = false;'],[-1,'    Bullet.prototype.velX = 0;'],[-1,'    Bullet.prototype.velY = 0;'],[-1,''],[-1,'    Bullet.prototype.updateVelocity = function() {'],[-1,'        this.velX = this.velY = 0;'],[-1,'        if (this.moveUp) this.velY = -this.speed;'],[-1,'        if (this.moveDown) this.velY = this.speed;'],[-1,'        if (this.moveLeft) this.velX = -this.speed;'],[-1,'        if (this.moveRight) this.velX = this.speed;'],[-1,'    };'],[-1,''],[-1,'    Bullet.prototype.getVelocity = function() {'],[-1,'        return { x: this.velX, y: this.velY };'],[-1,'    };'],[-1,''],[-1,'    Bullet.prototype.setPos = function(x,y) {'],[-1,'        this.x = x;'],[-1,'        this.y = y;'],[-1,'    };'],[-1,''],[-1,'    Bullet.prototype.getPos = function() {'],[-1,'        return { x: this.x, y: this.y };'],[-1,'    };'],[-1,''],[-1,'    Bullet.prototype.getSprite = function() {'],[-1,'        return this.sprite;'],[-1,'    };'],[-1,''],[-1,'    Taka.ordnance.Bullet = Bullet;'],[-1,'})(Taka);'],[-1,'    *\/']]</p></td>
+            </tr><tr class="no-statements" onclick="__coverage_toggleSection('a920e69d9d59aa0f334fd09616290bc6'); return false;">
+                <td><a href="#">target/jasmine/spec/ordnance/<strong>PlayerBullet-spec.js</strong></a></td>
+                <td class="statements">0</td>
+                <td class="executed">0</td>
+                <td class="coverage">
+                        -
+                </td>
+                <td class="bar-container">
+                </td>
+            </tr>
+            <tr id="__src_a920e69d9d59aa0f334fd09616290bc6" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_a920e69d9d59aa0f334fd09616290bc6">[[-1,'\/*'],[-1,'(function() {'],[-1,'    var PlayerBullet = function(x, y) {'],[-1,'        var sprite = Taka.assets.Assets.create(\'PlayerBullet\', \'src\/main\/resources\/ordnance\/PlayerBullet.png\');'],[-1,'        var width = 17;'],[-1,'        var height = 16;'],[-1,'        var speed = 6;'],[-1,'        this.moveUp = true;'],[-1,'        x -= 9;'],[-1,''],[-1,'        this.Super(sprite, width, height, x, y, speed);'],[-1,'    };'],[-1,'    Taka.extend(PlayerBullet, Taka.ordnance.Bullet);'],[-1,''],[-1,'    Taka.ordnance.PlayerBullet = PlayerBullet;'],[-1,'})(Taka);'],[-1,'    *\/']]</p></td>
+            </tr><tr class="no-statements" onclick="__coverage_toggleSection('fcea14aac8beba6ac1085aef3c892518'); return false;">
+                <td><a href="#">target/jasmine/spec/ordnance/<strong>SmallBullet-spec.js</strong></a></td>
+                <td class="statements">0</td>
+                <td class="executed">0</td>
+                <td class="coverage">
+                        -
+                </td>
+                <td class="bar-container">
+                </td>
+            </tr>
+            <tr id="__src_fcea14aac8beba6ac1085aef3c892518" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_fcea14aac8beba6ac1085aef3c892518">[[-1,'\/*'],[-1,'(function() {'],[-1,'    var SmallBullet = function(x, y) {'],[-1,'        var sprite = Taka.assets.Assets.create(\'SmallBullet\', \'src\/main\/resources\/ordnance\/SmallBullet.png\');'],[-1,'        var width = 17;'],[-1,'        var height = 16;'],[-1,'        var speed = 4;'],[-1,'        this.moveDown = true;'],[-1,'        x -= 9;'],[-1,''],[-1,'        this.Super(sprite, width, height, x, y, speed);'],[-1,'    };'],[-1,'    Taka.extend(SmallBullet, Taka.ordnance.Bullet);'],[-1,''],[-1,'    Taka.ordnance.SmallBullet = SmallBullet;'],[-1,'})(Taka);'],[-1,'    *\/']]</p></td>
+            </tr><tr class="no-statements" onclick="__coverage_toggleSection('789aa6197647980300501b8cae1057c6'); return false;">
+                <td><a href="#">target/jasmine/spec/utils/<strong>BoxUtil-spec.js</strong></a></td>
+                <td class="statements">0</td>
+                <td class="executed">0</td>
+                <td class="coverage">
+                        -
+                </td>
+                <td class="bar-container">
+                </td>
+            </tr>
+            <tr id="__src_789aa6197647980300501b8cae1057c6" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_789aa6197647980300501b8cae1057c6">[[-1,'\/*'],[-1,'var BoxUtil = {'],[-1,'    Top: function(box) {'],[-1,'        return box.y;'],[-1,'    },'],[-1,''],[-1,'    Bottom: function(box) {'],[-1,'        return box.y + box.height;'],[-1,'    },'],[-1,''],[-1,'    Left: function(box) {'],[-1,'        return box.x;'],[-1,'    },'],[-1,''],[-1,'    Right: function(box) {'],[-1,'        return box.x + box.width;'],[-1,'    },'],[-1,''],[-1,'    Center: function(box) {'],[-1,'        return { x: box.x + (box.width \/ 2), y: box.y + (box.height \/ 2) };'],[-1,'    },'],[-1,''],[-1,'    TopLeft: function(box) {'],[-1,'        return {x: box.x, y: box.y};'],[-1,'    },'],[-1,''],[-1,'    TopRight: function(box) {'],[-1,'        return {x: box.x + (box.width), y: box.y};'],[-1,'    },'],[-1,''],[-1,'    BottomLeft: function(box) {'],[-1,'        return {x: box.x, y: box.y + box.height};'],[-1,'    },'],[-1,''],[-1,'    BottomRight: function(box) {'],[-1,'        return {x: box.x + (box.width), y: box.y + box.height};'],[-1,'    },'],[-1,''],[-1,'    Intersect: function(box1, box2) {'],[-1,'        return !((Taka.utils.BoxUtil.Top(box1) &gt; Taka.utils.BoxUtil.Bottom(box2)) ||'],[-1,'                 (Taka.utils.BoxUtil.Bottom(box1) &lt; Taka.utils.BoxUtil.Top(box2)) ||'],[-1,'                  (Taka.utils.BoxUtil.Left(box1) &gt; Taka.utils.BoxUtil.Right(box2)) ||'],[-1,'                 (Taka.utils.BoxUtil.Right(box1) &lt; Taka.utils.BoxUtil.Left(box2)));'],[-1,'    }'],[-1,'};'],[-1,''],[-1,'Taka.utils.BoxUtil = BoxUtil;'],[-1,'    *\/']]</p></td>
+            </tr><tr class="no-statements" onclick="__coverage_toggleSection('c7a1d5fd02ba61cd9bbc4d44e45f4198'); return false;">
+                <td><a href="#">target/jasmine/spec/vehicles/<strong>Drone-spec.js</strong></a></td>
+                <td class="statements">0</td>
+                <td class="executed">0</td>
+                <td class="coverage">
+                        -
+                </td>
+                <td class="bar-container">
+                </td>
+            </tr>
+            <tr id="__src_c7a1d5fd02ba61cd9bbc4d44e45f4198" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_c7a1d5fd02ba61cd9bbc4d44e45f4198">[[-1,'\/\/(function(Taka) {'],[-1,'\/\/    var Drone = function(x, y, velX, velY) {'],[-1,'\/\/        var sprite = Taka.assets.Assets.create(\'Drone\', \'src\/main\/resources\/vehicles\/Drone.png\');'],[-1,'\/\/        var width = 32;'],[-1,'\/\/        var height = 31;'],[-1,'\/\/        var speed = 2;'],[-1,'\/\/        var fireFreq = 3600;'],[-1,'\/\/'],[-1,'\/\/        this.Super(sprite, width, height, x, y, speed, fireFreq);'],[-1,'\/\/'],[-1,'\/\/        this.velX = velX;'],[-1,'\/\/        this.velY = velY;'],[-1,'\/\/    };'],[-1,'\/\/    Taka.extend(Drone, Taka.vehicles.Ship);'],[-1,'\/\/'],[-1,'\/\/    Drone.prototype.update = function() {'],[-1,'\/\/        if (new Date().getTime() - this.firedLast &gt; this.fireFreq) {'],[-1,'\/\/            this.fire = true;'],[-1,'\/\/        }'],[-1,'\/\/    };'],[-1,'\/\/'],[-1,'\/\/    Drone.prototype.getBullet = function() {'],[-1,'\/\/        return new Taka.ordnance.SmallBullet(this.x + (this.width \/ 2), this.y + this.height);'],[-1,'\/\/    };'],[-1,'\/\/'],[-1,'\/\/    Taka.vehicles.Drone = Drone;'],[-1,'\/\/})(Taka);']]</p></td>
+            </tr><tr class="no-statements" onclick="__coverage_toggleSection('e7d61f1b4ef970cb9ddd6cb514be76f9'); return false;">
+                <td><a href="#">target/jasmine/spec/vehicles/<strong>Player-spec.js</strong></a></td>
+                <td class="statements">0</td>
+                <td class="executed">0</td>
+                <td class="coverage">
+                        -
+                </td>
+                <td class="bar-container">
+                </td>
+            </tr>
+            <tr id="__src_e7d61f1b4ef970cb9ddd6cb514be76f9" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_e7d61f1b4ef970cb9ddd6cb514be76f9">[[-1,'\/\/(function(Taka) {'],[-1,'\/\/    var Player = function(x, y) {'],[-1,'\/\/        var sprite = Taka.assets.Assets.create(\'Player\', \'src\/main\/resources\/vehicles\/Player.png\');'],[-1,'\/\/        var width = 59;'],[-1,'\/\/        var height = 43;'],[-1,'\/\/        var speed = 3;'],[-1,'\/\/        var fireFreq = 300;'],[-1,'\/\/'],[-1,'\/\/        this.Super(sprite, width, height, x, y, speed, fireFreq);'],[-1,'\/\/    };'],[-1,'\/\/    Taka.extend(Player, Taka.vehicles.Ship);'],[-1,'\/\/'],[-1,'\/\/    Player.prototype.getBullet = function() {'],[-1,'\/\/        return this._getBullet(Taka.ordnance.PlayerBullet);'],[-1,'\/\/    };'],[-1,'\/\/'],[-1,'\/\/    Taka.vehicles.Player = Player;'],[-1,'\/\/})(Taka);']]</p></td>
+            </tr><tr class="no-statements" onclick="__coverage_toggleSection('f06856a8a72b2f7a3a7f610144f2c6c7'); return false;">
+                <td><a href="#">target/jasmine/spec/vehicles/<strong>Ship-spec.js</strong></a></td>
+                <td class="statements">0</td>
+                <td class="executed">0</td>
+                <td class="coverage">
+                        -
+                </td>
+                <td class="bar-container">
+                </td>
+            </tr>
+            <tr id="__src_f06856a8a72b2f7a3a7f610144f2c6c7" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_f06856a8a72b2f7a3a7f610144f2c6c7">[[-1,'\/\/(function(Taka) {'],[-1,'\/\/    var Ship = function(sprite, width, height, x, y, speed, fireFreq) {'],[-1,'\/\/        this.sprite = sprite;'],[-1,'\/\/        this.width = width;'],[-1,'\/\/        this.height = height;'],[-1,'\/\/        this.x = x;'],[-1,'\/\/        this.y = y;'],[-1,'\/\/        this.speed = speed;'],[-1,'\/\/        this.fireFreq = fireFreq;'],[-1,'\/\/    };'],[-1,'\/\/    Ship.prototype.sprite = null;'],[-1,'\/\/    Ship.prototype.width = 0;'],[-1,'\/\/    Ship.prototype.height = 0;'],[-1,'\/\/    Ship.prototype.x = 0;'],[-1,'\/\/    Ship.prototype.y = 0;'],[-1,'\/\/    Ship.prototype.speed = 2;'],[-1,'\/\/    Ship.prototype.fireFreq = 20;'],[-1,'\/\/    Ship.prototype.firedLast = new Date().getTime();'],[-1,'\/\/    Ship.prototype.moveUp = false;'],[-1,'\/\/    Ship.prototype.moveDown = false;'],[-1,'\/\/    Ship.prototype.moveLeft = false;'],[-1,'\/\/    Ship.prototype.moveRight = false;'],[-1,'\/\/    Ship.prototype.fire = false;'],[-1,'\/\/    Ship.prototype.velX = 0;'],[-1,'\/\/    Ship.prototype.velY = 0;'],[-1,'\/\/'],[-1,'\/\/    Ship.prototype.update = function() {'],[-1,'\/\/        this._updateVelocity();'],[-1,'\/\/    };'],[-1,'\/\/'],[-1,'\/\/    Ship.prototype._updateVelocity = function() {'],[-1,'\/\/        this.velX = this.velY = 0;'],[-1,'\/\/        if (this.moveUp) this.velY = -this.speed;'],[-1,'\/\/        if (this.moveDown) this.velY = this.speed;'],[-1,'\/\/        if (this.moveLeft) this.velX = -this.speed;'],[-1,'\/\/        if (this.moveRight) this.velX = this.speed;'],[-1,'\/\/    };'],[-1,'\/\/'],[-1,'\/\/    Ship.prototype.getVelocity = function() {'],[-1,'\/\/        return { x: this.velX, y: this.velY };'],[-1,'\/\/    };'],[-1,'\/\/'],[-1,'\/\/    Ship.prototype.setPos = function(x,y) {'],[-1,'\/\/        this.x = x;'],[-1,'\/\/        this.y = y;'],[-1,'\/\/    };'],[-1,'\/\/'],[-1,'\/\/    Ship.prototype.getPos = function() {'],[-1,'\/\/        return { x: this.x, y: this.y };'],[-1,'\/\/    };'],[-1,'\/\/'],[-1,'\/\/    Ship.prototype.getSprite = function() {'],[-1,'\/\/        return this.sprite;'],[-1,'\/\/    };'],[-1,'\/\/'],[-1,'\/\/    Ship.prototype._getBullet = function(type) {'],[-1,'\/\/        return new type(this.x + (this.width \/ 2), this.y);'],[-1,'\/\/    };'],[-1,'\/\/'],[-1,'\/\/    Taka.vehicles.Ship = Ship;'],[-1,'\/\/})(Taka);']]</p></td>
+            </tr><tr class="no-statements" onclick="__coverage_toggleSection('175ff7cecf88d750a69f4b9daa52f14d'); return false;">
+                <td><a href="#">target/jasmine/spec/vehicles/formations/<strong>A5-spec.js</strong></a></td>
+                <td class="statements">0</td>
+                <td class="executed">0</td>
+                <td class="coverage">
+                        -
+                </td>
+                <td class="bar-container">
+                </td>
+            </tr>
+            <tr id="__src_175ff7cecf88d750a69f4b9daa52f14d" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_175ff7cecf88d750a69f4b9daa52f14d">[[-1,'\/\/(function(Taka) {'],[-1,'\/\/    var A5 = function(shipType, startFrame, x, y) {'],[-1,'\/\/        this.Super(shipType, startFrame, x, y);'],[-1,'\/\/    };'],[-1,'\/\/    Taka.extend(A5, Taka.vehicles.formations.Formation);'],[-1,'\/\/'],[-1,'\/\/    A5.prototype.update = function(frame) {'],[-1,'\/\/        if (frame === this.startFrame) {'],[-1,'\/\/            Taka.core.Engine.addEnemy(new this.shipType(this.x, -60, -1, 2));'],[-1,'\/\/            Taka.core.Engine.addEnemy(new this.shipType(this.x - 30, -40, -1, 2));'],[-1,'\/\/            Taka.core.Engine.addEnemy(new this.shipType(this.x + 30, -40, -1, 2));'],[-1,'\/\/            Taka.core.Engine.addEnemy(new this.shipType(this.x - 60, -20, -1, 2));'],[-1,'\/\/            Taka.core.Engine.addEnemy(new this.shipType(this.x + 60, -20, -1, 2));'],[-1,'\/\/        }'],[-1,'\/\/    };'],[-1,'\/\/'],[-1,'\/\/    Taka.vehicles.formations.A5 = A5;'],[-1,'\/\/})(Taka);']]</p></td>
+            </tr><tr class="no-statements" onclick="__coverage_toggleSection('4ed88a646be271db74fdd75594ebb71e'); return false;">
+                <td><a href="#">target/jasmine/spec/vehicles/formations/<strong>Formation-spec.js</strong></a></td>
+                <td class="statements">0</td>
+                <td class="executed">0</td>
+                <td class="coverage">
+                        -
+                </td>
+                <td class="bar-container">
+                </td>
+            </tr>
+            <tr id="__src_4ed88a646be271db74fdd75594ebb71e" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_4ed88a646be271db74fdd75594ebb71e">[[-1,'\/\/(function(Taka) {'],[-1,'\/\/    var Formation = function(shipType, startFrame, x, y) {'],[-1,'\/\/        this.shipType = shipType;'],[-1,'\/\/        this.startFrame = startFrame;'],[-1,'\/\/        this.x = x;'],[-1,'\/\/        this.y = y;'],[-1,'\/\/    };'],[-1,'\/\/    Formation.prototype.shipType = null;'],[-1,'\/\/    Formation.prototype.startFrame = 0;'],[-1,'\/\/    Formation.prototype.x = 0;'],[-1,'\/\/    Formation.prototype.y = 0;'],[-1,'\/\/'],[-1,'\/\/    Formation.prototype.update = function() {'],[-1,'\/\/'],[-1,'\/\/    };'],[-1,'\/\/'],[-1,'\/\/    Taka.vehicles.formations.Formation = Formation;'],[-1,'\/\/})(Taka);']]</p></td>
+            </tr><tr class="no-statements" onclick="__coverage_toggleSection('3c58bb7f38f14d057d48674046ac349b'); return false;">
+                <td><a href="#">target/jasmine/spec/vehicles/formations/<strong>V5-spec.js</strong></a></td>
+                <td class="statements">0</td>
+                <td class="executed">0</td>
+                <td class="coverage">
+                        -
+                </td>
+                <td class="bar-container">
+                </td>
+            </tr>
+            <tr id="__src_3c58bb7f38f14d057d48674046ac349b" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_3c58bb7f38f14d057d48674046ac349b">[[-1,'\/\/(function(Taka) {'],[-1,'\/\/    var V5 = function(shipType, startFrame, x, y) {'],[-1,'\/\/        this.Super(shipType, startFrame, x, y);'],[-1,'\/\/    };'],[-1,'\/\/    Taka.extend(V5, Taka.vehicles.formations.Formation);'],[-1,'\/\/'],[-1,'\/\/    V5.prototype.update = function(frame) {'],[-1,'\/\/        if (frame === this.startFrame) {'],[-1,'\/\/            Taka.core.Engine.addEnemy(new this.shipType(this.x, -20, 0.5, 1));'],[-1,'\/\/            Taka.core.Engine.addEnemy(new this.shipType(this.x - 30, -40, 0.5, 1));'],[-1,'\/\/            Taka.core.Engine.addEnemy(new this.shipType(this.x + 30, -40, 0.5, 1));'],[-1,'\/\/            Taka.core.Engine.addEnemy(new this.shipType(this.x - 60, -60, 0.5, 1));'],[-1,'\/\/            Taka.core.Engine.addEnemy(new this.shipType(this.x + 60, -60, 0.5, 1));'],[-1,'\/\/        }'],[-1,'\/\/    };'],[-1,'\/\/'],[-1,'\/\/    Taka.vehicles.formations.V5 = V5;'],[-1,'\/\/})(Taka);']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('015548aed60da6594a3a1b3eaa5bc651'); return false;">
+                <td><a href="#">target/jasmine/src/utils/<strong>BoxUtil.js</strong></a></td>
+                <td class="statements">23</td>
+                <td class="executed">3</td>
+                <td class="coverage">
+                        13&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 13%; background-color: rgb(219, 112, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_015548aed60da6594a3a1b3eaa5bc651" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_015548aed60da6594a3a1b3eaa5bc651">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'var BoxUtil = {'],[-1,'    Top: function(box) {'],[0,'        \&quot;use strict\&quot;;'],[0,'        return box.y;'],[-1,'    },'],[-1,''],[-1,'    Bottom: function(box) {'],[0,'        \&quot;use strict\&quot;;'],[0,'        return box.y + box.height;'],[-1,'    },'],[-1,''],[-1,'    Left: function(box) {'],[0,'        \&quot;use strict\&quot;;'],[0,'        return box.x;'],[-1,'    },'],[-1,''],[-1,'    Right: function(box) {'],[0,'        \&quot;use strict\&quot;;'],[0,'        return box.x + box.width;'],[-1,'    },'],[-1,''],[-1,'    Center: function(box) {'],[0,'        \&quot;use strict\&quot;;'],[0,'        return { x: box.x + (box.width \/ 2), y: box.y + (box.height \/ 2) };'],[-1,'    },'],[-1,''],[-1,'    TopLeft: function(box) {'],[0,'        \&quot;use strict\&quot;;'],[0,'        return {x: box.x, y: box.y};'],[-1,'    },'],[-1,''],[-1,'    TopRight: function(box) {'],[0,'        \&quot;use strict\&quot;;'],[0,'        return {x: box.x + (box.width), y: box.y};'],[-1,'    },'],[-1,''],[-1,'    BottomLeft: function(box) {'],[0,'        \&quot;use strict\&quot;;'],[0,'        return {x: box.x, y: box.y + box.height};'],[-1,'    },'],[-1,''],[-1,'    BottomRight: function(box) {'],[0,'        \&quot;use strict\&quot;;'],[0,'        return {x: box.x + (box.width), y: box.y + box.height};'],[-1,'    },'],[-1,''],[-1,'    Intersect: function(box1, box2) {'],[0,'        \&quot;use strict\&quot;;'],[0,'        return !((Taka.utils.BoxUtil.Top(box1) &gt; Taka.utils.BoxUtil.Bottom(box2)) ||'],[-1,'                 (Taka.utils.BoxUtil.Bottom(box1) &lt; Taka.utils.BoxUtil.Top(box2)) ||'],[-1,'                  (Taka.utils.BoxUtil.Left(box1) &gt; Taka.utils.BoxUtil.Right(box2)) ||'],[-1,'                 (Taka.utils.BoxUtil.Right(box1) &lt; Taka.utils.BoxUtil.Left(box2)));'],[-1,'    }'],[-1,'};'],[-1,''],[1,'Taka.utils.BoxUtil = BoxUtil;']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('1716f846b9da77c88ae20142b5850320'); return false;">
+                <td><a href="#">target/jasmine/src/ordnance/<strong>SmallBullet.js</strong></a></td>
+                <td class="statements">13</td>
+                <td class="executed">6</td>
+                <td class="coverage">
+                        46&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 46%; background-color: rgb(219, 207, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_1716f846b9da77c88ae20142b5850320" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_1716f846b9da77c88ae20142b5850320">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'(function() {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var SmallBullet = function(x, y) {'],[0,'        var sprite = Taka.assets.Assets.load(\'SmallBullet\', \'src\/main\/resources\/ordnance\/SmallBullet.png\');'],[0,'        var width = 17;'],[0,'        var height = 16;'],[0,'        var speed = 4;'],[0,'        this.moveDown = true;'],[0,'        x -= 9;'],[-1,''],[0,'        this.Super(sprite, width, height, x, y, speed);'],[-1,'    };'],[1,'    Taka.extend(SmallBullet, Taka.ordnance.Bullet);'],[-1,''],[1,'    Taka.ordnance.SmallBullet = SmallBullet;'],[-1,'})(Taka);']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('91eb723c3b9fed635a0dd74215cb66f1'); return false;">
+                <td><a href="#">target/jasmine/src/effects/<strong>Explosion.js</strong></a></td>
+                <td class="statements">12</td>
+                <td class="executed">6</td>
+                <td class="coverage">
+                        50&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 50%; background-color: rgb(219, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_91eb723c3b9fed635a0dd74215cb66f1" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_91eb723c3b9fed635a0dd74215cb66f1">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'(function() {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var Explosion = function(x, y, velX, velY) {'],[0,'        var sprites = [];'],[0,'        for (var i=0; i&lt;7; i++) {'],[0,'            sprites[i] = Taka.assets.Assets.load(\'Explosion\'+i, \'src\/main\/resources\/effects\/explosion-0\'+i+\'.png\');'],[-1,'        }'],[-1,''],[0,'        var width = 60;'],[0,'        var height = 60;'],[-1,''],[0,'        this.Super(sprites, width, height, x, y, velX, velY);'],[-1,'    };'],[1,'    Taka.extend(Explosion, Taka.effects.Effect);'],[-1,''],[1,'    Taka.effects.Explosion = Explosion;'],[-1,'})(Taka);']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('567f786072c76bae94424eaabff52739'); return false;">
+                <td><a href="#">target/jasmine/src/vehicles/formations/<strong>A5.js</strong></a></td>
+                <td class="statements">14</td>
+                <td class="executed">7</td>
+                <td class="coverage">
+                        50&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 50%; background-color: rgb(219, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_567f786072c76bae94424eaabff52739" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_567f786072c76bae94424eaabff52739">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'(function(Taka) {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var A5 = function(shipType, startFrame, x, y) {'],[0,'        this.Super(shipType, startFrame, x, y);'],[-1,'    };'],[1,'    Taka.extend(A5, Taka.vehicles.formations.Formation);'],[-1,''],[1,'    A5.prototype.update = function(frame) {'],[0,'        if (frame === this.startFrame) {'],[0,'            Taka.core.Engine.addEnemy(new this.shipType(this.x, -60, -1, 2));'],[0,'            Taka.core.Engine.addEnemy(new this.shipType(this.x - 30, -40, -1, 2));'],[0,'            Taka.core.Engine.addEnemy(new this.shipType(this.x + 30, -40, -1, 2));'],[0,'            Taka.core.Engine.addEnemy(new this.shipType(this.x - 60, -20, -1, 2));'],[0,'            Taka.core.Engine.addEnemy(new this.shipType(this.x + 60, -20, -1, 2));'],[-1,'        }'],[-1,'    };'],[-1,''],[1,'    Taka.vehicles.formations.A5 = A5;'],[-1,'})(Taka);']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('a7f4d826c87a75704a26b2a8188873df'); return false;">
+                <td><a href="#">target/jasmine/src/vehicles/formations/<strong>V5.js</strong></a></td>
+                <td class="statements">14</td>
+                <td class="executed">7</td>
+                <td class="coverage">
+                        50&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 50%; background-color: rgb(219, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_a7f4d826c87a75704a26b2a8188873df" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_a7f4d826c87a75704a26b2a8188873df">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'(function(Taka) {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var V5 = function(shipType, startFrame, x, y) {'],[0,'        this.Super(shipType, startFrame, x, y);'],[-1,'    };'],[1,'    Taka.extend(V5, Taka.vehicles.formations.Formation);'],[-1,''],[1,'    V5.prototype.update = function(frame) {'],[0,'        if (frame === this.startFrame) {'],[0,'            Taka.core.Engine.addEnemy(new this.shipType(this.x, -20, 0.5, 1));'],[0,'            Taka.core.Engine.addEnemy(new this.shipType(this.x - 30, -40, 0.5, 1));'],[0,'            Taka.core.Engine.addEnemy(new this.shipType(this.x + 30, -40, 0.5, 1));'],[0,'            Taka.core.Engine.addEnemy(new this.shipType(this.x - 60, -60, 0.5, 1));'],[0,'            Taka.core.Engine.addEnemy(new this.shipType(this.x + 60, -60, 0.5, 1));'],[-1,'        }'],[-1,'    };'],[-1,''],[1,'    Taka.vehicles.formations.V5 = V5;'],[-1,'})(Taka);']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('536748725beca3165ae82b77eda5913f'); return false;">
+                <td><a href="#">target/jasmine/src/core/<strong>Control.js</strong></a></td>
+                <td class="statements">30</td>
+                <td class="executed">18</td>
+                <td class="coverage">
+                        60&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 60%; background-color: rgb(210, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_536748725beca3165ae82b77eda5913f" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_536748725beca3165ae82b77eda5913f">[[-1,'\/*global window:false *\/'],[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[-1,'\/**'],[-1,' * @name Control'],[-1,' * @class Control Handles user input (singleton)'],[-1,' * @author Jim Sangwine'],[-1,' *\/'],[1,'Taka.core.Control = (function() {'],[1,'    \&quot;use strict\&quot;;'],[1,'    return {'],[-1,'        \/**'],[-1,'         * @name keyDown'],[-1,'         * @function keyDown Handles a key press'],[-1,'         * @param e The onKeyDown event'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        keyDown: function(e) {'],[6,'            var code = (window.event) ? window.event.keyCode : e.which;'],[6,'            switch(code) {'],[-1,'                case Taka.core.Config.buttons.up:'],[1,'                    Taka.core.Engine.Player().moveUp = true;'],[1,'                    break;'],[-1,'                case Taka.core.Config.buttons.down:'],[1,'                    Taka.core.Engine.Player().moveDown = true;'],[1,'                    break;'],[-1,'                case Taka.core.Config.buttons.left:'],[1,'                    Taka.core.Engine.Player().moveLeft = true;'],[1,'                    break;'],[-1,'                case Taka.core.Config.buttons.right:'],[1,'                    Taka.core.Engine.Player().moveRight = true;'],[1,'                    break;'],[-1,'                case Taka.core.Config.buttons.fire:'],[1,'                    Taka.core.Engine.Player().fire = true;'],[1,'                    break;'],[-1,'                case Taka.core.Config.buttons.pause:'],[1,'                    Taka.core.Engine.Pause();'],[1,'                    break;'],[-1,'            }'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name keyUp'],[-1,'         * @function keyUp Handles a key release'],[-1,'         * @param e The onKeyUp event'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        keyUp: function(e) {'],[0,'            var code = (window.event) ? window.event.keyCode : e.which;'],[0,'            switch(code) {'],[-1,'                case Taka.core.Config.buttons.up:'],[0,'                    Taka.core.Engine.Player().moveUp = false;'],[0,'                    break;'],[-1,'                case Taka.core.Config.buttons.down:'],[0,'                    Taka.core.Engine.Player().moveDown = false;'],[0,'                    break;'],[-1,'                case Taka.core.Config.buttons.left:'],[0,'                    Taka.core.Engine.Player().moveLeft = false;'],[0,'                    break;'],[-1,'                case Taka.core.Config.buttons.right:'],[0,'                    Taka.core.Engine.Player().moveRight = false;'],[0,'                    break;'],[-1,'                case Taka.core.Config.buttons.fire:'],[0,'                    Taka.core.Engine.Player().fire = false;'],[0,'                    break;'],[-1,'            }'],[-1,'        }'],[-1,'    };'],[-1,'})();']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('1e4b6bd6e327d796d3ed4295a8541acd'); return false;">
+                <td><a href="#">target/jasmine/src/<strong>Taka.js</strong></a></td>
+                <td class="statements">27</td>
+                <td class="executed">18</td>
+                <td class="coverage">
+                        66&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 66%; background-color: rgb(204, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_1e4b6bd6e327d796d3ed4295a8541acd" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_1e4b6bd6e327d796d3ed4295a8541acd">[[-1,'\/*global document:false *\/'],[-1,'\/**'],[-1,' * @name Taka'],[-1,' * @namespace Taka The Taka namespace'],[-1,' * @author Jim Sangwine'],[-1,' *\/'],[1,'var Taka = {};'],[-1,''],[-1,'\/**'],[-1,' * @name Taka.utils'],[-1,' * @namespace Taka.utils The Taka.utils namespace'],[-1,' *\/'],[1,'Taka.utils = {};'],[-1,''],[-1,'\/**'],[-1,' * @name Taka.core'],[-1,' * @namespace Taka.core The Taka.core namespace'],[-1,' *\/'],[1,'Taka.core = {};'],[-1,''],[-1,'\/**'],[-1,' * @name Taka.assets'],[-1,' * @namespace Taka.assets The Taka.assets namespace'],[-1,' *\/'],[1,'Taka.assets = {};'],[-1,''],[-1,'\/**'],[-1,' * @name Taka.levels'],[-1,' * @namespace Taka.levels The Taka.levels namespace'],[-1,' *\/'],[1,'Taka.levels = {};'],[-1,''],[-1,'\/**'],[-1,' * @name Taka.ordnance'],[-1,' * @namespace Taka.ordnance The Taka.ordnance namespace'],[-1,' *\/'],[1,'Taka.ordnance = {};'],[-1,''],[-1,'\/**'],[-1,' * @name Taka.effects'],[-1,' * @namespace Taka.effects The Taka.effects namespace'],[-1,' *\/'],[1,'Taka.effects = {};'],[-1,''],[-1,'\/**'],[-1,' * @name Taka.ordnance.formations'],[-1,' * @namespace Taka.ordnance.formations The Taka.ordnance.formations namespace'],[-1,' *\/'],[1,'Taka.ordnance.formations = {};'],[-1,''],[-1,'\/**'],[-1,' * @name Taka.vehicles'],[-1,' * @namespace Taka.vehicles The Taka.vehicles namespace'],[-1,' *\/'],[1,'Taka.vehicles = {};'],[-1,''],[-1,'\/**'],[-1,' * @name Taka.vehicles.formations'],[-1,' * @namespace Taka.vehicles.formations The Taka.vehicles.formations namespace'],[-1,' *\/'],[1,'Taka.vehicles.formations = {};'],[-1,''],[-1,'\/**'],[-1,' * extend Enables inheritance'],[-1,' * @param {*} dest The child class'],[-1,' * @param {*} source The parent class'],[-1,' * @type void'],[-1,' **\/'],[1,'Taka.extend=function(dest,source){'],[7,'    \&quot;use strict\&quot;;'],[7,'    if (!dest || !source) {'],[0,'        return;'],[-1,'    }'],[-1,'    \/*jshint forin:false *\/'],[7,'    for(var proto in source.prototype) {'],[92,'        dest.prototype[proto] = source.prototype[proto];'],[-1,'    }'],[7,'    dest.prototype.Super=source;'],[-1,'};'],[-1,''],[-1,'\/**'],[-1,' * @name start'],[-1,' * @function start Starts the game engine'],[-1,' * @param canvas The canvas to render to'],[-1,' * @param callback An optional callback function to be invoked on every frame'],[-1,' * @public'],[-1,' *\/'],[1,'Taka.start = function(canvas, callback) {'],[0,'    \&quot;use strict\&quot;;'],[0,'    Taka.core.Timer.start(canvas, callback);'],[0,'    document.onkeyup = Taka.core.Control.keyUp;'],[0,'    document.onkeydown = Taka.core.Control.keyDown;'],[-1,'};'],[-1,''],[-1,'\/**'],[-1,' * @name stop'],[-1,' * @function stop Stops the game engine'],[-1,' * @public'],[-1,' *\/'],[1,'Taka.stop = function() {'],[0,'    \&quot;use strict\&quot;;'],[0,'    Taka.core.Timer.stop();'],[0,'    document.onkeyup = null;'],[0,'    document.onkeydown = null;'],[-1,'};']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('4ccd333207758f37b17fc1cc50a06adf'); return false;">
+                <td><a href="#">target/jasmine/src/core/<strong>Engine.js</strong></a></td>
+                <td class="statements">128</td>
+                <td class="executed">86</td>
+                <td class="coverage">
+                        67&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 67%; background-color: rgb(203, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_4ccd333207758f37b17fc1cc50a06adf" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_4ccd333207758f37b17fc1cc50a06adf">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[-1,'\/**'],[-1,' * @name Engine'],[-1,' * @class Engine The game engine (singleton)'],[-1,' * @author Jim Sangwine'],[-1,' *\/'],[1,'Taka.core.Engine = (function() {'],[1,'    \&quot;use strict\&quot;;'],[-1,'    \/**'],[-1,'     * @name _screenWidth'],[-1,'     * @field _screenWidth The width of the game screen (canvas) in pixels'],[-1,'     *\/'],[1,'    var _screenWidth = 0;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _screenHeight'],[-1,'     * @field _screenHeight The height of the game screen (canvas) in pixels'],[-1,'     *\/'],[1,'    var _screenHeight = 0;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _level'],[-1,'     * @function _level The level'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _level = null;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _player'],[-1,'     * @function _player The player\'s ship'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _player = null;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _enemies'],[-1,'     * @function _enemies A collection of all the onscreen enemy ships'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _enemies = [];'],[-1,''],[-1,'    \/**'],[-1,'     * @name _formations'],[-1,'     * @function _formations A collection of all the onscreen enemy ships'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _formations = [];'],[-1,''],[-1,'        \/**'],[-1,'     * @name _eBullets'],[-1,'     * @function _eBullets A collection of all the onscreen enemy bullets'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _eBullets = [];'],[-1,''],[-1,'    \/**'],[-1,'     * @name _pBullets'],[-1,'     * @function _pBullets A collection of all the onscreen player bullets'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _pBullets = [];'],[-1,''],[-1,'    \/**'],[-1,'     * @name _effects'],[-1,'     * @function _effects A collection of all the onscreen effects'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _effects = [];'],[-1,''],[-1,'    \/**'],[-1,'     * @name _lastFPSUpdate'],[-1,'     * @function _lastFPSUpdate Date object representing the last time the FPS was updated (happens approx once per second)'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _lastFPSUpdate = new Date();'],[-1,''],[-1,'    \/**'],[-1,'     * @name _framesAtLastFPSUpdate'],[-1,'     * @function _framesAtLastFPSUpdate The frame count the last time the FPS was updated'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _framesAtLastFPSUpdate = 0;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _fps'],[-1,'     * @function _fps The current calculated FPS'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _fps = 0;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _paused'],[-1,'     * @function _paused A flag indicating whether the engine is paused'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _paused = false;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _updatePlayer'],[-1,'     * @function _updatePlayer Updates the player ship\'s position and state'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _updatePlayer = function() {'],[3,'        if (!_player) {'],[0,'            return;'],[-1,'        }'],[-1,''],[-1,'        \/\/ movement'],[3,'        _player.update();'],[-1,''],[3,'        var newX = _player.x + _player.velX;'],[3,'        var newY = _player.y + _player.velY;'],[-1,''],[3,'        if (newX &lt;= _screenWidth - _player.width &amp;&amp; newX &gt;= 0) {'],[0,'            _player.x = newX;'],[-1,'        }'],[-1,''],[3,'        if (newY &lt;= _screenHeight - _player.height &amp;&amp; newY &gt;= 0) {'],[0,'            _player.y = newY;'],[-1,'        }'],[-1,''],[-1,'        \/\/ firing'],[3,'        var now = new Date().getTime();'],[3,'        if (_player.fire &amp;&amp; now - _player.firedLast &gt; _player.fireFreq) {'],[0,'            _pBullets.push(_player.getBullet());'],[0,'            _player.firedLast = now;'],[-1,'        }'],[-1,'    };'],[-1,''],[-1,'    \/**'],[-1,'     * @name _updateBullets'],[-1,'     * @function _updateBullets Updates all the on-screen bullets'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _updateBullets = function() {'],[3,'        var bullet;'],[3,'        var newX;'],[3,'        var newY;'],[3,'        var i;'],[-1,''],[3,'        for (i = _pBullets.length -1; i &gt;= 0; i--) {'],[0,'            bullet = _pBullets[i];'],[-1,''],[0,'            bullet.updateVelocity();'],[-1,''],[0,'            bullet.x += bullet.velX;'],[0,'            bullet.y += bullet.velY;'],[-1,''],[-1,'            \/\/ remove bullet if it\'s gone off-screen'],[0,'            if(bullet.x &gt; _screenWidth || bullet.x &lt; -bullet.width || bullet.y &gt; _screenHeight || bullet.y &lt; -bullet.height) {'],[0,'                _pBullets.splice(i, 1);'],[0,'                continue;'],[-1,'            }'],[-1,'        }'],[3,'        for (i = _eBullets.length -1; i &gt;= 0; i--) {'],[0,'            bullet = _eBullets[i];'],[-1,''],[0,'            bullet.updateVelocity();'],[-1,''],[0,'            bullet.x += bullet.velX;'],[0,'            bullet.y += bullet.velY;'],[-1,''],[-1,'            \/\/ remove bullet if it\'s gone off-screen'],[0,'            if(bullet.x &gt; _screenWidth || bullet.x &lt; -bullet.width || bullet.y &gt; _screenHeight || bullet.y &lt; -bullet.height) {'],[0,'                _eBullets.splice(i, 1);'],[0,'                continue;'],[-1,'            }'],[-1,'        }'],[3,'        bullet = null;'],[-1,'    };'],[-1,''],[-1,'    \/**'],[-1,'     * @name _updateEnemies'],[-1,'     * @function _updateEnemies Updates all the on-screen enemies'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _updateEnemies = function() {'],[3,'        var enemy;'],[3,'        for (var i = _enemies.length -1; i &gt;= 0; i--) {'],[0,'            enemy = _enemies[i];'],[-1,''],[0,'            enemy.update();'],[-1,''],[0,'            enemy.x += enemy.velX;'],[0,'            enemy.y += enemy.velY;'],[-1,''],[-1,'            \/\/ remove enemy if it\'s gone off-screen'],[-1,'            \/\/ if(enemy.x &lt; -enemy.width || enemy.x &gt; _screenWidth || enemy.y &gt; _screenHeight || enemy.y &lt; -enemy.height) {'],[0,'            if (enemy.y &gt; _screenHeight) {'],[0,'                _enemies.splice(i, 1);'],[0,'                continue;'],[-1,'            }'],[-1,''],[-1,'            \/\/ firing'],[0,'            if (enemy.fire) {'],[0,'                _eBullets.push(enemy.getBullet());'],[0,'                enemy.firedLast = new Date().getTime();'],[0,'                enemy.fire = false;'],[-1,'            }'],[-1,'        }'],[3,'        enemy = null;'],[-1,'    };'],[-1,''],[1,'    var _updateFormations = function(frame) {'],[3,'        var formation;'],[3,'        for (var i = _formations.length -1; i &gt;= 0; i--) {'],[0,'            formation = _formations[i];'],[-1,''],[0,'            formation.update(frame);'],[-1,'        }'],[3,'        formation = null;'],[-1,'    };'],[-1,''],[1,'    var _updateEffects = function(){'],[3,'        var effect;'],[3,'        for (var i = _effects.length -1; i &gt;= 0; i--) {'],[3,'            effect = _effects[i];'],[3,'            if (effect.finished) {'],[3,'                _effects.splice(i, 1);'],[-1,'            }'],[-1,'        }'],[-1,'    };'],[-1,''],[1,'    var _doCollisions = function() {'],[3,'        var enemy, bullet;'],[-1,'        \/\/ enemies and bullets'],[3,'        for (var i = _enemies.length -1; i &gt;= 0; i--) {'],[0,'            enemy = _enemies[i];'],[0,'            for (var ii = _pBullets.length -1; ii &gt;= 0; ii--) {'],[0,'                bullet = _pBullets[ii];'],[0,'                if (Taka.utils.BoxUtil.Intersect(enemy, bullet)) {'],[0,'                    _enemies.splice(i, 1);'],[0,'                    _pBullets.splice(ii, 1);'],[0,'                    _effects.push(new Taka.effects.Explosion(enemy.x + (enemy.width \/ 2), enemy.y + (enemy.height \/ 2)));'],[-1,'                }'],[-1,'            }'],[-1,'        }'],[-1,'    };'],[-1,''],[-1,'    \/**'],[-1,'     * @name _updateLevel'],[-1,'     * @function _updateLevel Updates the level (executes frame triggers) - called every frame'],[-1,'     * @param frame The current frame number'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _updateLevel = function(frame) {'],[3,'        _level.update(frame);'],[-1,'    };'],[-1,''],[-1,'    \/**'],[-1,'     * @name _updateStats'],[-1,'     * @function _updateStats Updates the game stats (FPS etc.) - called every frame'],[-1,'     * @param frame The current frame number'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _updateStats = function(frame) {'],[3,'        var now = new Date();'],[3,'        var sinceLastUpdate = now.getTime() - _lastFPSUpdate.getTime();'],[3,'        if (sinceLastUpdate &gt; 1000) {'],[1,'            _fps = (frame - _framesAtLastFPSUpdate) * (sinceLastUpdate \/ 1000);'],[1,'            _fps = Math.round(_fps * 100) \/ 100;'],[1,'            _framesAtLastFPSUpdate = frame;'],[1,'            _lastFPSUpdate = now;'],[-1,'        }'],[-1,'    };'],[-1,''],[1,'    return {'],[-1,'        \/**'],[-1,'         * @name Update'],[-1,'         * @function Update Updates the game state - called every frame'],[-1,'         * @param frame The current frame number'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        Update: function(frame) {'],[3,'            _updateLevel(frame);'],[3,'            _updatePlayer();'],[3,'            _updateBullets();'],[3,'            _updateEnemies(frame);'],[3,'            _updateFormations(frame);'],[3,'            _doCollisions();'],[3,'            _updateEffects();'],[3,'            _updateStats(frame);'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name setGameDimensions'],[-1,'         * @function setGameDimensions Sets the screen (canvas) height and width'],[-1,'         * @param width The width of the screen (canvas) in pixels'],[-1,'         * @param height The height of the screen (canvas) in pixels'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        setGameDimensions: function(width, height){'],[8,'            _screenWidth = width;'],[8,'            _screenHeight = height;'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name Level'],[-1,'         * @function Level Gets or sets the level'],[-1,'         * @param level Optional instance of Taka.levels.Level'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        Level: function(level) {'],[1,'            if (level) {'],[1,'                _level = level;'],[-1,'            }'],[1,'            return _level;'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name Player'],[-1,'         * @function Player Gets or sets the player\'s ship'],[-1,'         * @param ship Optional instance of Taka.vehicles.Ship'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        Player: function(ship) {'],[28,'            if (ship) {'],[13,'                _player = ship;'],[-1,'            }'],[28,'            return _player;'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name PlayerBullets'],[-1,'         * @function PlayerBullets Gets the collection of bullets fired by the player'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        PlayerBullets: function() {'],[13,'            return _pBullets;'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name EnemyBullets'],[-1,'         * @function EnemyBullets Gets the collection of bullets fired by enemies'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        EnemyBullets: function() {'],[13,'            return _eBullets;'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name Enemies'],[-1,'         * @function Enemies Gets the collection of enemies'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        Enemies: function() {'],[10,'            return _enemies;'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name Effects'],[-1,'         * @function Effects Gets the collection of effects'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        Effects: function() {'],[12,'            return _effects;'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name addEnemy'],[-1,'         * @function addEnemy Adds a single enemy to the game - enemies are added just off-screen'],[-1,'         * @private'],[-1,'         *\/'],[-1,'        addEnemy: function(enemy) {'],[3,'            _enemies.push(enemy);'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name addFormation'],[-1,'         * @function addFormation Adds a formation of enemies to the game - enemies are added just off-screen'],[-1,'         * @private'],[-1,'         *\/'],[-1,'        addFormation: function(formation) {'],[0,'            _formations.push(formation);'],[-1,'        },'],[-1,''],[-1,'        FPS: function() {'],[0,'            return _fps;'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name Pause'],[-1,'         * @function Pause Toggles pause state'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        Pause: function() {'],[1,'            _paused = !_paused;'],[1,'            if (_paused) {'],[1,'                Taka.core.Timer.stop();'],[-1,'            } else {'],[0,'                Taka.core.Timer.start(Taka.core.Renderer.getCanvas());'],[-1,'            }'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name isPaused'],[-1,'         * @function isPaused Returns true if paused else false'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        isPaused: function() {'],[1,'            return _paused;'],[-1,'        }'],[-1,'    };'],[-1,'})();']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('4cb7321df199d7495338c817d7e1958a'); return false;">
+                <td><a href="#">target/jasmine/src/ordnance/<strong>Bullet.js</strong></a></td>
+                <td class="statements">42</td>
+                <td class="executed">29</td>
+                <td class="coverage">
+                        69&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 69%; background-color: rgb(201, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_4cb7321df199d7495338c817d7e1958a" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_4cb7321df199d7495338c817d7e1958a">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'(function(Taka) {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var Bullet = function(sprite, width, height, x, y, speed) {'],[6,'        this.sprite = sprite;'],[6,'        this.width = width;'],[6,'        this.height = height;'],[6,'        this.x = x;'],[6,'        this.y = y;'],[6,'        this.speed = speed;'],[-1,'    };'],[1,'    Bullet.prototype.sprite = null;'],[1,'    Bullet.prototype.width = 0;'],[1,'    Bullet.prototype.height = 0;'],[1,'    Bullet.prototype.x = 0;'],[1,'    Bullet.prototype.y = 0;'],[1,'    Bullet.prototype.speed = 2;'],[1,'    Bullet.prototype.moveUp = false;'],[1,'    Bullet.prototype.moveDown = false;'],[1,'    Bullet.prototype.moveLeft = false;'],[1,'    Bullet.prototype.moveRight = false;'],[1,'    Bullet.prototype.velX = 0;'],[1,'    Bullet.prototype.velY = 0;'],[-1,''],[1,'    Bullet.prototype.updateVelocity = function() {'],[0,'        this.velX = this.velY = 0;'],[0,'        if (this.moveUp) {'],[0,'            this.velY = -this.speed;'],[-1,'        }'],[0,'        if (this.moveDown) {'],[0,'            this.velY = this.speed;'],[-1,'        }'],[0,'        if (this.moveLeft) {'],[0,'            this.velX = -this.speed;'],[-1,'        }'],[0,'        if (this.moveRight) {'],[0,'            this.velX = this.speed;'],[-1,'        }'],[-1,'    };'],[-1,''],[1,'    Bullet.prototype.getVelocity = function() {'],[0,'        return { x: this.velX, y: this.velY };'],[-1,'    };'],[-1,''],[1,'    Bullet.prototype.setPos = function(x,y) {'],[0,'        this.x = x;'],[0,'        this.y = y;'],[-1,'    };'],[-1,''],[1,'    Bullet.prototype.getPos = function() {'],[0,'        return { x: this.x, y: this.y };'],[-1,'    };'],[-1,''],[1,'    Bullet.prototype.getSprite = function() {'],[15,'        return this.sprite;'],[-1,'    };'],[-1,''],[1,'    Taka.ordnance.Bullet = Bullet;'],[-1,'})(Taka);']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('72563e820ccd561ef975fe3587c89e11'); return false;">
+                <td><a href="#">target/jasmine/src/vehicles/formations/<strong>Formation.js</strong></a></td>
+                <td class="statements">14</td>
+                <td class="executed">10</td>
+                <td class="coverage">
+                        71&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 71%; background-color: rgb(200, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_72563e820ccd561ef975fe3587c89e11" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_72563e820ccd561ef975fe3587c89e11">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'(function(Taka) {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var Formation = function(shipType, startFrame, x, y) {'],[0,'        this.shipType = shipType;'],[0,'        this.startFrame = startFrame;'],[0,'        this.x = x;'],[0,'        this.y = y;'],[-1,'    };'],[1,'    Formation.prototype.shipType = null;'],[1,'    Formation.prototype.startFrame = 0;'],[1,'    Formation.prototype.x = 0;'],[1,'    Formation.prototype.y = 0;'],[-1,''],[1,'    Formation.prototype.update = function() {'],[-1,''],[-1,'    };'],[-1,''],[1,'    Taka.vehicles.formations.Formation = Formation;'],[-1,'})(Taka);']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('107e640ebbec2cc13ffd7999b118c3b9'); return false;">
+                <td><a href="#">target/jasmine/src/vehicles/<strong>Ship.js</strong></a></td>
+                <td class="statements">50</td>
+                <td class="executed">41</td>
+                <td class="coverage">
+                        82&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 82%; background-color: rgb(190, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_107e640ebbec2cc13ffd7999b118c3b9" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_107e640ebbec2cc13ffd7999b118c3b9">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'(function(Taka) {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var Ship = function(sprite, width, height, x, y, speed, fireFreq) {'],[10,'        this.sprite = sprite;'],[10,'        this.width = width;'],[10,'        this.height = height;'],[10,'        this.x = x;'],[10,'        this.y = y;'],[10,'        this.speed = speed;'],[10,'        this.fireFreq = fireFreq;'],[-1,'    };'],[1,'    Ship.prototype.sprite = null;'],[1,'    Ship.prototype.width = 0;'],[1,'    Ship.prototype.height = 0;'],[1,'    Ship.prototype.x = 0;'],[1,'    Ship.prototype.y = 0;'],[1,'    Ship.prototype.speed = 2;'],[1,'    Ship.prototype.fireFreq = 20;'],[1,'    Ship.prototype.firedLast = new Date().getTime();'],[1,'    Ship.prototype.moveUp = false;'],[1,'    Ship.prototype.moveDown = false;'],[1,'    Ship.prototype.moveLeft = false;'],[1,'    Ship.prototype.moveRight = false;'],[1,'    Ship.prototype.fire = false;'],[1,'    Ship.prototype.velX = 0;'],[1,'    Ship.prototype.velY = 0;'],[-1,''],[1,'    Ship.prototype.update = function() {'],[4,'        this._updateVelocity();'],[-1,'    };'],[-1,''],[1,'    Ship.prototype._updateVelocity = function() {'],[4,'        this.velX = this.velY = 0;'],[4,'        if (this.moveUp) {'],[0,'            this.velY = -this.speed;'],[-1,'        }'],[4,'        if (this.moveDown) {'],[0,'            this.velY = this.speed;'],[-1,'        }'],[4,'        if (this.moveLeft) {'],[0,'            this.velX = -this.speed;'],[-1,'        }'],[4,'        if (this.moveRight) {'],[0,'            this.velX = this.speed;'],[-1,'        }'],[-1,'    };'],[-1,''],[1,'    Ship.prototype.getVelocity = function() {'],[0,'        return { x: this.velX, y: this.velY };'],[-1,'    };'],[-1,''],[1,'    Ship.prototype.setPos = function(x,y) {'],[0,'        this.x = x;'],[0,'        this.y = y;'],[-1,'    };'],[-1,''],[1,'    Ship.prototype.getPos = function() {'],[0,'        return { x: this.x, y: this.y };'],[-1,'    };'],[-1,''],[1,'    Ship.prototype.getSprite = function() {'],[22,'        return this.sprite;'],[-1,'    };'],[-1,''],[1,'    Ship.prototype._getBullet = function(Type) {'],[0,'        return new Type(this.x + (this.width \/ 2), this.y);'],[-1,'    };'],[-1,''],[1,'    Taka.vehicles.Ship = Ship;'],[-1,'})(Taka);']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('392c4305bcbe90a6fdefa90336fa8991'); return false;">
+                <td><a href="#">target/jasmine/src/vehicles/<strong>Drone.js</strong></a></td>
+                <td class="statements">19</td>
+                <td class="executed">16</td>
+                <td class="coverage">
+                        84&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 84%; background-color: rgb(188, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_392c4305bcbe90a6fdefa90336fa8991" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_392c4305bcbe90a6fdefa90336fa8991">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'(function(Taka) {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var Drone = function(x, y, velX, velY) {'],[3,'        var sprite = Taka.assets.Assets.load(\'Drone\', \'src\/main\/resources\/vehicles\/Drone.png\');'],[3,'        var width = 32;'],[3,'        var height = 31;'],[3,'        var speed = 2;'],[3,'        var fireFreq = 3600;'],[-1,''],[3,'        this.Super(sprite, width, height, x, y, speed, fireFreq);'],[-1,''],[3,'        this.velX = velX;'],[3,'        this.velY = velY;'],[-1,'    };'],[1,'    Taka.extend(Drone, Taka.vehicles.Ship);'],[-1,''],[1,'    Drone.prototype.update = function() {'],[0,'        if (new Date().getTime() - this.firedLast &gt; this.fireFreq) {'],[0,'            this.fire = true;'],[-1,'        }'],[-1,'    };'],[-1,''],[1,'    Drone.prototype.getBullet = function() {'],[0,'        return new Taka.ordnance.SmallBullet(this.x + (this.width \/ 2), this.y + this.height);'],[-1,'    };'],[-1,''],[1,'    Taka.vehicles.Drone = Drone;'],[-1,'})(Taka);']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('dd96fa61607f2086dc96e4c1ecc68816'); return false;">
+                <td><a href="#">target/jasmine/src/vehicles/<strong>Player.js</strong></a></td>
+                <td class="statements">14</td>
+                <td class="executed">13</td>
+                <td class="coverage">
+                        92&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 92%; background-color: rgb(181, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_dd96fa61607f2086dc96e4c1ecc68816" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_dd96fa61607f2086dc96e4c1ecc68816">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'(function(Taka) {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var Player = function(x, y) {'],[7,'        var sprite = Taka.assets.Assets.load(\'Player\', \'src\/main\/resources\/vehicles\/Player.png\');'],[7,'        var width = 59;'],[7,'        var height = 43;'],[7,'        var speed = 3;'],[7,'        var fireFreq = 300;'],[-1,''],[7,'        this.Super(sprite, width, height, x, y, speed, fireFreq);'],[-1,'    };'],[1,'    Taka.extend(Player, Taka.vehicles.Ship);'],[-1,''],[1,'    Player.prototype.getBullet = function() {'],[0,'        return this._getBullet(Taka.ordnance.PlayerBullet);'],[-1,'    };'],[-1,''],[1,'    Taka.vehicles.Player = Player;'],[-1,'})(Taka);']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('7f16c8e9ac99e2787d17142671dd2c31'); return false;">
+                <td><a href="#">target/jasmine/src/assets/<strong>Cache.js</strong></a></td>
+                <td class="statements">23</td>
+                <td class="executed">22</td>
+                <td class="coverage">
+                        95&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 95%; background-color: rgb(178, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_7f16c8e9ac99e2787d17142671dd2c31" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_7f16c8e9ac99e2787d17142671dd2c31">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[-1,'\/**'],[-1,' * @name Cache'],[-1,' * @class Cache The game asset cache (singleton)'],[-1,' * @author Jim Sangwine'],[-1,' *\/'],[1,'Taka.assets.Cache = (function() {'],[1,'    \&quot;use strict\&quot;;'],[-1,'    \/**'],[-1,'     * @name _sprites'],[-1,'     * @field _sprites A collection of all sprites so far loaded'],[-1,'     *\/'],[1,'    var _sprites = {};'],[-1,''],[-1,'    \/**'],[-1,'     * @name _keys'],[-1,'     * @field _keys A collection of the keys for all currently cached sprites'],[-1,'     *\/'],[1,'    var _keys = [];'],[-1,''],[1,'    return {'],[-1,'        \/**'],[-1,'         * @name spriteCount'],[-1,'         * @function spriteCount Returns the number of sprites in the cache'],[-1,'         * @return {Number}'],[-1,'         *\/'],[-1,'        spriteCount: function() {'],[7,'            return _keys.length;'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name addSprite'],[-1,'         * @function addSprite Adds a sprite to the cache'],[-1,'         * @param sprite'],[-1,'         * @param key'],[-1,'         *\/'],[-1,'        addSprite: function(sprite, key) {'],[11,'            _sprites[key] = sprite;'],[11,'            _keys.push(key);'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name removeSprite'],[-1,'         * @function removeSprite Removes a sprite from the cache'],[-1,'         * @param key'],[-1,'         *\/'],[-1,'        removeSprite: function(key) {'],[1,'            var index = _keys.indexOf(key);'],[1,'            if (index === -1) {'],[0,'                return;'],[-1,'            }'],[-1,''],[1,'            _sprites[key] = null;'],[1,'            delete _sprites[key];'],[1,'            _keys.splice(index, 1);'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name hasSprite'],[-1,'         * @function hasSprite Returns true if the cache contains a sprite matching the given key, otherwise false'],[-1,'         * @param key'],[-1,'         * @return bool'],[-1,'         *\/'],[-1,'        hasSprite: function(key) {'],[3,'            return _sprites.hasOwnProperty(key);'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name fetchSprite'],[-1,'         * @function fetchSprite Fetches a sprite from the cache'],[-1,'         * @param key'],[-1,'         *\/'],[-1,'        fetchSprite: function(key) {'],[16,'            if (!_sprites.hasOwnProperty(key)) {'],[4,'                return null;'],[-1,'            }'],[12,'            return _sprites[key];'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name clear'],[-1,'         * @function clear Clears the cache'],[-1,'         *\/'],[-1,'        clear: function() {'],[7,'            for (var i = _keys.length - 1; i &gt;= 0; i--) {'],[6,'                _sprites[_keys[i]] = null;'],[-1,'            }'],[7,'            _sprites = {};'],[7,'            _keys = [];'],[-1,'        }'],[-1,'    };'],[-1,'})();']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('af715dc87862a9c4dccfde66c4ee8e2c'); return false;">
+                <td><a href="#">target/jasmine/src/core/<strong>Timer.js</strong></a></td>
+                <td class="statements">23</td>
+                <td class="executed">22</td>
+                <td class="coverage">
+                        95&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 95%; background-color: rgb(178, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_af715dc87862a9c4dccfde66c4ee8e2c" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_af715dc87862a9c4dccfde66c4ee8e2c">[[-1,'\/*global setTimeout:false *\/'],[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[-1,'\/**'],[-1,' * @name Timer'],[-1,' * @class Timer The main game timer (singleton)'],[-1,' * @author Jim Sangwine'],[-1,' *\/'],[1,'Taka.core.Timer = (function() {'],[1,'    \&quot;use strict\&quot;;'],[-1,'    \/**'],[-1,'     * @name _run'],[-1,'     * @field _run A flag indicating whether the engine is\/should be running'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _run = false;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _interval'],[-1,'     * @field _interval The tick interval in microseconds'],[-1,'     * @see Taka.Config.fps'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _interval = 1000 \/ Taka.core.Config.fps;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _frame'],[-1,'     * @field _frame The current frame number'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _frame = 0;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _callback'],[-1,'     * @function _callback A method that will be called on every tick of the engine'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _callback = null;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _tick'],[-1,'     * @function _tick The main game engine loop'],[-1,'     * @private'],[-1,'     *\/'],[1,'    function _tick() {'],[4,'        if (_run) {'],[4,'            _frame++;'],[-1,''],[4,'            if (_callback) {'],[4,'                _callback();'],[-1,'            }'],[-1,''],[-1,'            \/\/ update the engine'],[4,'            Taka.core.Engine.Update(_frame);'],[-1,''],[-1,'            \/\/ render the frame'],[4,'            Taka.core.Renderer.Render(_frame);'],[-1,''],[-1,'            \/\/ recurse'],[4,'            setTimeout(_tick, _interval);'],[-1,'        }'],[-1,'    }'],[-1,''],[1,'    return {'],[-1,'        \/**'],[-1,'         * @name start'],[-1,'         * @function start Starts the game engine'],[-1,'         * @param canvas The canvas to render to'],[-1,'         * @param callback An optional callback function to be invoked on every tick'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        start: function(canvas, callback) {'],[1,'            _run = true;'],[1,'            Taka.core.Renderer.setCanvas(canvas);'],[1,'            if (callback) {'],[1,'                _callback = callback;'],[-1,'            }'],[1,'            _tick();'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name stop'],[-1,'         * @function stop Stops the game engine'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        stop: function() {'],[1,'            _run = false;'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name frame'],[-1,'         * @function frame Returns the current frame number'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        frame: function() {'],[0,'            return _frame;'],[-1,'        }'],[-1,'    };'],[-1,'})();']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('ecc7870f26d61b6fcc6ce6d0f7d04d99'); return false;">
+                <td><a href="#">target/jasmine/spec/levels/<strong>Level-spec.js</strong></a></td>
+                <td class="statements">29</td>
+                <td class="executed">28</td>
+                <td class="coverage">
+                        96&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 96%; background-color: rgb(177, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_ecc7870f26d61b6fcc6ce6d0f7d04d99" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_ecc7870f26d61b6fcc6ce6d0f7d04d99">[[1,'describe(\'Taka.levels.Level\', function() {'],[1,'    \&quot;use strict\&quot;;'],[-1,''],[1,'    var level;'],[-1,''],[1,'    beforeEach(function() {'],[2,'        level = new Taka.levels.Level();'],[2,'        Taka.levels.Level.prototype.triggers.length = 0;'],[-1,'    });'],[-1,''],[1,'    it(\'should execute triggers on the right frames\', function() {'],[1,'        var trigr = {'],[-1,'            execute : function() { },'],[-1,'            frame : 42'],[-1,'        };'],[1,'        spyOn(trigr, \'execute\');'],[-1,''],[1,'        level.triggers.push(trigr);'],[1,'        level.currentTrigger = level.triggers[0];'],[-1,''],[1,'        level.update(41);'],[1,'        expect(trigr.execute).not.toHaveBeenCalled();'],[-1,''],[1,'        level.update(42);'],[1,'        expect(trigr.execute).toHaveBeenCalled();'],[-1,'    });'],[-1,''],[1,'    it(\'should move on to the next trigger each time one is called\', function() {'],[1,'        var trigr1 = {'],[0,'            execute : function() { var a = 42; },'],[-1,'            frame : 42'],[-1,'        };'],[-1,''],[1,'        var trigr2 = {'],[-1,'            execute : function() { },'],[-1,'            frame : 69'],[-1,'        };'],[-1,''],[1,'        spyOn(trigr1, \'execute\');'],[1,'        spyOn(trigr2, \'execute\');'],[-1,''],[1,'        level.triggers.push(trigr1, trigr2);'],[1,'        level.currentTrigger = level.triggers[0];'],[-1,''],[1,'        expect(level.currentTrigger.frame).toBe(42);'],[-1,''],[1,'        level.update(42);'],[1,'        expect(trigr1.execute).toHaveBeenCalled();'],[1,'        expect(level.currentTrigger.frame).toBe(69);'],[-1,''],[1,'        level.update(69);'],[1,'        expect(trigr2.execute).toHaveBeenCalled();'],[-1,'    });'],[-1,'});'],[-1,''],[-1,'\/*'],[-1,'(function(Taka) {'],[-1,'    var Level = function() {'],[-1,'        this.currentTrigger = this.triggers[0];'],[-1,'        this.currentTriggerNum = 0;'],[-1,'    };'],[-1,'    Level.prototype.triggers = [];'],[-1,'    Level.prototype.currentTrigger = null;'],[-1,'    Level.prototype.currentTriggerNum = null;'],[-1,''],[-1,'    Level.prototype.update = function(frameNum) {'],[-1,'        if (!this.currentTrigger) return;'],[-1,''],[-1,'        if (frameNum === this.currentTrigger.frame) {'],[-1,'            this.currentTrigger.execute();'],[-1,'            this.currentTriggerNum++;'],[-1,'            this.currentTrigger = this.triggers[this.currentTriggerNum];'],[-1,'        }'],[-1,'    };'],[-1,''],[-1,'    Taka.levels.Level = Level'],[-1,'})(Taka);'],[-1,'    *\/']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('64d24f8a4896131c864040fc6f149101'); return false;">
+                <td><a href="#">target/jasmine/spec/core/<strong>Renderer-spec.js</strong></a></td>
+                <td class="statements">77</td>
+                <td class="executed">76</td>
+                <td class="coverage">
+                        98&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 98%; background-color: rgb(175, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_64d24f8a4896131c864040fc6f149101" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_64d24f8a4896131c864040fc6f149101">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'describe(\'Taka.core.Renderer\', function() {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var renderer = Taka.core.Renderer;'],[1,'    var canvas;'],[1,'    var context;'],[-1,''],[1,'    beforeEach(function() {'],[7,'        canvas = {'],[-1,'            width : 0,'],[7,'            getContext : function() { return this.context; }'],[-1,'        };'],[7,'        context = {'],[-1,'            drawImage : function() {'],[0,'                var theMeaning = 42;'],[-1,'            },'],[-1,'            clearRect : function() {'],[5,'                var drink = \&quot;Pan Galactic Gargle Blaster\&quot;;'],[-1,'            },'],[-1,'            fillRect : function() {'],[6,'                var dont = \&quot;PANIC!\&quot;;'],[-1,'            }'],[-1,'        };'],[7,'        canvas.context = context;'],[7,'        renderer.setCanvas(canvas);'],[7,'        Taka.core.Engine.Player(new Taka.vehicles.Player());'],[-1,'    });'],[-1,''],[1,'    it(\'should get and set the canvas\', function() {'],[1,'        canvas.width = 42;'],[1,'        expect(renderer.getCanvas().width).toBe(42);'],[-1,'    });'],[-1,''],[1,'    describe(\'Render\', function() {'],[-1,''],[1,'        beforeEach(function() {'],[6,'            spyOn(context, \'drawImage\');'],[-1,'        });'],[-1,''],[1,'        it(\'should clear the canvas\', function() {'],[1,'            spyOn(context, \'clearRect\');'],[1,'            renderer.Render(42);'],[-1,''],[1,'            expect(context.clearRect).toHaveBeenCalled();'],[-1,'        });'],[1,'        it(\'should draw the player\', function() {'],[1,'            var player = Taka.core.Engine.Player();'],[1,'            player.sprite = \'theSprite\';'],[1,'            player.x = 42;'],[1,'            player.y = 42;'],[-1,''],[1,'            renderer.Render(42);'],[1,'            expect(context.drawImage).toHaveBeenCalledWith(\'theSprite\', 42, 42);'],[-1,'        });'],[-1,''],[1,'        it(\'should draw the enemies\', function() {'],[1,'            var enemy1 = new Taka.vehicles.Drone(42, 42, 0, 0);'],[1,'            var enemy2 = new Taka.vehicles.Drone(42, 42, 0, 0);'],[1,'            var enemy3 = new Taka.vehicles.Drone(42, 42, 0, 0);'],[-1,''],[1,'            enemy1.sprite = \'enemy1\';'],[1,'            enemy2.sprite = \'enemy2\';'],[1,'            enemy3.sprite = \'enemy3\';'],[-1,''],[1,'            Taka.core.Engine.addEnemy(enemy1);'],[1,'            Taka.core.Engine.addEnemy(enemy2);'],[1,'            Taka.core.Engine.addEnemy(enemy3);'],[-1,''],[1,'            renderer.Render(42);'],[1,'            expect(context.drawImage).toHaveBeenCalledWith(\'enemy1\', 42, 42);'],[1,'            expect(context.drawImage).toHaveBeenCalledWith(\'enemy2\', 42, 42);'],[1,'            expect(context.drawImage).toHaveBeenCalledWith(\'enemy3\', 42, 42);'],[-1,'        });'],[-1,''],[-1,''],[1,'        it(\'should draw the player bullets\', function() {'],[1,'            var bullet1 = new Taka.ordnance.PlayerBullet(42, 42);'],[1,'            var bullet2 = new Taka.ordnance.PlayerBullet(42, 42);'],[1,'            var bullet3 = new Taka.ordnance.PlayerBullet(42, 42);'],[-1,''],[1,'            bullet1.sprite = \'pBullet1\';'],[1,'            bullet2.sprite = \'pBullet2\';'],[1,'            bullet3.sprite = \'pBullet3\';'],[-1,''],[1,'            Taka.core.Engine.PlayerBullets().push(bullet1);'],[1,'            Taka.core.Engine.PlayerBullets().push(bullet2);'],[1,'            Taka.core.Engine.PlayerBullets().push(bullet3);'],[-1,''],[1,'            renderer.Render(42);'],[1,'            expect(context.drawImage).toHaveBeenCalledWith(\'pBullet1\', 33, 42);'],[1,'            expect(context.drawImage).toHaveBeenCalledWith(\'pBullet2\', 33, 42);'],[1,'            expect(context.drawImage).toHaveBeenCalledWith(\'pBullet3\', 33, 42);'],[-1,'        });'],[-1,''],[1,'        it(\'should draw the enemy bullets\', function() {'],[1,'            Taka.core.Engine.EnemyBullets().push(new Taka.ordnance.Bullet(\'eBullet1\', 42, 42, 42, 42));'],[1,'            Taka.core.Engine.EnemyBullets().push(new Taka.ordnance.Bullet(\'eBullet2\', 42, 42, 42, 42));'],[1,'            Taka.core.Engine.EnemyBullets().push(new Taka.ordnance.Bullet(\'eBullet3\', 42, 42, 42, 42));'],[-1,''],[1,'            renderer.Render(42);'],[1,'            expect(context.drawImage).toHaveBeenCalledWith(\'eBullet1\', 42, 42);'],[1,'            expect(context.drawImage).toHaveBeenCalledWith(\'eBullet2\', 42, 42);'],[1,'            expect(context.drawImage).toHaveBeenCalledWith(\'eBullet3\', 42, 42);'],[-1,'        });'],[-1,''],[1,'        it(\'should draw the effects\', function() {'],[1,'            Taka.core.Engine.Effects().push(new Taka.effects.Effect([\'effect1\'], 0, 0, 42, 42, 0, 0));'],[1,'            Taka.core.Engine.Effects().push(new Taka.effects.Effect([\'effect2\'], 0, 0, 42, 42, 0, 0));'],[1,'            Taka.core.Engine.Effects().push(new Taka.effects.Effect([\'effect3\'], 0, 0, 42, 42, 0, 0));'],[-1,''],[1,'            renderer.Render(42);'],[1,'            expect(context.drawImage).toHaveBeenCalledWith(\'effect1\', 42, 42);'],[1,'            expect(context.drawImage).toHaveBeenCalledWith(\'effect2\', 42, 42);'],[1,'            expect(context.drawImage).toHaveBeenCalledWith(\'effect3\', 42, 42);'],[-1,'        });'],[-1,'    });'],[-1,'});']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('5ec283a212f9576ca3066689196948f4'); return false;">
+                <td><a href="#">target/jasmine/spec/assets/<strong>Assets-spec.js</strong></a></td>
+                <td class="statements">14</td>
+                <td class="executed">14</td>
+                <td class="coverage">
+                        100&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 100%; background-color: rgb(174, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_5ec283a212f9576ca3066689196948f4" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_5ec283a212f9576ca3066689196948f4">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'describe(\'Taka.assets.Assets\', function() {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var assets = Taka.assets.Assets;'],[1,'    var cache = Taka.assets.Cache;'],[-1,''],[1,'    it(\'should create a new Image instance and add it to the cache if the sprite is not already cached\', function() {'],[1,'        var sprite = assets.load(\'theKey\', \'\/path\/to\/img\');'],[1,'        expect(sprite.src.indexOf(\'\/path\/to\/img\')).not.toBe(-1);'],[1,'        expect(cache.hasSprite(\'theKey\')).toBe(true);'],[-1,'    });'],[-1,''],[1,'    it(\'should fetch the Image from the cache if it is cached\', function() {'],[1,'        var cachedSprite = { src : \'\/path\/to\/42.png\' };'],[1,'        cache.addSprite(cachedSprite, \'42\');'],[-1,''],[1,'        var fetchedSprite = assets.load(\'42\', null);'],[1,'        expect(fetchedSprite.src.indexOf(\'\/path\/to\/42.png\')).not.toBe(-1);'],[-1,'    });'],[-1,'});']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('01b50976af1289da074f0b374b67b7a9'); return false;">
+                <td><a href="#">target/jasmine/spec/assets/<strong>Cache-spec.js</strong></a></td>
+                <td class="statements">32</td>
+                <td class="executed">32</td>
+                <td class="coverage">
+                        100&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 100%; background-color: rgb(174, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_01b50976af1289da074f0b374b67b7a9" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_01b50976af1289da074f0b374b67b7a9">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'describe(\'Taka.assets.Cache\', function() {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var cache = Taka.assets.Cache;'],[-1,''],[1,'    beforeEach(function() {'],[6,'        cache.clear();'],[-1,'    });'],[-1,''],[1,'    it(\'should be able to clear the cache\', function() {'],[1,'        cache.addSprite(new Image(), \'42\');'],[1,'        cache.addSprite(new Image(), \'13\');'],[1,'        expect(cache.spriteCount()).toBe(2);'],[1,'        cache.clear();'],[1,'        expect(cache.spriteCount()).toBe(0);'],[-1,'    });'],[-1,''],[1,'    it(\'should be able to return the number of sprites in the cache\', function() {'],[1,'        expect(cache.spriteCount()).toBe(0);'],[-1,'    });'],[-1,''],[1,'    it(\'should be able to add a sprite to the cache\', function() {'],[1,'        expect(cache.spriteCount()).toBe(0);'],[1,'        cache.addSprite(new Image(), \'42\');'],[1,'        expect(cache.spriteCount()).toBe(1);'],[-1,'    });'],[-1,''],[1,'    it(\'should be able to remove a sprite from the cache\', function() {'],[1,'        cache.addSprite(new Image(), \'42\');'],[1,'        expect(cache.spriteCount()).toBe(1);'],[1,'        cache.removeSprite(\'42\');'],[1,'        expect(cache.spriteCount()).toBe(0);'],[-1,'    });'],[-1,''],[1,'    it(\'should be able to tell if a sprite is in the cache by it\\\'s key\', function() {'],[1,'        expect(cache.hasSprite(\'42\')).toBe(false);'],[1,'        cache.addSprite(new Image(), \'42\');'],[1,'        expect(cache.hasSprite(\'42\')).toBe(true);'],[-1,'    });'],[-1,''],[1,'    it(\'should be able to fetch a sprite by it\\\'s key\', function() {'],[1,'        var sprite = new Image();'],[1,'        sprite.src = \'\/path\/to\/42.jpg\';'],[1,'        cache.addSprite(sprite, \'42\');'],[1,'        expect(cache.fetchSprite(\'42\').src.indexOf(\'\/path\/to\/42.jpg\')).not.toBe(-1);'],[-1,'    });'],[-1,'});']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('9604b676701c43c6fd74671c0bbe31fe'); return false;">
+                <td><a href="#">target/jasmine/spec/core/<strong>Config-spec.js</strong></a></td>
+                <td class="statements">28</td>
+                <td class="executed">28</td>
+                <td class="coverage">
+                        100&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 100%; background-color: rgb(174, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_9604b676701c43c6fd74671c0bbe31fe" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_9604b676701c43c6fd74671c0bbe31fe">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'describe(\'Taka.core.Config\', function() {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var config = Taka.core.Config;'],[-1,''],[1,'    it(\'should define fps\', function() {'],[1,'        expect(config.hasOwnProperty(\'fps\')).toBe(true);'],[1,'        expect(typeof config.fps).toBe(\'number\');'],[-1,'    });'],[-1,''],[1,'    it(\'should define buttons\', function() {'],[1,'        expect(config.hasOwnProperty(\'buttons\')).toBe(true);'],[1,'        expect(typeof config.fps).toBe(\'number\');'],[-1,'    });'],[-1,''],[1,'    it(\'should define the up key\', function() {'],[1,'        expect(config.buttons.hasOwnProperty(\'up\')).toBe(true);'],[1,'        expect(typeof config.buttons.up).toBe(\'number\');'],[-1,'    });'],[-1,''],[1,'    it(\'should define the down key\', function() {'],[1,'        expect(config.buttons.hasOwnProperty(\'down\')).toBe(true);'],[1,'        expect(typeof config.buttons.down).toBe(\'number\');'],[-1,'    });'],[-1,''],[1,'    it(\'should define the left key\', function() {'],[1,'        expect(config.buttons.hasOwnProperty(\'left\')).toBe(true);'],[1,'        expect(typeof config.buttons.left).toBe(\'number\');'],[-1,'    });'],[-1,''],[1,'    it(\'should define the right key\', function() {'],[1,'        expect(config.buttons.hasOwnProperty(\'right\')).toBe(true);'],[1,'        expect(typeof config.buttons.right).toBe(\'number\');'],[-1,'    });'],[-1,''],[1,'    it(\'should define the fire key\', function() {'],[1,'        expect(config.buttons.hasOwnProperty(\'fire\')).toBe(true);'],[1,'        expect(typeof config.buttons.fire).toBe(\'number\');'],[-1,'    });'],[-1,''],[1,'    it(\'should define the pause key\', function() {'],[1,'        expect(config.buttons.hasOwnProperty(\'pause\')).toBe(true);'],[1,'        expect(typeof config.buttons.pause).toBe(\'number\');'],[-1,'    });'],[-1,'});']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('3f809aacaf2fdcd7f995f747a0b7edd9'); return false;">
+                <td><a href="#">target/jasmine/spec/core/<strong>Control-spec.js</strong></a></td>
+                <td class="statements">28</td>
+                <td class="executed">28</td>
+                <td class="coverage">
+                        100&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 100%; background-color: rgb(174, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_3f809aacaf2fdcd7f995f747a0b7edd9" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_3f809aacaf2fdcd7f995f747a0b7edd9">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'describe(\'Taka.core.Control\', function() {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var control = Taka.core.Control;'],[1,'    var player;'],[1,'    var buttons = Taka.core.Config.buttons;'],[-1,''],[1,'    beforeEach(function() {'],[6,'        player = { moveUp : null, moveDown : null, moveLeft : null, moveRight : null, fire : null };'],[6,'        Taka.core.Engine.Player(player);'],[6,'        window.event = undefined;'],[-1,'    });'],[-1,''],[1,'    it(\'should allow moving up\', function() {'],[1,'        control.keyDown( { which : buttons.up } );'],[1,'        expect(player.moveUp).toBe(true);'],[-1,'    });'],[-1,''],[1,'    it(\'should allow moving down\', function() {'],[1,'        control.keyDown( { which : buttons.down } );'],[1,'        expect(player.moveDown).toBe(true);'],[-1,'    });'],[-1,''],[1,'    it(\'should allow moving left\', function() {'],[1,'        control.keyDown( { which : buttons.left } );'],[1,'        expect(player.moveLeft).toBe(true);'],[-1,'    });'],[-1,''],[1,'    it(\'should allow moving right\', function() {'],[1,'        control.keyDown( { which : buttons.right } );'],[1,'        expect(player.moveRight).toBe(true);'],[-1,'    });'],[-1,''],[1,'    it(\'should allow firing\', function() {'],[1,'        control.keyDown( { which : buttons.fire } );'],[1,'        expect(player.fire).toBe(true);'],[-1,'    });'],[-1,''],[1,'    it(\'should allow pausing\', function() {'],[1,'        control.keyDown( { which : buttons.pause } );'],[1,'        expect(Taka.core.Engine.isPaused()).toBe(true);'],[-1,'    });'],[-1,'});']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('514f3b9543e319bc507a6d874b86258c'); return false;">
+                <td><a href="#">target/jasmine/spec/core/<strong>Timer-spec.js</strong></a></td>
+                <td class="statements">13</td>
+                <td class="executed">13</td>
+                <td class="coverage">
+                        100&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 100%; background-color: rgb(174, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_514f3b9543e319bc507a6d874b86258c" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_514f3b9543e319bc507a6d874b86258c">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'describe(\'Taka.core.Timer\', function() {'],[1,'    \&quot;use strict\&quot;;'],[1,'    it(\'should start the timer and call the callback on tick\', function() {'],[1,'        Taka.core.Engine.Level(new Taka.levels.Level());'],[1,'        Taka.core.Engine.Enemies().length = 0;'],[1,'        Taka.core.Engine.EnemyBullets().length = 0;'],[1,'        Taka.core.Engine.PlayerBullets().length = 0;'],[-1,''],[1,'        var callbackWrapper = { callback : function() { var x = 42; } };'],[1,'        var canvas = document.createElement(\'canvas\');'],[-1,''],[1,'        spyOn(callbackWrapper, \'callback\');'],[1,'        Taka.core.Timer.start(canvas, callbackWrapper.callback);'],[1,'        expect(callbackWrapper.callback).toHaveBeenCalled();'],[-1,'    });'],[-1,'});']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('e3a8ccd7f0a6f8c59e56a868f2a7ffe4'); return false;">
+                <td><a href="#">target/jasmine/spec/effects/<strong>Effect-spec.js</strong></a></td>
+                <td class="statements">39</td>
+                <td class="executed">39</td>
+                <td class="coverage">
+                        100&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 100%; background-color: rgb(174, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_e3a8ccd7f0a6f8c59e56a868f2a7ffe4" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_e3a8ccd7f0a6f8c59e56a868f2a7ffe4">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'describe(\'Taka.effects.Effect\', function() {'],[1,'    \&quot;use strict\&quot;;'],[-1,''],[1,'    var effect;'],[-1,''],[1,'    beforeEach(function() {'],[6,'        effect = new Taka.effects.Effect([\'f1\', \'f2\', \'f3\'], 1, 2, 3, 4, 5, 6);'],[-1,'    });'],[-1,''],[1,'    describe(\'constructor\', function() {'],[1,'        it(\'should initialise the object correctly\', function() {'],[1,'            expect(effect.sprites.length).toBe(3);'],[1,'            expect(effect.width).toBe(1);'],[1,'            expect(effect.height).toBe(2);'],[1,'            expect(effect.x).toBe(2.5);'],[1,'            expect(effect.y).toBe(3);'],[1,'            expect(effect.velX).toBe(5);'],[1,'            expect(effect.velY).toBe(6);'],[1,'            expect(effect.finished).toBe(false);'],[1,'            expect(effect.frame).toBe(-1);'],[-1,'        });'],[-1,'    });'],[-1,''],[1,'    describe(\'prototype\', function() {'],[1,'        it(\'should get the velocity\', function() {'],[1,'            var velocity = effect.getVelocity();'],[1,'            expect(velocity.x).toBe(5);'],[1,'            expect(velocity.y).toBe(6);'],[-1,'        });'],[-1,''],[1,'        it(\'should set the position\', function() {'],[1,'            effect.setPos(42, 21);'],[1,'            expect(effect.x).toBe(42);'],[1,'            expect(effect.y).toBe(21);'],[-1,'        });'],[-1,''],[1,'        it(\'should get the position\', function() {'],[1,'            var pos = effect.getPos();'],[1,'            expect(pos.x).toBe(2.5);'],[1,'            expect(pos.y).toBe(3);'],[-1,'        });'],[-1,''],[1,'        it(\'should get the sprite\', function() {'],[1,'            expect(effect.getSprite()).toBe(\'f1\');'],[-1,'        });'],[-1,''],[1,'        it(\'should finish when all the frames of animation have been shown\', function() {'],[1,'            expect(effect.getSprite()).toBe(\'f1\');'],[1,'            expect(effect.finished).toBe(false);'],[1,'            expect(effect.getSprite()).toBe(\'f2\');'],[1,'            expect(effect.finished).toBe(false);'],[1,'            expect(effect.getSprite()).toBe(\'f3\');'],[1,'            expect(effect.finished).toBe(true);'],[-1,'        });'],[-1,'    });'],[-1,'});']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('c7686bc6d95cafdbcb0fe430fbdfd412'); return false;">
+                <td><a href="#">target/jasmine/src/assets/<strong>Assets.js</strong></a></td>
+                <td class="statements">11</td>
+                <td class="executed">11</td>
+                <td class="coverage">
+                        100&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 100%; background-color: rgb(174, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_c7686bc6d95cafdbcb0fe430fbdfd412" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_c7686bc6d95cafdbcb0fe430fbdfd412">[[-1,'\/*global Image:false *\/'],[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'Taka.assets.Assets = (function() {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var _cache = Taka.assets.Cache;'],[-1,''],[1,'    return {'],[-1,'        \/**'],[-1,'         * Creates a new Image instance or fetches it from the cache'],[-1,'         * @param {string} key The unique key to store the Image under in the cache'],[-1,'         * @param {string} path The path to the image file'],[-1,'         * @return {Image}'],[-1,'         *\/'],[-1,'        load: function(key, path) {'],[15,'            var sprite = _cache.fetchSprite(key);'],[15,'            if (sprite === null) {'],[4,'                sprite = new Image();'],[4,'                sprite.src = path;'],[4,'                _cache.addSprite(sprite, key);'],[-1,'            }'],[15,'            return sprite;'],[-1,'        }'],[-1,'    };'],[-1,'})();']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('b2560cc5d21ba0d1c18897262847385d'); return false;">
+                <td><a href="#">target/jasmine/src/core/<strong>Config.js</strong></a></td>
+                <td class="statements">2</td>
+                <td class="executed">2</td>
+                <td class="coverage">
+                        100&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 100%; background-color: rgb(174, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_b2560cc5d21ba0d1c18897262847385d" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_b2560cc5d21ba0d1c18897262847385d">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[-1,'\/**'],[-1,' * @name Config'],[-1,' * @class Config Global configuration settings'],[-1,' * @property fps The target frames per second for the game engine'],[-1,' *\/'],[1,'Taka.core.Config = {'],[-1,'    fps: 60,'],[-1,'    buttons: {'],[-1,'        up: 38,'],[-1,'        down: 40,'],[-1,'        left: 37,'],[-1,'        right: 39,'],[-1,'        fire: 32,'],[-1,'        pause: 27'],[-1,'    }'],[-1,'};']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('d5a5c2ef39eb543633d8012e51290f63'); return false;">
+                <td><a href="#">target/jasmine/src/core/<strong>Renderer.js</strong></a></td>
+                <td class="statements">39</td>
+                <td class="executed">39</td>
+                <td class="coverage">
+                        100&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 100%; background-color: rgb(174, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_d5a5c2ef39eb543633d8012e51290f63" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_d5a5c2ef39eb543633d8012e51290f63">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[-1,'\/**'],[-1,' * @name Renderer'],[-1,' * @class Renderer The game renderer (singleton)'],[-1,' * @author Jim Sangwine'],[-1,' *\/'],[1,'Taka.core.Renderer = (function() {'],[1,'    \&quot;use strict\&quot;;'],[-1,'    \/**'],[-1,'     * @name _canvas'],[-1,'     * @function _canvas A reference to the canvas DOM object the game will be rendered in'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _canvas = null;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _context'],[-1,'     * @function _context A reference to the 2D context of the game canvas'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _context = null;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _canvasWidth'],[-1,'     * @function _canvasWidth The width of the game canvas in pixels'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _canvasWidth = 0;'],[-1,''],[-1,'    \/**'],[-1,'     * @name _canvasHeight'],[-1,'     * @function _canvasHeight The height of the game canvas in pixels'],[-1,'     * @private'],[-1,'     *\/'],[1,'    var _canvasHeight = 0;'],[-1,''],[1,'    return {'],[-1,'        \/**'],[-1,'         * @name getCanvas'],[-1,'         * @function getCanvas Returns the game canvas'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        getCanvas: function() {'],[1,'            return _canvas;'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name setCanvas'],[-1,'         * @function setCanvas A setter for the game canvas - also sets _context, _canvasWidth &amp; _canvasHeight'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        setCanvas: function(canvas) {'],[8,'            _canvas = canvas;'],[8,'            _context = canvas.getContext(\'2d\');'],[8,'            _canvasWidth = canvas.width;'],[8,'            _canvasHeight = canvas.height;'],[8,'            Taka.core.Engine.setGameDimensions(canvas.width, canvas.height);'],[-1,'        },'],[-1,''],[-1,'        \/**'],[-1,'         * @name Render'],[-1,'         * @function Render Renders a frame to the game canvas'],[-1,'         * @param _frame The current frame number'],[-1,'         * @public'],[-1,'         *\/'],[-1,'        Render: function(_frame) {'],[10,'            var i;'],[-1,''],[-1,'            \/\/ clear the canvas'],[10,'            _context.clearRect(0, 0, _canvasWidth, _canvasHeight);'],[-1,''],[-1,'            \/\/ background'],[10,'            _context.fillStyle = \'#ACE2F3\';'],[10,'            _context.fillRect(0, 0, _canvasWidth, _canvasHeight);'],[-1,''],[-1,'            \/\/ draw the player'],[10,'            var player = Taka.core.Engine.Player();'],[10,'            _context.drawImage(player.getSprite(), player.x, player.y);'],[-1,''],[-1,'            \/\/ draw the enemies'],[10,'            var enemies = Taka.core.Engine.Enemies();'],[10,'            var enemy;'],[10,'            for (i=enemies.length-1; i&gt;=0; i--) {'],[12,'                enemy = enemies[i];'],[12,'                _context.drawImage(enemy.getSprite(), enemy.x, enemy.y);'],[-1,'            }'],[-1,''],[-1,'            \/\/ draw the player bullets'],[10,'            var bullets = Taka.core.Engine.PlayerBullets();'],[10,'            var bullet;'],[10,'            for (i=bullets.length-1; i&gt;=0; i--) {'],[9,'                bullet = bullets[i];'],[9,'                _context.drawImage(bullet.getSprite(), bullet.x, bullet.y);'],[-1,'            }'],[-1,''],[-1,'            \/\/ draw the enemy bullets'],[10,'            bullets = Taka.core.Engine.EnemyBullets();'],[10,'            for (i=bullets.length-1; i&gt;=0; i--) {'],[6,'                bullet = bullets[i];'],[6,'                _context.drawImage(bullet.getSprite(), bullet.x, bullet.y);'],[-1,'            }'],[-1,''],[-1,'            \/\/ draw the effects'],[10,'            var effects = Taka.core.Engine.Effects();'],[10,'            var effect;'],[10,'            for (i=effects.length-1; i&gt;=0; i--) {'],[3,'                effect = effects[i];'],[3,'                _context.drawImage(effect.getSprite(), effect.x, effect.y);'],[-1,'            }'],[-1,'        }'],[-1,'    };'],[-1,'})();']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('65ea3c07709fe3c786e1ee51807d0eaa'); return false;">
+                <td><a href="#">target/jasmine/src/effects/<strong>Effect.js</strong></a></td>
+                <td class="statements">26</td>
+                <td class="executed">26</td>
+                <td class="coverage">
+                        100&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 100%; background-color: rgb(174, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_65ea3c07709fe3c786e1ee51807d0eaa" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_65ea3c07709fe3c786e1ee51807d0eaa">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'(function(Taka) {'],[1,'    \&quot;use strict\&quot;;'],[-1,'    \/**'],[-1,'     * Base class for animated effects'],[-1,'     * @param {array} sprites'],[-1,'     * @param {number} width'],[-1,'     * @param {number} height'],[-1,'     * @param {number} x'],[-1,'     * @param {number} y'],[-1,'     * @param {number} velX'],[-1,'     * @param {number} velY'],[-1,'     * @constructor'],[-1,'     *\/'],[1,'    var Effect = function(sprites, width, height, x, y, velX, velY) {'],[9,'        this.sprites = sprites;'],[9,'        this.width = width;'],[9,'        this.height = height;'],[9,'        this.x = x - (width \/ 2);'],[9,'        this.y = y - (height \/ 2);'],[9,'        this.velX = velX;'],[9,'        this.velY = velY;'],[9,'        this.finished = false;'],[9,'        this.frame = -1;'],[-1,'    };'],[-1,''],[-1,'    \/**'],[-1,'     * Gets the current velocity in x and y axes'],[-1,'     * @return {{ x : {number}, y : {number} }}'],[-1,'     *\/'],[1,'    Effect.prototype.getVelocity = function() {'],[1,'        return {'],[-1,'            x : this.velX,'],[-1,'            y : this.velY'],[-1,'        };'],[-1,'    };'],[-1,''],[-1,'    \/**'],[-1,'     * Sets the pixel coordinates of the effect'],[-1,'     * @param {number} x'],[-1,'     * @param {number} y'],[-1,'     *\/'],[1,'    Effect.prototype.setPos = function(x, y) {'],[1,'        this.x = x;'],[1,'        this.y = y;'],[-1,'    };'],[-1,''],[-1,'    \/**'],[-1,'     * Gets the current pixel coordinates of the effect'],[-1,'     * @return {{ x: {number}, y: {number} }}'],[-1,'     *\/'],[1,'    Effect.prototype.getPos = function() {'],[1,'        return {'],[-1,'            x : this.x,'],[-1,'            y : this.y'],[-1,'        };'],[-1,'    };'],[-1,''],[-1,'    \/**'],[-1,'     * Returns the current image in the animation sequence'],[-1,'     * @return {Image}'],[-1,'     *\/'],[1,'    Effect.prototype.getSprite = function() {'],[7,'        this.frame++;'],[7,'        if (this.frame === this.sprites.length-1)'],[-1,'        {'],[4,'            this.finished = true;'],[-1,'        }'],[7,'        return this.sprites[this.frame];'],[-1,'    };'],[-1,''],[1,'    Taka.effects.Effect = Effect;'],[-1,'})(Taka);']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('521bcb792b56582c8fe27170e835c59f'); return false;">
+                <td><a href="#">target/jasmine/src/levels/<strong>Level.js</strong></a></td>
+                <td class="statements">17</td>
+                <td class="executed">17</td>
+                <td class="coverage">
+                        100&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 100%; background-color: rgb(174, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_521bcb792b56582c8fe27170e835c59f" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_521bcb792b56582c8fe27170e835c59f">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'(function(Taka) {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var Level = function() {'],[3,'        this.currentTrigger = this.triggers[0];'],[3,'        this.currentTriggerNum = 0;'],[-1,'    };'],[1,'    Level.prototype.triggers = [];'],[1,'    Level.prototype.currentTrigger = null;'],[1,'    Level.prototype.currentTriggerNum = null;'],[-1,''],[1,'    Level.prototype.update = function(frameNum) {'],[9,'        if (!this.currentTrigger) {'],[5,'            return;'],[-1,'        }'],[-1,''],[4,'        if (frameNum === this.currentTrigger.frame) {'],[3,'            this.currentTrigger.execute();'],[3,'            this.currentTriggerNum++;'],[3,'            this.currentTrigger = this.triggers[this.currentTriggerNum];'],[-1,'        }'],[-1,'    };'],[-1,''],[1,'    Taka.levels.Level = Level;'],[-1,'})(Taka);']]</p></td>
+            </tr><tr  onclick="__coverage_toggleSection('11590734941b1dd989686e0725ee85f0'); return false;">
+                <td><a href="#">target/jasmine/src/ordnance/<strong>PlayerBullet.js</strong></a></td>
+                <td class="statements">13</td>
+                <td class="executed">13</td>
+                <td class="coverage">
+                        100&thinsp;%
+                </td>
+                <td class="bar-container">
+                        <div class="bar">
+                            <span style="width: 100%; background-color: rgb(174, 219, 75);"></span>
+                        </div>
+                </td>
+            </tr>
+            <tr id="__src_11590734941b1dd989686e0725ee85f0" style="display: none;">
+                <td class="line-coverage-cell" colspan="5"><p id="__data_11590734941b1dd989686e0725ee85f0">[[1,'var Taka = (Taka) ? Taka : {};'],[-1,''],[1,'(function(Taka) {'],[1,'    \&quot;use strict\&quot;;'],[1,'    var PlayerBullet = function(x, y) {'],[3,'        var sprite = Taka.assets.Assets.load(\'PlayerBullet\', \'src\/main\/resources\/ordnance\/PlayerBullet.png\');'],[3,'        var width = 17;'],[3,'        var height = 16;'],[3,'        var speed = 6;'],[3,'        this.moveUp = true;'],[3,'        x -= 9;'],[-1,''],[3,'        this.Super(sprite, width, height, x, y, speed);'],[-1,'    };'],[1,'    Taka.extend(PlayerBullet, Taka.ordnance.Bullet);'],[-1,''],[1,'    Taka.ordnance.PlayerBullet = PlayerBullet;'],[-1,'})(Taka);']]</p></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer">Generated using <a href="http://timurstrekalov.github.com/saga/">Saga</a> version 1.3.0</div>
+</body>
+</html>
