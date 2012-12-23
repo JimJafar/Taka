@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- format guide: http://code.google.com/p/wro4j/wiki/WroFileFormat -->
+<groups xmlns="http://www.isdc.ro/wro"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.isdc.ro/wro wro.xsd">
+
+    <group name="Taka">
+        <js>/Taka.js</js>
+        <group-ref>utils</group-ref>
+    </group>
+
+    <group name="utils">
+        <js>/utils/BoxUtil.js</js>
+        <group-ref>core</group-ref>
+    </group>
+
+    <group name="core">
+        <js>/core/Config.js</js>
+        <js>/core/Control.js</js>
+        <js>/core/Engine.js</js>
+        <js>/core/Renderer.js</js>
+        <js>/core/Timer.js</js>
+        <group-ref>assets</group-ref>
+    </group>
+
+    <group name="assets">
+        <js>/assets/Cache.js</js>
+        <js>/assets/Assets.js</js>
+        <group-ref>vehicles</group-ref>
+    </group>
+
+    <group name="vehicles">
+        <js>/vehicles/Ship.js</js>
+        <js>/vehicles/Player.js</js>
+        <js>/vehicles/Drone.js</js>
+        <js>/vehicles/formations/Formation.js</js>
+        <js>/vehicles/formations/A5.js</js>
+        <js>/vehicles/formations/V5.js</js>
+        <group-ref>ordnance</group-ref>
+    </group>
+
+    <group name="ordnance">
+        <js>/ordnance/Bullet.js</js>
+        <js>/ordnance/PlayerBullet.js</js>
+        <js>/ordnance/SmallBullet.js</js>
+        <group-ref>effects</group-ref>
+    </group>
+
+    <group name="effects">
+        <js>/effects/Effect.js</js>
+        <js>/effects/Explosion.js</js>
+        <group-ref>levels</group-ref>
+    </group>
+
+    <group name="levels">
+        <js>/levels/Level.js</js>
+        <js>/levels/Test.js</js>
+    </group>
+</groups>

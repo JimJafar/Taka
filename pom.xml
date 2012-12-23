@@ -129,6 +129,7 @@
                     <execution>
                         <goals>
                             <goal>jshint</goal>
+                            <goal>run</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -140,8 +141,13 @@
                     <!--<cssDestinationFolder>d:/static/css/</cssDestinationFolder>-->
                     <jsDestinationFolder>${basedir}/build/js/</jsDestinationFolder>
                     <contextFolder>${basedir}/src/main/js/</contextFolder>
-                    <wroFile>${basedir}/build/wro.groovy</wroFile>
-                    <!--<wroManagerFactory>com.mycompany.MyCustomWroManagerFactory</wroManagerFactory>-->
+                    <wroFile>build/wro4j/wro.xml</wroFile>
+                    <!--WHITESPACE_ONLY-->
+                    <wroManagerFactory>taka.wro4j.GoogleWhitespaceOnlyStandaloneManagerFactory</wroManagerFactory>
+                    <!--SIMPLE_OPTIMIZATIONS-->
+                    <!--<wroManagerFactory>ro.isdc.wro.extensions.manager.standalone.GoogleStandaloneManagerFactory</wroManagerFactory>-->
+                    <!--ADVANCED_OPTIMIZATIONS-->
+                    <!--<wroManagerFactory>ro.isdc.wro.extensions.manager.standalone.GoogleAdvancedStandaloneManagerFactory</wroManagerFactory>-->
                     <ignoreMissingResources>false</ignoreMissingResources>
                 </configuration>
             </plugin>
