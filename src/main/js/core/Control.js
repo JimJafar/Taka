@@ -1,3 +1,4 @@
+/*global window:false */
 var Taka = (Taka) ? Taka : {};
 
 /**

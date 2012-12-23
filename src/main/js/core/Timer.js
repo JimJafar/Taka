@@ -1,3 +1,4 @@
+/*global setTimeout:false */
 var Taka = (Taka) ? Taka : {};
 
 /**
