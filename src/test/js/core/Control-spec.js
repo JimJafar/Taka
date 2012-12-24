@@ -41,4 +41,23 @@ describe('Taka.core.Control', function() {
         control.keyDown( { which : buttons.pause } );
         expect(Taka.core.Engine.isPaused()).toBe(true);
     });
+
+    it('should cancel movement on keyUp', function() {
+        Taka.core.Engine.Player().moveUp = true;
+        Taka.core.Engine.Player().moveDown = true;
+        Taka.core.Engine.Player().moveLeft = true;
+        Taka.core.Engine.Player().moveRight = true;
+
+        control.keyUp( { which : Taka.core.Config.buttons.up } );
+        expect(Taka.core.Engine.Player().moveUp).toBe(false);
+
+        control.keyUp( { which : Taka.core.Config.buttons.down } );
+        expect(Taka.core.Engine.Player().moveDown).toBe(false);
+
+        control.keyUp( { which : Taka.core.Config.buttons.left } );
+        expect(Taka.core.Engine.Player().moveLeft).toBe(false);
+
+        control.keyUp( { which : Taka.core.Config.buttons.right } );
+        expect(Taka.core.Engine.Player().moveRight).toBe(false);
+    });
 });
