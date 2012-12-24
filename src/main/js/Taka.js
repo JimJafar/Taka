@@ -43,12 +43,6 @@ Taka.ordnance = {};
 Taka.effects = {};
 
 /**
- * @name Taka.ordnance.formations
- * @namespace Taka.ordnance.formations The Taka.ordnance.formations namespace
- */
-Taka.ordnance.formations = {};
-
-/**
  * @name Taka.vehicles
  * @namespace Taka.vehicles The Taka.vehicles namespace
  */
