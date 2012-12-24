@@ -84,7 +84,7 @@ describe('Taka.vehicles.Vehicle', function() {
 
         it('should get a new bullet instance', function() {
             spyOn(Taka.ordnance, 'PlayerBullet');
-            var bullet = vehicle._getBullet(Taka.ordnance.PlayerBullet);
+            vehicle._getBullet(Taka.ordnance.PlayerBullet);
             expect(Taka.ordnance.PlayerBullet).toHaveBeenCalledWith(3.5, 4);
         });
     });
