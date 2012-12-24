@@ -15,7 +15,7 @@ var Taka = (Taka) ? Taka : {};
         this.velX = velX;
         this.velY = velY;
     };
-    Taka.extend(Drone, Taka.vehicles.Ship);
+    Taka.extend(Drone, Taka.vehicles.Vehicle);
 
     Drone.prototype.update = function() {
         if (new Date().getTime() - this.firedLast > this.fireFreq) {

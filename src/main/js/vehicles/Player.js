@@ -12,7 +12,7 @@ var Taka = (Taka) ? Taka : {};
 
         this.Super(sprite, width, height, x, y, speed, life, fireFreq);
     };
-    Taka.extend(Player, Taka.vehicles.Ship);
+    Taka.extend(Player, Taka.vehicles.Vehicle);
 
     Player.prototype.getBullet = function() {
         return this._getBullet(Taka.ordnance.PlayerBullet);

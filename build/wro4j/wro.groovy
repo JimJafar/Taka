@@ -26,7 +26,7 @@ groups {
     }
 
     vehicles {
-        js("/vehicles/Ship.js")
+        js("/vehicles/Vehicle.js")
         js("/vehicles/Player.js")
         js("/vehicles/Drone.js")
         js("/vehicles/formations/Formation.js")

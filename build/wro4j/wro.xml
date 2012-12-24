@@ -30,7 +30,7 @@
     </group>
 
     <group name="vehicles">
-        <js>/vehicles/Ship.js</js>
+        <js>/vehicles/Vehicle.js</js>
         <js>/vehicles/Player.js</js>
         <js>/vehicles/Drone.js</js>
         <js>/vehicles/formations/Formation.js</js>

@@ -334,7 +334,7 @@ Taka.core.Engine = (function() {
         /**
          * @name Player
          * @function Player Gets or sets the player's ship
-         * @param ship Optional instance of Taka.vehicles.Ship
+         * @param ship Optional instance / derivative of Taka.vehicles.Vehicle
          * @public
          */
         Player: function(ship) {

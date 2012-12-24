@@ -72,7 +72,7 @@
                         <include>core/Timer.js</include>
                         <include>assets/Cache.js</include>
                         <include>assets/Assets.js</include>
-                        <include>vehicles/Ship.js</include>
+                        <include>vehicles/Vehicle.js</include>
                         <include>vehicles/Player.js</include>
                         <include>vehicles/Drone.js</include>
                         <include>vehicles/formations/Formation.js</include>

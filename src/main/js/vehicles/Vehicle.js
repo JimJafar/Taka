@@ -2,7 +2,20 @@ var Taka = (Taka) ? Taka : {};
 
 (function(Taka) {
     "use strict";
-    var Ship = function(sprite, width, height, x, y, speed, life, fireFreq) {
+
+    /**
+     * Base class for player and enemy vehicles.
+     * @param {Image} sprite
+     * @param {Number} width
+     * @param {Number} height
+     * @param {Number} x
+     * @param {Number} y
+     * @param {Number} speed
+     * @param {Number} life
+     * @param {Number} fireFreq
+     * @constructor
+     */
+    var Vehicle = function(sprite, width, height, x, y, speed, life, fireFreq) {
         this.sprite = sprite;
         this.width = width;
         this.height = height;
@@ -22,11 +35,11 @@ var Taka = (Taka) ? Taka : {};
         this.velY = 0;
     };
 
-    Ship.prototype.update = function() {
+    Vehicle.prototype.update = function() {
         this._updateVelocity();
     };
 
-    Ship.prototype._updateVelocity = function() {
+    Vehicle.prototype._updateVelocity = function() {
         this.velX = this.velY = 0;
         if (this.moveUp) {
             this.velY = -this.speed;
@@ -42,34 +55,34 @@ var Taka = (Taka) ? Taka : {};
         }
     };
 
-    Ship.prototype.getVelocity = function() {
+    Vehicle.prototype.getVelocity = function() {
         return { x: this.velX, y: this.velY };
     };
 
-    Ship.prototype.setPos = function(x,y) {
+    Vehicle.prototype.setPos = function(x,y) {
         this.x = x;
         this.y = y;
     };
 
-    Ship.prototype.getPos = function() {
+    Vehicle.prototype.getPos = function() {
         return { x: this.x, y: this.y };
     };
 
-    Ship.prototype.getSprite = function() {
+    Vehicle.prototype.getSprite = function() {
         return this.sprite;
     };
 
-    Ship.prototype._getBullet = function(Type) {
+    Vehicle.prototype._getBullet = function(Type) {
         return new Type(this.x + (this.width / 2), this.y);
     };
 
-    Ship.prototype.hit = function(damage) {
+    Vehicle.prototype.hit = function(damage) {
        this.life -= damage;
     };
 
-    Ship.prototype.dead = function() {
+    Vehicle.prototype.dead = function() {
         return this.life <= 0;
     };
 
-    Taka.vehicles.Ship = Ship;
+    Taka.vehicles.Vehicle = Vehicle;
 })(Taka);
