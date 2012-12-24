@@ -290,6 +290,23 @@ Taka.core.Engine = (function() {
 
     return {
         /**
+         * Exposes private methods for unit testing purposes
+         * @return {{_updateLevel: Function, _updatePlayer: Function, _updateBullets: Function, _updateEnemies: Function, _updateFormations: Function, _doCollisions: Function, _updateEffects: Function, _updateStats: Function}}
+         */
+        getPrivateMethods : function() {
+            return {
+                '_updateLevel' : _updateLevel,
+                '_updatePlayer' : _updatePlayer,
+                '_updateBullets' : _updateBullets,
+                '_updateEnemies' : _updateEnemies,
+                '_updateFormations' : _updateFormations,
+                '_doCollisions' : _doCollisions,
+                '_updateEffects' : _updateEffects,
+                '_updateStats' : _updateStats
+            };
+        },
+
+        /**
          * @name Update
          * @function Update Updates the game state - called every frame
          * @param frame The current frame number
