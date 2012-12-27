@@ -10,7 +10,7 @@ load:
   - ../src/main/js/core/Timer.js
   - ../src/main/js/assets/Cache.js
   - ../src/main/js/assets/Assets.js
-  - ../src/main/js/vehicles/Ship.js
+  - ../src/main/js/vehicles/Vehicle.js
   - ../src/main/js/vehicles/Player.js
   - ../src/main/js/vehicles/Drone.js
   - ../src/main/js/vehicles/formations/Formation.js
@@ -22,7 +22,6 @@ load:
   - ../src/main/js/effects/Effect.js
   - ../src/main/js/effects/Explosion.js
   - ../src/main/js/levels/Level.js
-
 test:
   - ../src/test/js/**/*.js
 

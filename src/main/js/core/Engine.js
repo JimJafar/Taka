@@ -135,8 +135,6 @@ Taka.core.Engine = (function() {
      */
     var _updateBullets = function() {
         var bullet;
-        var newX;
-        var newY;
         var i;
 
         for (i = _pBullets.length -1; i >= 0; i--) {
