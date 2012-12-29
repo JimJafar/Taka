@@ -9,13 +9,13 @@
     <groupId>net.sangwine</groupId>
     <artifactId>taka</artifactId>
     <version>0.1.0</version>
-    <!--<packaging>js</packaging>-->
 
     <name>Taka</name>
     <description>A pure JavaScript &amp; Canvas SHMUP engine</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jsdoc3BaseDir>${basedir}/build/jsdoc3</jsdoc3BaseDir>
     </properties>
 
     <dependencies>
@@ -27,23 +27,13 @@
     </dependencies>
 
     <build>
-        <!--
-        <extensions>
-            <extension>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>javascript-maven-plugin</artifactId>
-                <version>2.0.0-alpha-1</version>
-            </extension>
-        </extensions>
-        -->
-
-        <!--
-            Jasmine BDD Plugin
-            mvn test
-            mvn jasmine:test
-            mvn jasmine:bdd
-        -->
         <plugins>
+            <!--
+                Jasmine BDD Plugin
+                mvn test
+                mvn jasmine:test
+                mvn jasmine:bdd
+            -->
             <plugin>
                 <groupId>com.github.searls</groupId>
                 <artifactId>jasmine-maven-plugin</artifactId>
@@ -174,7 +164,52 @@
                     <ignoreMissingResources>false</ignoreMissingResources>
                 </configuration>
             </plugin>
+
+            <!--
+                Ant Tasks
+                mvn antrun:run
+            -->
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>default-cli</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target name="jsdoc3" description="jsdoc3 API docs auto-generation">
+                                <delete dir="${jsdoc3BaseDir}/docs" />
+                                <mkdir dir="${jsdoc3BaseDir}/docs" />
+                                <mkdir dir="${jsdoc3BaseDir}/jsdoc3-ant-task-master/bin" />
+                                <javac srcdir="${jsdoc3BaseDir}/jsdoc3-ant-task-master/src"
+                                       destdir="${jsdoc3BaseDir}/jsdoc3-ant-task-master/bin"
+                                       classpath="${jsdoc3BaseDir}/jsdoc3-ant-task-master/lib/ant.jar:${jsdoc3BaseDir}/jsdoc3-ant-task-master/lib/rhino/js-1.7r3_jsdoc.jar"
+                                       includeAntRuntime="false"/>
+                                <!--<javadoc sourcepath="${jsdoc3BaseDir}/jsdoc3-ant-task-master/src" destdir="${jsdoc3BaseDir}/docs" classpath="${jsdoc3BaseDir}/jsdoc3-ant-task-master/lib/ant.jar:${jsdoc3BaseDir}/jsdoc3-ant-task-master/lib/rhino/js-1.7r3_jsdoc.jar" />-->
+                                <jar destfile="${jsdoc3BaseDir}/build/jsdoc3-ant-task.jar">
+                                    <fileset dir="${jsdoc3BaseDir}/jsdoc3-ant-task-master/bin" />
+                                    <manifest>
+                                        <attribute name="Built-By" value="Jim Sangwine"/>
+                                    </manifest>
+                                </jar>
+                                <taskdef name="jsdoc3" classname="net.jannon.ant.tasks.JsDoc3" classpath="${jsdoc3BaseDir}/build/jsdoc3-ant-task.jar:${jsdoc3BaseDir}/jsdoc3-ant-task-master/lib/rhino/js-1.7r3_jsdoc.jar"/>
+
+                                <!-- Taka -->
+                                <echo message="Documenting Taka..."/>
+                                <jsdoc3 jsdochome="${jsdoc3BaseDir}/jsdoc3-ant-task-master/lib/jsdoc3"
+                                        to="${jsdoc3BaseDir}/docs"
+                                        private="true"
+                                        recurse="true"
+                                        dir="${basedir}/src/main/js" />
+                                <echo message="Done."/>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-
 </project>
