@@ -44,12 +44,12 @@ groups {
 
     effects {
         js("/effects/Effect.js")
-        js("/effects/Explosion.js")
+        js("/effects/ExplosionEffect.js")
         groupRef("levels")
     }
 
     levels {
         js("/levels/Level.js")
-        js("/levels/Test.js")
+        js("/levels/TestLevel.js")
     }
 }

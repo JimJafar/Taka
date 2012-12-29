@@ -20,7 +20,7 @@ load:
   - ../src/main/js/ordnance/PlayerBullet.js
   - ../src/main/js/ordnance/SmallBullet.js
   - ../src/main/js/effects/Effect.js
-  - ../src/main/js/effects/Explosion.js
+  - ../src/main/js/effects/ExplosionEffect.js
   - ../src/main/js/levels/Level.js
 test:
   - ../src/test/js/**/*.js

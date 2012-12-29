@@ -18,7 +18,7 @@ describe('Taka.levels.Level', function() {
         spyOn(trigr, 'execute');
 
         level.triggers.push(trigr);
-        level.currentTrigger = level.triggers[0];
+        level.nextTrigger = level.triggers[0];
 
         level.update(41);
         expect(trigr.execute).not.toHaveBeenCalled();
@@ -42,13 +42,13 @@ describe('Taka.levels.Level', function() {
         spyOn(trigr2, 'execute');
 
         level.triggers.push(trigr1, trigr2);
-        level.currentTrigger = level.triggers[0];
+        level.nextTrigger = level.triggers[0];
 
-        expect(level.currentTrigger.frame).toBe(42);
+        expect(level.nextTrigger.frame).toBe(42);
 
         level.update(42);
         expect(trigr1.execute).toHaveBeenCalled();
-        expect(level.currentTrigger.frame).toBe(69);
+        expect(level.nextTrigger.frame).toBe(69);
 
         level.update(69);
         expect(trigr2.execute).toHaveBeenCalled();

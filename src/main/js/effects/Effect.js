@@ -24,51 +24,53 @@ Taka.effects.Effect = function(sprites, width, height, x, y, velX, velY) {
     this.frame = -1;
 };
 
-/**
- * Gets the current velocity in x and y axes
- * @return {{ x : {number}, y : {number} }}
- */
-Taka.effects.Effect.prototype.getVelocity = function() {
-    "use strict";
-    return {
-        x : this.velX,
-        y : this.velY
-    };
-};
+Taka.effects.Effect.prototype = {
+    /**
+     * Gets the current velocity in x and y axes
+     * @return {{ x : {number}, y : {number} }}
+     */
+    getVelocity : function() {
+        "use strict";
+        return {
+            x : this.velX,
+            y : this.velY
+        };
+    },
 
-/**
- * Sets the pixel coordinates of the effect
- * @param {number} x
- * @param {number} y
- */
-Taka.effects.Effect.prototype.setPos = function(x, y) {
-    "use strict";
-    this.x = x;
-    this.y = y;
-};
+    /**
+     * Sets the pixel coordinates of the effect
+     * @param {number} x
+     * @param {number} y
+     */
+    setPos : function(x, y) {
+        "use strict";
+        this.x = x;
+        this.y = y;
+    },
 
-/**
- * Gets the current pixel coordinates of the effect
- * @return {{ x: {number}, y: {number} }}
- */
-Taka.effects.Effect.prototype.getPos = function() {
-    "use strict";
-    return {
-        x : this.x,
-        y : this.y
-    };
-};
+    /**
+     * Gets the current pixel coordinates of the effect
+     * @return {{ x: {number}, y: {number} }}
+     */
+    getPos : function() {
+        "use strict";
+        return {
+            x : this.x,
+            y : this.y
+        };
+    },
 
-/**
- * Returns the current image in the animation sequence
- * @return {Image}
- */
-Taka.effects.Effect.prototype.getSprite = function() {
-    "use strict";
-    this.frame++;
-    if (this.frame === this.sprites.length-1)
-    {
-        this.finished = true;
+    /**
+     * Returns the current image in the animation sequence
+     * @return {Image}
+     */
+    getSprite : function() {
+        "use strict";
+        this.frame++;
+        if (this.frame === this.sprites.length-1)
+        {
+            this.finished = true;
+        }
+        return this.sprites[this.frame];
     }
-    return this.sprites[this.frame];
 };

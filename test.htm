@@ -26,9 +26,9 @@
 		<script src="src/main/js/ordnance/PlayerBullet.js"></script>
 		<script src="src/main/js/ordnance/SmallBullet.js"></script>
 		<script src="src/main/js/effects/Effect.js"></script>
-		<script src="src/main/js/effects/Explosion.js"></script>
+		<script src="src/main/js/effects/ExplosionEffect.js"></script>
 		<script src="src/main/js/levels/Level.js"></script>
-		<script src="src/main/js/levels/Test.js"></script>
+		<script src="src/main/js/levels/TestLevel.js"></script>
 		-->
 	</head>
 	
@@ -50,7 +50,7 @@
 		var canvas = document.getElementById('TakaCanvas');
 		
 		Taka.core.Engine.Player(new Taka.vehicles.Player(121,300));
-		Taka.core.Engine.Level(new Taka.levels.Test());
+		Taka.core.Engine.Level(new Taka.levels.TestLevel());
 
 		var callback = function() {
 			framenum++;

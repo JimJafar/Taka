@@ -48,12 +48,12 @@
 
     <group name="effects">
         <js>/effects/Effect.js</js>
-        <js>/effects/Explosion.js</js>
+        <js>/effects/ExplosionEffect.js</js>
         <group-ref>levels</group-ref>
     </group>
 
     <group name="levels">
         <js>/levels/Level.js</js>
-        <js>/levels/Test.js</js>
+        <js>/levels/TestLevel.js</js>
     </group>
 </groups>

@@ -274,7 +274,7 @@ Taka.core.Engine = (function() {
                     if (enemy.dead()) {
                         _enemies.splice(i, 1);
                         center = Taka.utils.BoxUtil.Center(enemy);
-                        _effects.push(new Taka.effects.Explosion(center.x, center.y));
+                        _effects.push(new Taka.effects.ExplosionEffect(center.x, center.y));
                     }
                 }
             }
@@ -284,10 +284,10 @@ Taka.core.Engine = (function() {
         for (i = _eBullets.length -1; i>= 0; i--) {
             bullet = _eBullets[i];
             if (Taka.utils.BoxUtil.Intersect(_player, bullet)) {
-                _player.hit(bullet.damage);
                 _eBullets.splice(i, 1);
+                _player.hit(bullet.damage);
                 center = Taka.utils.BoxUtil.Center(_player);
-                _effects.push(new Taka.effects.Explosion(center.x, center.y));
+                _effects.push(new Taka.effects.ExplosionEffect(center.x, center.y));
                 if(_player.dead()) {
                     Taka.gameOver();
                 }
