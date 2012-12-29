@@ -1,54 +1,58 @@
 var Taka = (Taka) ? Taka : {};
 
 /**
- * @name Renderer
- * @class Renderer The game renderer (singleton)
- * @author Jim Sangwine
+ * The game renderer (singleton)
+ * @class
  */
 Taka.core.Renderer = (function() {
     "use strict";
     /**
-     * @name _canvas
-     * @function _canvas A reference to the canvas DOM object the game will be rendered in
+     * A reference to the canvas DOM object the game will be rendered in
+     * @memberof Taka.core.Renderer
+     * @type {HTMLCanvasElement}
      * @private
      */
     var _canvas = null;
 
     /**
-     * @name _context
-     * @function _context A reference to the 2D context of the game canvas
+     * A reference to the 2D context of the game canvas
+     * @memberof Taka.core.Renderer
+     * @type {Object}
      * @private
      */
     var _context = null;
 
     /**
-     * @name _canvasWidth
-     * @function _canvasWidth The width of the game canvas in pixels
+     * The width of the game canvas in pixels
+     * @memberof Taka.core.Renderer
+     * @type {Number}
      * @private
      */
     var _canvasWidth = 0;
 
     /**
-     * @name _canvasHeight
-     * @function _canvasHeight The height of the game canvas in pixels
+     * The height of the game canvas in pixels
+     * @memberof Taka.core.Renderer
+     * @type {Number}
      * @private
      */
     var _canvasHeight = 0;
 
+    /**
+     * @lends Taka.core.Renderer
+     */
     return {
         /**
-         * @name getCanvas
-         * @function getCanvas Returns the game canvas
-         * @public
+         * Returns the game canvas
+         * @returns {HTMLCanvasElement}
          */
         getCanvas: function() {
             return _canvas;
         },
 
         /**
-         * @name setCanvas
-         * @function setCanvas A setter for the game canvas - also sets _context, _canvasWidth & _canvasHeight
-         * @public
+         * A setter for the game canvas - also sets _context, _canvasWidth & _canvasHeight
+         * @param {HTMLCanvasElement} canvas The Canvas element
          */
         setCanvas: function(canvas) {
             _canvas = canvas;
@@ -59,12 +63,9 @@ Taka.core.Renderer = (function() {
         },
 
         /**
-         * @name Render
-         * @function Render Renders a frame to the game canvas
-         * @param _frame The current frame number
-         * @public
+         * Renders a frame to the game canvas
          */
-        Render: function(_frame) {
+        Render: function() {
             var i;
 
             // clear the canvas

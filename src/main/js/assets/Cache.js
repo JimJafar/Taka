@@ -1,39 +1,43 @@
 var Taka = (Taka) ? Taka : {};
 
 /**
- * @name Cache
- * @class Cache The game asset cache (singleton)
- * @author Jim Sangwine
+ * The game asset cache (singleton)
+ * @class
  */
 Taka.assets.Cache = (function() {
     "use strict";
     /**
-     * @name _sprites
-     * @field _sprites A collection of all sprites so far loaded
+     * A collection of all sprites so far loaded
+     * @memberof Taka.assets.Cache
+     * @type object
+     * @private
      */
     var _sprites = {};
 
     /**
-     * @name _keys
-     * @field _keys A collection of the keys for all currently cached sprites
+     * A collection of the keys for all currently cached sprites
+     * @memberof Taka.assets.Cache
+     * @type array
+     * @private
      */
     var _keys = [];
 
+    /**
+     * @lends Taka.assets.Cache
+     **/
     return {
         /**
-         * @name spriteCount
-         * @function spriteCount Returns the number of sprites in the cache
-         * @return {Number}
+         * Returns the number of sprites in the cache
+         * @returns {Number}
          */
         spriteCount: function() {
             return _keys.length;
         },
 
         /**
-         * @name addSprite
-         * @function addSprite Adds a sprite to the cache
-         * @param sprite
-         * @param key
+         * Adds a sprite to the cache
+         * @param {Image} sprite
+         * @param {string} key
          */
         addSprite: function(sprite, key) {
             _sprites[key] = sprite;
@@ -41,9 +45,8 @@ Taka.assets.Cache = (function() {
         },
 
         /**
-         * @name removeSprite
-         * @function removeSprite Removes a sprite from the cache
-         * @param key
+         * Removes a sprite from the cache
+         * @param {string} key
          */
         removeSprite: function(key) {
             var index = _keys.indexOf(key);
@@ -57,19 +60,17 @@ Taka.assets.Cache = (function() {
         },
 
         /**
-         * @name hasSprite
-         * @function hasSprite Returns true if the cache contains a sprite matching the given key, otherwise false
-         * @param key
-         * @return bool
+         * Returns true if the cache contains a sprite matching the given key, otherwise false
+         * @param {string} key
+         * @returns {bool}
          */
         hasSprite: function(key) {
             return _sprites.hasOwnProperty(key);
         },
 
         /**
-         * @name fetchSprite
-         * @function fetchSprite Fetches a sprite from the cache
-         * @param key
+         * Fetches a sprite from the cache
+         * @param {string} key
          */
         fetchSprite: function(key) {
             if (!_sprites.hasOwnProperty(key)) {
@@ -79,8 +80,7 @@ Taka.assets.Cache = (function() {
         },
 
         /**
-         * @name clear
-         * @function clear Clears the cache
+         * Clears the cache
          */
         clear: function() {
             for (var i = _keys.length - 1; i >= 0; i--) {

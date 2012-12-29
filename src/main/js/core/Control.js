@@ -2,18 +2,18 @@
 var Taka = (Taka) ? Taka : {};
 
 /**
- * @name Control
- * @class Control Handles user input (singleton)
- * @author Jim Sangwine
+ * Handles user input (singleton)
+ * @class
  */
 Taka.core.Control = (function() {
     "use strict";
+    /**
+     * @lends Taka.core.Control
+     */
     return {
         /**
-         * @name keyDown
-         * @function keyDown Handles a key press
-         * @param e The onKeyDown event
-         * @public
+         * Handles a key press
+         * @param {Event} e The onKeyDown event
          */
         keyDown: function(e) {
             var code = (window.event) ? window.event.keyCode : e.which;
@@ -40,10 +40,8 @@ Taka.core.Control = (function() {
         },
 
         /**
-         * @name keyUp
-         * @function keyUp Handles a key release
-         * @param e The onKeyUp event
-         * @public
+         * Handles a key release
+         * @param {Event} e The onKeyUp event
          */
         keyUp: function(e) {
             var code = (window.event) ? window.event.keyCode : e.which;

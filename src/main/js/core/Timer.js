@@ -2,44 +2,50 @@
 var Taka = (Taka) ? Taka : {};
 
 /**
- * @name Timer
- * @class Timer The main game timer (singleton)
+ * The main game timer (singleton)
+ * @class
  * @author Jim Sangwine
  */
 Taka.core.Timer = (function() {
     "use strict";
     /**
-     * @name _run
-     * @field _run A flag indicating whether the engine is/should be running
+     * A flag indicating whether the engine is/should be running
+     * @memberof Taka.core.Timer
+     * @type Boolean
      * @private
      */
     var _run = false;
 
     /**
-     * @name _interval
-     * @field _interval The tick interval in microseconds
-     * @see Taka.Config.fps
+     * The tick interval in microseconds
+     * @memberof Taka.core.Timer
+     * @type Number
+     * @see Taka.core.Config.fps
      * @private
      */
     var _interval = 1000 / Taka.core.Config.fps;
 
     /**
-     * @name _frame
-     * @field _frame The current frame number
+     * The current frame number
+     * @memberof Taka.core.Timer
+     * @type Number
      * @private
      */
     var _frame = 0;
 
     /**
-     * @name _callback
-     * @function _callback A method that will be called on every tick of the engine
+     * A method that will be called on every tick of the engine
+     * @memberof Taka.core.Timer
+     * @type function
      * @private
      */
     var _callback = null;
 
     /**
-     * @name _tick
-     * @function _tick The main game engine loop
+     * The main game engine loop
+     * @memberof Taka.core.Timer
+     * @see Taka.core.Engine.Update
+     * @see Taka.core.Renderer.Render
      * @private
      */
     function _tick() {
@@ -61,13 +67,14 @@ Taka.core.Timer = (function() {
         }
     }
 
+    /**
+     * @lends Taka.core.Timer
+     */
     return {
         /**
-         * @name start
-         * @function start Starts the game engine
-         * @param canvas The canvas to render to
-         * @param callback An optional callback function to be invoked on every tick
-         * @public
+         * Starts the game engine
+         * @param {HTMLCanvasElement} canvas The canvas to render to
+         * @param {function} callback An optional callback function to be invoked on every tick
          */
         start: function(canvas, callback) {
             _run = true;
@@ -79,18 +86,15 @@ Taka.core.Timer = (function() {
         },
 
         /**
-         * @name stop
-         * @function stop Stops the game engine
-         * @public
+         * Stops the game engine
          */
         stop: function() {
             _run = false;
         },
 
         /**
-         * @name frame
-         * @function frame Returns the current frame number
-         * @public
+         * Returns the current frame number
+         * @returns Number
          */
         frame: function() {
             return _frame;

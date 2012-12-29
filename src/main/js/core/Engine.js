@@ -1,104 +1,119 @@
 var Taka = (Taka) ? Taka : {};
 
 /**
- * @name Engine
- * @class Engine The game engine (singleton)
- * @author Jim Sangwine
+ * The game engine
+ * @class
  */
 Taka.core.Engine = (function() {
     "use strict";
     /**
-     * @name _screenWidth
-     * @field _screenWidth The width of the game screen (canvas) in pixels
+     * The width of the game screen (canvas) in pixels
+     * @memberof Taka.core.Engine
+     * @type Number
+     * @private
      */
     var _screenWidth = 0;
 
     /**
-     * @name _screenHeight
-     * @field _screenHeight The height of the game screen (canvas) in pixels
+     * The height of the game screen (canvas) in pixels
+     * @memberof Taka.core.Engine
+     * @type Number
+     * @private
      */
     var _screenHeight = 0;
 
     /**
-     * @name _level
-     * @function _level The level
+     * The level
+     * @memberof Taka.core.Engine
+     * @type Taka.levels.Level
      * @private
      */
     var _level = null;
 
     /**
-     * @name _player
-     * @function _player The player's ship
+     * The player's ship
+     * @memberof Taka.core.Engine
+     * @type Taka.vehicles.Player
      * @private
      */
     var _player = null;
 
     /**
-     * @name _enemies
-     * @function _enemies A collection of all the onscreen enemy ships
+     * A collection of all the onscreen enemy ships
+     * @memberof Taka.core.Engine
+     * @type Array
      * @private
      */
     var _enemies = [];
 
     /**
-     * @name _formations
-     * @function _formations A collection of all the onscreen enemy ships
+     * A collection of all the onscreen enemy ships
+     * @memberof Taka.core.Engine
+     * @type Array
      * @private
      */
     var _formations = [];
 
-        /**
-     * @name _eBullets
-     * @function _eBullets A collection of all the onscreen enemy bullets
+    /**
+     * A collection of all the onscreen enemy bullets
+     * @memberof Taka.core.Engine
+     * @type Array
      * @private
      */
     var _eBullets = [];
 
     /**
-     * @name _pBullets
-     * @function _pBullets A collection of all the onscreen player bullets
+     * A collection of all the onscreen player bullets
+     * @memberof Taka.core.Engine
+     * @type Array
      * @private
      */
     var _pBullets = [];
 
     /**
-     * @name _effects
-     * @function _effects A collection of all the onscreen effects
+     * A collection of all the onscreen effects
+     * @memberof Taka.core.Engine
+     * @type Array
      * @private
      */
     var _effects = [];
 
     /**
-     * @name _lastFPSUpdate
-     * @function _lastFPSUpdate Date object representing the last time the FPS was updated (happens approx once per second)
+     * The last time the FPS was updated (happens approx once per second)
+     * @memberof Taka.core.Engine
+     * @type Date
      * @private
      */
     var _lastFPSUpdate = new Date();
 
     /**
-     * @name _framesAtLastFPSUpdate
-     * @function _framesAtLastFPSUpdate The frame count the last time the FPS was updated
+     * The frame count the last time the FPS was updated
+     * @memberof Taka.core.Engine
+     * @type Number
      * @private
      */
     var _framesAtLastFPSUpdate = 0;
 
     /**
-     * @name _fps
-     * @function _fps The current calculated FPS
+     * The current calculated FPS
+     * @memberof Taka.core.Engine
+     * @type Number
      * @private
      */
     var _fps = 0;
 
     /**
-     * @name _paused
-     * @function _paused A flag indicating whether the engine is paused
+     * A flag indicating whether the engine is paused
+     * @memberof Taka.core.Engine
+     * @type Boolean
      * @private
      */
     var _paused = false;
 
     /**
-     * @name _updatePlayer
-     * @function _updatePlayer Updates the player ship's position and state
+     * Updates the player ship's position and state
+     * @memberof Taka.core.Engine
+     * @see Taka.vehicles.Player.update
      * @private
      */
     var _updatePlayer = function() {
@@ -129,8 +144,9 @@ Taka.core.Engine = (function() {
     };
 
     /**
-     * @name _updateBullets
-     * @function _updateBullets Updates all the on-screen bullets
+     * Updates all the on-screen bullets
+     * @memberof Taka.core.Engine
+     * @see Taka.ordnance.Bullet.updateVelocity
      * @private
      */
     var _updateBullets = function() {
@@ -169,8 +185,9 @@ Taka.core.Engine = (function() {
     };
 
     /**
-     * @name _updateEnemies
-     * @function _updateEnemies Updates all the on-screen enemies
+     * Updates all the on-screen enemies
+     * @memberof Taka.core.Engine
+     * @see Taka.vehicles.Vehicle.update
      * @private
      */
     var _updateEnemies = function() {
@@ -200,6 +217,13 @@ Taka.core.Engine = (function() {
         enemy = null;
     };
 
+    /**
+     * Updates all the on-screen Vehicle formations
+     * @memberof Taka.core.Engine
+     * @param {Number} frame The frame number
+     * @see Taka.vehilces.formations.Formation.update
+     * @private
+     */
     var _updateFormations = function(frame) {
         var formation;
         for (var i = _formations.length -1; i >= 0; i--) {
@@ -210,6 +234,12 @@ Taka.core.Engine = (function() {
         formation = null;
     };
 
+    /**
+     * Updates all the on-screen effects
+     * @memberof Taka.core.Engine
+     * @see Taka.effects.Effect
+     * @private
+     */
     var _updateEffects = function(){
         var effect;
         for (var i = _effects.length -1; i >= 0; i--) {
@@ -220,6 +250,12 @@ Taka.core.Engine = (function() {
         }
     };
 
+    /**
+     * Detects and actions collisions
+     * @memberof Taka.core.Engine
+     * @see Taka.utils.BoxUtil
+     * @private
+     */
     var _doCollisions = function() {
         var i;
         var ii;
@@ -260,9 +296,10 @@ Taka.core.Engine = (function() {
     };
 
     /**
-     * @name _updateLevel
-     * @function _updateLevel Updates the level (executes frame triggers) - called every frame
-     * @param frame The current frame number
+     * Updates the level (executes frame triggers) - called every frame
+     * @memberof Taka.core.Engine
+     * @param {Number} frame The current frame number
+     * @see Taka.levels.Level.update
      * @private
      */
     var _updateLevel = function(frame) {
@@ -270,9 +307,9 @@ Taka.core.Engine = (function() {
     };
 
     /**
-     * @name _updateStats
-     * @function _updateStats Updates the game stats (FPS etc.) - called every frame
-     * @param frame The current frame number
+     * Updates the game stats (FPS etc.) - called every frame
+     * @param {Number} frame The current frame number
+     * @memberof Taka.core.Engine
      * @private
      */
     var _updateStats = function(frame) {
@@ -286,29 +323,13 @@ Taka.core.Engine = (function() {
         }
     };
 
+    /**
+     * @lends Taka.core.Engine
+     */
     return {
         /**
-         * Exposes private methods for unit testing purposes
-         * @return {{_updateLevel: Function, _updatePlayer: Function, _updateBullets: Function, _updateEnemies: Function, _updateFormations: Function, _doCollisions: Function, _updateEffects: Function, _updateStats: Function}}
-         */
-        getPrivateMethods : function() {
-            return {
-                '_updateLevel' : _updateLevel,
-                '_updatePlayer' : _updatePlayer,
-                '_updateBullets' : _updateBullets,
-                '_updateEnemies' : _updateEnemies,
-                '_updateFormations' : _updateFormations,
-                '_doCollisions' : _doCollisions,
-                '_updateEffects' : _updateEffects,
-                '_updateStats' : _updateStats
-            };
-        },
-
-        /**
-         * @name Update
-         * @function Update Updates the game state - called every frame
-         * @param frame The current frame number
-         * @public
+         * Updates the game state - called every frame
+         * @param {Number} frame The current frame number
          */
         Update: function(frame) {
             _updateLevel(frame);
@@ -322,11 +343,9 @@ Taka.core.Engine = (function() {
         },
 
         /**
-         * @name setGameDimensions
-         * @function setGameDimensions Sets the screen (canvas) height and width
-         * @param width The width of the screen (canvas) in pixels
-         * @param height The height of the screen (canvas) in pixels
-         * @public
+         * Sets the screen (canvas) height and width
+         * @param {Number} width The width of the screen (canvas) in pixels
+         * @param {Number} height The height of the screen (canvas) in pixels
          */
         setGameDimensions: function(width, height){
             _screenWidth = width;
@@ -334,10 +353,9 @@ Taka.core.Engine = (function() {
         },
 
         /**
-         * @name Level
-         * @function Level Gets or sets the level
-         * @param level Optional instance of Taka.levels.Level
-         * @public
+         * Gets or sets the level
+         * @param {Taka.levels.Level} [level] The level if setting
+         * @returns {Taka.levels.Level}
          */
         Level: function(level) {
             if (level) {
@@ -347,80 +365,76 @@ Taka.core.Engine = (function() {
         },
 
         /**
-         * @name Player
-         * @function Player Gets or sets the player's ship
-         * @param ship Optional instance / derivative of Taka.vehicles.Vehicle
-         * @public
+         * Gets or sets the player's ship
+         * @param {Taka.vehicles.Player} [player] The player's vehicle
+         * @returns {Taka.vehicles.Player}
          */
-        Player: function(ship) {
-            if (ship) {
-                _player = ship;
+        Player: function(player) {
+            if (player) {
+                _player = player;
             }
             return _player;
         },
 
         /**
-         * @name PlayerBullets
-         * @function PlayerBullets Gets the collection of bullets fired by the player
-         * @public
+         * Gets the collection of bullets fired by the player
+         * @returns {Array}
          */
         PlayerBullets: function() {
             return _pBullets;
         },
 
         /**
-         * @name EnemyBullets
-         * @function EnemyBullets Gets the collection of bullets fired by enemies
-         * @public
+         * Gets the collection of bullets fired by enemies
+         * @returns {Array}
          */
         EnemyBullets: function() {
             return _eBullets;
         },
 
         /**
-         * @name Enemies
-         * @function Enemies Gets the collection of enemies
-         * @public
+         * Gets the collection of enemies
+         * @returns {Array}
          */
         Enemies: function() {
             return _enemies;
         },
 
         /**
-         * @name Effects
-         * @function Effects Gets the collection of effects
-         * @public
+         * Gets the collection of effects
+         * @returns {Array}
          */
         Effects: function() {
             return _effects;
         },
 
         /**
-         * @name addEnemy
-         * @function addEnemy Adds a single enemy to the game - enemies are added just off-screen
-         * @private
+         * Adds a single enemy to the game - enemies are added just off-screen
+         * @param {Taka.vehicles.Vehicle} enemy The enemy to be added
          */
         addEnemy: function(enemy) {
             _enemies.push(enemy);
         },
 
         /**
-         * @name addFormation
-         * @function addFormation Adds a formation of enemies to the game - enemies are added just off-screen
-         * @private
+         * Adds a formation of enemies to the game - enemies are added just off-screen
+         * @param {Taka.vehicles.formations.Formation} formation The formation to be added
          */
         addFormation: function(formation) {
             _formations.push(formation);
         },
 
+        /**
+         * Gets the target Frames Per Second
+         * @returns {Number}
+         */
         FPS: function() {
             return _fps;
         },
 
         /**
-         * @name Pause
-         * @function Pause Toggles pause state
-         * @public
+         * Toggles pause state
+         * @see Taka.core.Timer
          */
         Pause: function() {
             _paused = !_paused;
@@ -432,9 +446,8 @@ Taka.core.Engine = (function() {
         },
 
         /**
-         * @name isPaused
-         * @function isPaused Returns true if paused else false
-         * @public
+         * Returns a boolean indication of whether the engine is paused or not
+         * @returns {Boolean}
          */
         isPaused: function() {
             return _paused;

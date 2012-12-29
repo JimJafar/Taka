@@ -1,13 +1,20 @@
 /*global Image:false */
 var Taka = (Taka) ? Taka : {};
 
+/**
+ * Handles assets (e.g. images)
+ * @class
+ */
 Taka.assets.Assets = (function() {
     "use strict";
     var _cache = Taka.assets.Cache;
 
+    /**
+     * @lends Taka.assets.Assets
+     **/
     return {
         /**
-         * Creates a new Image instance or fetches it from the cache
+         * Fetches an asset from disk or from the cache if it was previously requested
          * @param {string} key The unique key to store the Image under in the cache
          * @param {string} path The path to the image file
          * @return {Image}

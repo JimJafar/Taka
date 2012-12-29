@@ -1,66 +1,68 @@
 /*global document:false */
+
 /**
- * @name Taka
- * @namespace Taka The Taka namespace
+ * The Taka namespace
+ * @namespace
+ * @global
  * @author Jim Sangwine
  */
 var Taka = {};
 
 /**
- * @name Taka.utils
- * @namespace Taka.utils The Taka.utils namespace
+ * The utils namespace
+ * @namespace
  */
 Taka.utils = {};
 
 /**
- * @name Taka.core
- * @namespace Taka.core The Taka.core namespace
+ * The core namespace
+ * @namespace
  */
 Taka.core = {};
 
 /**
- * @name Taka.assets
- * @namespace Taka.assets The Taka.assets namespace
+ * The assets namespace
+ * @namespace
+ * @memberof Taka
  */
 Taka.assets = {};
 
 /**
- * @name Taka.levels
- * @namespace Taka.levels The Taka.levels namespace
+ * The levels namespace
+ * @namespace
  */
 Taka.levels = {};
 
 /**
- * @name Taka.ordnance
- * @namespace Taka.ordnance The Taka.ordnance namespace
+ * The ordnance namespace
+ * @namespace
  */
 Taka.ordnance = {};
 
 /**
- * @name Taka.effects
- * @namespace Taka.effects The Taka.effects namespace
+ * The effects namespace
+ * @namespace
  */
 Taka.effects = {};
 
 /**
- * @name Taka.vehicles
- * @namespace Taka.vehicles The Taka.vehicles namespace
+ * The vehicles namespace
+ * @namespace
  */
 Taka.vehicles = {};
 
 /**
- * @name Taka.vehicles.formations
- * @namespace Taka.vehicles.formations The Taka.vehicles.formations namespace
+ * The formations namespace
+ * @namespace
  */
 Taka.vehicles.formations = {};
 
 /**
- * extend Enables inheritance
- * @param {*} dest The child class
- * @param {*} source The parent class
- * @type void
+ * Enables inheritance
+ * @param {*} dest The derived class
+ * @param {*} source The base class
  **/
-Taka.extend=function(dest,source){
+Taka.extend = function(dest,source){
     "use strict";
     if (!dest || !source) {
         return;
@@ -73,11 +75,9 @@ Taka.extend=function(dest,source){
 };
 
 /**
- * @name start
- * @function start Starts the game engine
+ * Starts the game engine
  * @param canvas The canvas to render to
  * @param callback An optional callback function to be invoked on every frame
- * @public
  */
 Taka.start = function(canvas, callback) {
     "use strict";
@@ -87,9 +87,7 @@ Taka.start = function(canvas, callback) {
 };
 
 /**
- * @name stop
- * @function stop Stops the game engine
- * @public
+ * Stops the game engine
  */
 Taka.stop = function() {
     "use strict";
@@ -98,6 +96,9 @@ Taka.stop = function() {
     document.onkeydown = null;
 };
 
+/**
+ * Called when the player dies
+ */
 Taka.gameOver = function() {
     "use strict";
     Taka.stop();

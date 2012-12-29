@@ -2,6 +2,17 @@ var Taka = (Taka) ? Taka : {};
 
 (function() {
     "use strict";
+    /**
+     * An explosion effect - used for dying enemy vehicles
+     * @class
+     * @augments Taka.effects.Effect
+     * @name Taka.effects.Explosion
+     * @param {Number} x The position of the effect in the X axis (in pixels)
+     * @param {Number} y The position of the effect in the Y axis (in pixels)
+     * @param {Number} velX The velocity of the effect in the X axis
+     * @param {Number} velY The velocity in the Y axis
+     * @constructor
+     */
     var Explosion = function(x, y, velX, velY) {
         var sprites = [];
         for (var i=0; i<7; i++) {
@@ -16,4 +27,4 @@ var Taka = (Taka) ? Taka : {};
     Taka.extend(Explosion, Taka.effects.Effect);
 
     Taka.effects.Explosion = Explosion;
-})(Taka);
+})();
