@@ -3,39 +3,14 @@
 <html xmlns="http://www.w3.org/1999/html">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<title>Taka test</title>
-
-        <script src="build/js/Taka.js"></script>
-        <!--
-		<script src="src/main/js/Taka.js"></script>
-		<script src="src/main/js/utils/BoxUtil.js"></script>
-		<script src="src/main/js/core/Config.js"></script>
-		<script src="src/main/js/core/Control.js"></script>
-		<script src="src/main/js/core/Engine.js"></script>
-		<script src="src/main/js/core/Renderer.js"></script>
-		<script src="src/main/js/core/Timer.js"></script>
-		<script src="src/main/js/assets/Cache.js"></script>
-		<script src="src/main/js/assets/Assets.js"></script>
-		<script src="src/main/js/vehicles/Vehicle.js"></script>
-		<script src="src/main/js/vehicles/Player.js"></script>
-		<script src="src/main/js/vehicles/Drone.js"></script>
-		<script src="src/main/js/vehicles/formations/Formation.js"></script>
-		<script src="src/main/js/vehicles/formations/A5.js"></script>
-		<script src="src/main/js/vehicles/formations/V5.js"></script>
-		<script src="src/main/js/ordnance/Bullet.js"></script>
-		<script src="src/main/js/ordnance/PlayerBullet.js"></script>
-		<script src="src/main/js/ordnance/SmallBullet.js"></script>
-		<script src="src/main/js/effects/Effect.js"></script>
-		<script src="src/main/js/effects/ExplosionEffect.js"></script>
-		<script src="src/main/js/levels/Level.js"></script>
-		<script src="src/main/js/levels/TestLevel.js"></script>
-		-->
+		<title>Taka demo</title>
 	</head>
 	
 	<body>
 		<div style="width:100%">
 			<div style="width:300px; margin:10px auto;">
-                <a href="build-test/coverage/total-report.html">unit test code coverage report</a><br />
+                <a href="build-test/coverage/total-report.html" target="_blank">unit test code coverage report</a><br />
+                <a href="build/jsdoc3/docs/Taka.html" target="_blank">documentation</a><br />
 				movement: arrow keys<br />
 				shoot: space<br />
 				pause: escape<br />
@@ -43,22 +18,53 @@
 				<div id="tracker"></div>
 			</div>
 		</div>
-	</body>
-	<script type="text/javascript">
-		var framenum = 0;
-		var tracker = document.getElementById('tracker');	
-		var canvas = document.getElementById('TakaCanvas');
-		
-		Taka.core.Engine.Player(new Taka.vehicles.Player(121,300));
-		Taka.core.Engine.Level(new Taka.levels.TestLevel());
 
-		var callback = function() {
-			framenum++;
-			tracker.innerHTML = 'frame: ' + framenum +
-                                '<br />fps:' + Taka.core.Engine.FPS() +
-                                '<br />life: ' + Taka.core.Engine.Player().life;
-		};
-		
-		Taka.start(canvas, callback);
-	</script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.min.js"></script>
+        <script>
+            var useMinified = false;
+            if (useMinified) {
+                head.js('build/js/Taka.js');
+            } else {
+                head.js('src/main/js/Taka.js');
+                head.js('src/main/js/utils/BoxUtil.js');
+                head.js('src/main/js/core/Config.js');
+                head.js('src/main/js/core/Control.js');
+                head.js('src/main/js/core/Engine.js');
+                head.js('src/main/js/core/Renderer.js');
+                head.js('src/main/js/core/Timer.js');
+                head.js('src/main/js/assets/Cache.js');
+                head.js('src/main/js/assets/Assets.js');
+                head.js('src/main/js/vehicles/Vehicle.js');
+                head.js('src/main/js/vehicles/Player.js');
+                head.js('src/main/js/vehicles/Drone.js');
+                head.js('src/main/js/vehicles/formations/Formation.js');
+                head.js('src/main/js/vehicles/formations/A5.js');
+                head.js('src/main/js/vehicles/formations/V5.js');
+                head.js('src/main/js/ordnance/Bullet.js');
+                head.js('src/main/js/ordnance/PlayerBullet.js');
+                head.js('src/main/js/ordnance/SmallBullet.js');
+                head.js('src/main/js/effects/Effect.js');
+                head.js('src/main/js/effects/ExplosionEffect.js');
+                head.js('src/main/js/levels/Level.js');
+                head.js('src/main/js/levels/TestLevel.js');
+            }
+            head.ready(function() {
+                var framenum = 0;
+                var tracker = document.getElementById('tracker');
+                var canvas = document.getElementById('TakaCanvas');
+
+                Taka.core.Engine.Player(new Taka.vehicles.Player(121,300));
+                Taka.core.Engine.Level(new Taka.levels.TestLevel());
+
+                var callback = function() {
+                    framenum++;
+                    tracker.innerHTML = 'frame: ' + framenum +
+                            '<br />fps:' + Taka.core.Engine.FPS() +
+                            '<br />life: ' + Taka.core.Engine.Player().life;
+                };
+
+                Taka.start(canvas, callback);
+            });
+        </script>
+	</body>
 </html>
