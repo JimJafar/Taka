@@ -1,13 +1,27 @@
 var Taka = (Taka) ? Taka : {};
 
-(function(Taka) {
+(function() {
     "use strict";
-    var A5 = function(shipType, startFrame, x, y) {
+    /**
+     * A formation shaped like an A (^) comprising 5 enemy vehicles
+     * @class
+     * @augments Taka.vehicles.formations.Formation
+     * @param {Function} shipType A class derived from Taka.vehicles.Vehicle
+     * @param {Number} startFrame The frame number on which to spawn the formation
+     * @param {Number} x The position of the formation in the X axis
+     * @param {Number} y The position of the formation in the Y axis
+     * @constructor
+     */
+    Taka.vehicles.formations.A5 = function(shipType, startFrame, x, y) {
         this.Super(shipType, startFrame, x, y);
     };
-    Taka.extend(A5, Taka.vehicles.formations.Formation);
+    Taka.extend(Taka.vehicles.formations.A5, Taka.vehicles.formations.Formation);
 
-    A5.prototype.update = function(frame) {
+    /**
+     * Spawns the formation at the specified frame number
+     * @param {Number} frame The frame number
+     */
+    Taka.vehicles.formations.A5.prototype.update = function(frame) {
         if (frame === this.startFrame) {
             Taka.core.Engine.addEnemy(new this.shipType(this.x, -60, -1, 2));
             Taka.core.Engine.addEnemy(new this.shipType(this.x - 30, -40, -1, 2));
@@ -16,6 +30,4 @@ var Taka = (Taka) ? Taka : {};
             Taka.core.Engine.addEnemy(new this.shipType(this.x + 60, -20, -1, 2));
         }
     };
-
-    Taka.vehicles.formations.A5 = A5;
-})(Taka);
+})();

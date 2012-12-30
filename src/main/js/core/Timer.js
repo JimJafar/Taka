@@ -4,7 +4,6 @@ var Taka = (Taka) ? Taka : {};
 /**
  * The main game timer (singleton)
  * @class
- * @author Jim Sangwine
  */
 Taka.core.Timer = (function() {
     "use strict";
