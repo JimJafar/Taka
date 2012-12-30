@@ -63,11 +63,11 @@
                         <include>assets/Cache.js</include>
                         <include>assets/Assets.js</include>
                         <include>vehicles/Vehicle.js</include>
-                        <include>vehicles/Player.js</include>
-                        <include>vehicles/Drone.js</include>
+                        <include>vehicles/PlayerVehicle.js</include>
+                        <include>vehicles/DroneVehicle.js</include>
                         <include>vehicles/formations/Formation.js</include>
-                        <include>vehicles/formations/A5.js</include>
-                        <include>vehicles/formations/V5.js</include>
+                        <include>vehicles/formations/A5Formation.js</include>
+                        <include>vehicles/formations/V5Formation.js</include>
                         <include>ordnance/Bullet.js</include>
                         <include>ordnance/PlayerBullet.js</include>
                         <include>ordnance/SmallBullet.js</include>

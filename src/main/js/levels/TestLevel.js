@@ -21,19 +21,19 @@ var Taka = (Taka) ? Taka : {};
             {
                 frame: 100,
                 execute: function() {
-                    Taka.core.Engine.addFormation(new Taka.vehicles.formations.V5(Taka.vehicles.Drone, 100, 100, 0));
+                    Taka.core.Engine.addFormation(new Taka.vehicles.formations.V5Formation(Taka.vehicles.DroneVehicle, 100, 100, 0));
                 }
             },
             {
                 frame: 300,
                 execute: function() {
-                    Taka.core.Engine.addEnemy(new Taka.vehicles.Drone(150, 0, 1, 2));
+                    Taka.core.Engine.addEnemy(new Taka.vehicles.DroneVehicle(150, 0, 1, 2));
                 }
             },
             {
                 frame: 350,
                 execute: function() {
-                    Taka.core.Engine.addFormation(new Taka.vehicles.formations.A5(Taka.vehicles.Drone, 350, 300, 0));
+                    Taka.core.Engine.addFormation(new Taka.vehicles.formations.A5Formation(Taka.vehicles.DroneVehicle, 350, 300, 0));
                 }
             }
         ];

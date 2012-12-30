@@ -33,7 +33,7 @@ Taka.core.Engine = (function() {
     /**
      * The player's ship
      * @memberof Taka.core.Engine
-     * @type Taka.vehicles.Player
+     * @type Taka.vehicles.PlayerVehicle
      * @private
      */
     var _player = null;
@@ -113,7 +113,7 @@ Taka.core.Engine = (function() {
     /**
      * Updates the player ship's position and state
      * @memberof Taka.core.Engine
-     * @see Taka.vehicles.Player.update
+     * @see Taka.vehicles.PlayerVehicle.update
      * @private
      */
     var _updatePlayer = function() {
@@ -368,8 +368,8 @@ Taka.core.Engine = (function() {
 
         /**
          * Gets or sets the player's ship
-         * @param {Taka.vehicles.Player} [player] The player's vehicle
-         * @returns {Taka.vehicles.Player}
+         * @param {Taka.vehicles.PlayerVehicle} [player] The player's vehicle
+         * @returns {Taka.vehicles.PlayerVehicle}
          */
         Player: function(player) {
             if (player) {

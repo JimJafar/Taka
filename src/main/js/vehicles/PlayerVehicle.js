@@ -10,7 +10,7 @@ var Taka = (Taka) ? Taka : {};
      * @param {Number} y Position in the Y axis
      * @constructor
      */
-    Taka.vehicles.Player = function(x, y) {
+    Taka.vehicles.PlayerVehicle = function(x, y) {
         var sprite = Taka.assets.Assets.load('Player', 'src/main/resources/vehicles/Player.png');
         var width = 59;
         var height = 43;
@@ -20,15 +20,13 @@ var Taka = (Taka) ? Taka : {};
 
         this.Super(sprite, width, height, x, y, speed, life, fireFreq);
     };
-    Taka.extend(Taka.vehicles.Player, Taka.vehicles.Vehicle);
+    Taka.extend(Taka.vehicles.PlayerVehicle, Taka.vehicles.Vehicle);
 
-    Taka.vehicles.Player.prototype = {
-        /**
-         * Creates a new instance of PlayerBullet
-         * @return {Taka.ordnance.PlayerBullet}
-         */
-        getBullet : function() {
-            return this._getBullet(Taka.ordnance.PlayerBullet);
-        }
+    /**
+     * Creates a new instance of PlayerBullet
+     * @return {Taka.ordnance.PlayerBullet}
+     */
+    Taka.vehicles.PlayerVehicle.prototype.getBullet = function() {
+        return this._getBullet(Taka.ordnance.PlayerBullet);
     };
 })();

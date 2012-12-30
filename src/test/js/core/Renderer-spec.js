@@ -24,7 +24,7 @@ describe('Taka.core.Renderer', function() {
         };
         canvas.context = context;
         renderer.setCanvas(canvas);
-        Taka.core.Engine.Player(new Taka.vehicles.Player());
+        Taka.core.Engine.Player(new Taka.vehicles.PlayerVehicle());
     });
 
     it('should get and set the canvas', function() {
@@ -55,9 +55,9 @@ describe('Taka.core.Renderer', function() {
         });
 
         it('should draw the enemies', function() {
-            var enemy1 = new Taka.vehicles.Drone(42, 42, 0, 0);
-            var enemy2 = new Taka.vehicles.Drone(42, 42, 0, 0);
-            var enemy3 = new Taka.vehicles.Drone(42, 42, 0, 0);
+            var enemy1 = new Taka.vehicles.DroneVehicle(42, 42, 0, 0);
+            var enemy2 = new Taka.vehicles.DroneVehicle(42, 42, 0, 0);
+            var enemy3 = new Taka.vehicles.DroneVehicle(42, 42, 0, 0);
 
             enemy1.sprite = 'enemy1';
             enemy2.sprite = 'enemy2';

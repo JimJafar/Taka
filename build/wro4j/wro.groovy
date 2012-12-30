@@ -27,11 +27,11 @@ groups {
 
     vehicles {
         js("/vehicles/Vehicle.js")
-        js("/vehicles/Player.js")
-        js("/vehicles/Drone.js")
+        js("/vehicles/PlayerVehicle.js")
+        js("/vehicles/DroneVehicle.js")
         js("/vehicles/formations/Formation.js")
-        js("/vehicles/formations/A5.js")
-        js("/vehicles/formations/V5.js")
+        js("/vehicles/formations/A5Formation.js")
+        js("/vehicles/formations/V5Formation.js")
         groupRef("ordnance")
     }
 

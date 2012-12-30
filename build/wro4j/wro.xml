@@ -31,11 +31,11 @@
 
     <group name="vehicles">
         <js>/vehicles/Vehicle.js</js>
-        <js>/vehicles/Player.js</js>
-        <js>/vehicles/Drone.js</js>
+        <js>/vehicles/PlayerVehicle.js</js>
+        <js>/vehicles/DroneVehicle.js</js>
         <js>/vehicles/formations/Formation.js</js>
-        <js>/vehicles/formations/A5.js</js>
-        <js>/vehicles/formations/V5.js</js>
+        <js>/vehicles/formations/A5Formation.js</js>
+        <js>/vehicles/formations/V5Formation.js</js>
         <group-ref>ordnance</group-ref>
     </group>
 

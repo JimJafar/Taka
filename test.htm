@@ -35,11 +35,11 @@
                 head.js('src/main/js/assets/Cache.js');
                 head.js('src/main/js/assets/Assets.js');
                 head.js('src/main/js/vehicles/Vehicle.js');
-                head.js('src/main/js/vehicles/Player.js');
-                head.js('src/main/js/vehicles/Drone.js');
+                head.js('src/main/js/vehicles/PlayerVehicle.js');
+                head.js('src/main/js/vehicles/DroneVehicle.js');
                 head.js('src/main/js/vehicles/formations/Formation.js');
-                head.js('src/main/js/vehicles/formations/A5.js');
-                head.js('src/main/js/vehicles/formations/V5.js');
+                head.js('src/main/js/vehicles/formations/A5Formation.js');
+                head.js('src/main/js/vehicles/formations/V5Formation.js');
                 head.js('src/main/js/ordnance/Bullet.js');
                 head.js('src/main/js/ordnance/PlayerBullet.js');
                 head.js('src/main/js/ordnance/SmallBullet.js');
@@ -53,7 +53,7 @@
                 var tracker = document.getElementById('tracker');
                 var canvas = document.getElementById('TakaCanvas');
 
-                Taka.core.Engine.Player(new Taka.vehicles.Player(121,300));
+                Taka.core.Engine.Player(new Taka.vehicles.PlayerVehicle(121,300));
                 Taka.core.Engine.Level(new Taka.levels.TestLevel());
 
                 var callback = function() {
