@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>JSDoc: Class: PlayerVehicle</title>
+	
+	<script src="http://shjs.sourceforge.net/sh_main.min.js"> </script>
+    <script src="http://shjs.sourceforge.net/lang/sh_javascript.min.js"> </script>
+    
+    <link type="text/css" rel="stylesheet" href="styles/node-dark.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Class: PlayerVehicle</h1>
+    
+    
+    
+    <section>
+     
+    <header>
+        <h2><span class="ancestors"><a href="Taka.html">Taka</a><a href="Taka.vehicles.html">.vehicles</a>.</span>PlayerVehicle</h2>
+        
+    </header>  
+    
+    <article>
+        <div class="container-overview">
+        <dt>
+    <h4 class="name" id="PlayerVehicle"><span class="type-signature"></span>new PlayerVehicle</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        The player's vehicle
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            Number
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Position in the X axis</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            Number
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Position in the Y axis</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>PlayerVehicle.js, line 13</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+
+        </div>
+        
+        
+            <h3 class="subsection-title">Extends</h3>
+            
+            <ul>
+                <li><a href="Taka.vehicles.Vehicle.html">Taka.vehicles.Vehicle</a></li>
+            </ul>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            
+            <h3 class="subsection-title">Methods</h3>
+            
+            <dl><dt>
+    <h4 class="name" id="_getBullet"><span class="type-signature">&lt;private> </span>_getBullet</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Creates a new instance of Type
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>Type</code></td>
+            
+            
+            <td class="type">
+            function
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A class derived from Taka.ordnance.Bullet</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Vehicle.js, line 107</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">Type</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="_updateVelocity"><span class="type-signature">&lt;private> </span>_updateVelocity</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Updates the vehicles's velocity according to speed and direction
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Vehicle.js, line 51</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="dead"><span class="type-signature"></span>dead</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Determines whether the vehicle has run out of hit points
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Vehicle.js, line 123</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">boolean</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="getBullet"><span class="type-signature"></span>getBullet</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Creates a new instance of PlayerBullet
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>PlayerVehicle.js, line 29</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">Taka.ordnance.PlayerBullet</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="getPos"><span class="type-signature"></span>getPos</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Gets the vehicle's coordinates
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Vehicle.js, line 89</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">{x: number, y: number}</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="getSprite"><span class="type-signature"></span>getSprite</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Gets the image asset
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Vehicle.js, line 97</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">Image</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="getVelocity"><span class="type-signature"></span>getVelocity</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Gets the vehicle's velocity
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Vehicle.js, line 71</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">{x: number, y: number}</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="hit"><span class="type-signature"></span>hit</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Handles a hit from a bullet or another vehicle
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>damage</code></td>
+            
+            
+            <td class="type">
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Vehicle.js, line 115</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="setPos"><span class="type-signature"></span>setPos</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Sets the vehicle's coordinates
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            Number
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Position in the X axis</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            Number
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Position in the Y axis</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Vehicle.js, line 80</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="update"><span class="type-signature"></span>update</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Updates the vehicle - called by Taka.core.Engine.Update
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Vehicle.js, line 43</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+</dl>
+            
+        
+        
+        
+        
+        
+    </article>
+    
+    </section>  
+    
+</div>
+
+<nav>
+    <h3>Classes</h3><ul><li><a href="Taka.assets.Assets.html">Assets</a></li><li><a href="Taka.assets.Cache.html">Cache</a></li><li><a href="Taka.core.Control.html">Control</a></li><li><a href="Taka.core.Engine.html">Engine</a></li><li><a href="Taka.core.Renderer.html">Renderer</a></li><li><a href="Taka.core.Timer.html">Timer</a></li><li><a href="Taka.effects.Effect.html">Effect</a></li><li><a href="Taka.effects.ExplosionEffect.html">ExplosionEffect</a></li><li><a href="Taka.levels.Level.html">Level</a></li><li><a href="Taka.levels.TestLevel.html">TestLevel</a></li><li><a href="Taka.ordnance.Bullet.html">Bullet</a></li><li><a href="Taka.ordnance.PlayerBullet.html">PlayerBullet</a></li><li><a href="Taka.ordnance.SmallBullet.html">SmallBullet</a></li><li><a href="Taka.utils.BoxUtil.html">BoxUtil</a></li><li><a href="Taka.vehicles.DroneVehicle.html">DroneVehicle</a></li><li><a href="Taka.vehicles.formations.A5Formation.html">A5Formation</a></li><li><a href="Taka.vehicles.formations.Formation.html">Formation</a></li><li><a href="Taka.vehicles.formations.V5Formation.html">V5Formation</a></li><li><a href="Taka.vehicles.PlayerVehicle.html">PlayerVehicle</a></li><li><a href="Taka.vehicles.Vehicle.html">Vehicle</a></li></ul><h3>Namespaces</h3><ul><li><a href="Taka.html">Taka</a></li><li><a href="Taka.assets.html">assets</a></li><li><a href="Taka.core.html">core</a></li><li><a href="Taka.core.Config.html">Config</a></li><li><a href="Taka.effects.html">effects</a></li><li><a href="Taka.levels.html">levels</a></li><li><a href="Taka.ordnance.html">ordnance</a></li><li><a href="Taka.utils.html">utils</a></li><li><a href="Taka.vehicles.html">vehicles</a></li><li><a href="Taka.vehicles.formations.html">formations</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/micmath/jsdoc">JSDoc 3</a> on Sun Dec 30 2012 03:32:32 GMT+0100 (CET)
+</footer>
+
+<script> sh_highlightDocument(); </script>
+</body>
+</html>

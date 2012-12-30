@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>JSDoc: Class: Timer</title>
+	
+	<script src="http://shjs.sourceforge.net/sh_main.min.js"> </script>
+    <script src="http://shjs.sourceforge.net/lang/sh_javascript.min.js"> </script>
+    
+    <link type="text/css" rel="stylesheet" href="styles/node-dark.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Class: Timer</h1>
+    
+    
+    
+    <section>
+     
+    <header>
+        <h2><span class="ancestors"><a href="Taka.html">Taka</a><a href="Taka.core.html">.core</a>.</span>Timer</h2>
+        
+    </header>  
+    
+    <article>
+        <div class="container-overview">
+        <dt>
+    <h4 class="name" id="Timer"><span class="type-signature"></span>new Timer</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        The main game timer (singleton)
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Timer.js, line 8</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            
+            <h3 class="subsection-title">Members</h3>
+            
+            <dl>
+<dt>
+    <h4 class="name" id="_callback"><span class="type-signature">&lt;private, static> </span>_callback<span class="type-signature"> :function</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        A method that will be called on every tick of the engine
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Timer.js, line 41</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_frame"><span class="type-signature">&lt;private, static> </span>_frame<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        The current frame number
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Timer.js, line 33</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_interval"><span class="type-signature">&lt;private, static> </span>_interval<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        The tick interval in microseconds
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Timer.js, line 25</li></ul></dd>
+	
+    
+    
+	
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+        <ul><li><a href="Taka.core.Config.html#fps">Taka.core.Config.fps</a></li></ul>
+	</dd>
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_run"><span class="type-signature">&lt;private, static> </span>_run<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        A flag indicating whether the engine is/should be running
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Timer.js, line 16</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+</dl>
+            
+        
+        
+        
+            
+            <h3 class="subsection-title">Methods</h3>
+            
+            <dl><dt>
+    <h4 class="name" id="_tick"><span class="type-signature">&lt;private, static> </span>_tick</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        The main game engine loop
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Timer.js, line 50</li></ul></dd>
+	
+    
+    
+	
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+        <ul><li><a href="Taka.core.Engine.html#Update">Taka.core.Engine.Update</a></li><li><a href="Taka.core.Renderer.html#Render">Taka.core.Renderer.Render</a></li></ul>
+	</dd>
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="frame"><span class="type-signature">&lt;static> </span>frame</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Returns the current frame number
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Timer.js, line 98</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+<div class="param-desc">
+    Number
+</div>
+
+
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="start"><span class="type-signature">&lt;static> </span>start</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Starts the game engine
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            HTMLCanvasElement
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The canvas to render to</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            function
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">An optional callback function to be invoked on every tick</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Timer.js, line 78</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="stop"><span class="type-signature">&lt;static> </span>stop</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Stops the game engine
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Timer.js, line 90</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+</dl>
+            
+        
+        
+        
+        
+        
+    </article>
+    
+    </section>  
+    
+</div>
+
+<nav>
+    <h3>Classes</h3><ul><li><a href="Taka.assets.Assets.html">Assets</a></li><li><a href="Taka.assets.Cache.html">Cache</a></li><li><a href="Taka.core.Control.html">Control</a></li><li><a href="Taka.core.Engine.html">Engine</a></li><li><a href="Taka.core.Renderer.html">Renderer</a></li><li><a href="Taka.core.Timer.html">Timer</a></li><li><a href="Taka.effects.Effect.html">Effect</a></li><li><a href="Taka.effects.ExplosionEffect.html">ExplosionEffect</a></li><li><a href="Taka.levels.Level.html">Level</a></li><li><a href="Taka.levels.TestLevel.html">TestLevel</a></li><li><a href="Taka.ordnance.Bullet.html">Bullet</a></li><li><a href="Taka.ordnance.PlayerBullet.html">PlayerBullet</a></li><li><a href="Taka.ordnance.SmallBullet.html">SmallBullet</a></li><li><a href="Taka.utils.BoxUtil.html">BoxUtil</a></li><li><a href="Taka.vehicles.DroneVehicle.html">DroneVehicle</a></li><li><a href="Taka.vehicles.formations.A5Formation.html">A5Formation</a></li><li><a href="Taka.vehicles.formations.Formation.html">Formation</a></li><li><a href="Taka.vehicles.formations.V5Formation.html">V5Formation</a></li><li><a href="Taka.vehicles.PlayerVehicle.html">PlayerVehicle</a></li><li><a href="Taka.vehicles.Vehicle.html">Vehicle</a></li></ul><h3>Namespaces</h3><ul><li><a href="Taka.html">Taka</a></li><li><a href="Taka.assets.html">assets</a></li><li><a href="Taka.core.html">core</a></li><li><a href="Taka.core.Config.html">Config</a></li><li><a href="Taka.effects.html">effects</a></li><li><a href="Taka.levels.html">levels</a></li><li><a href="Taka.ordnance.html">ordnance</a></li><li><a href="Taka.utils.html">utils</a></li><li><a href="Taka.vehicles.html">vehicles</a></li><li><a href="Taka.vehicles.formations.html">formations</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/micmath/jsdoc">JSDoc 3</a> on Sun Dec 30 2012 03:32:31 GMT+0100 (CET)
+</footer>
+
+<script> sh_highlightDocument(); </script>
+</body>
+</html>

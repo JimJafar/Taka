@@ -11,11 +11,11 @@ load:
   - ../src/main/js/assets/Cache.js
   - ../src/main/js/assets/Assets.js
   - ../src/main/js/vehicles/Vehicle.js
-  - ../src/main/js/vehicles/Player.js
-  - ../src/main/js/vehicles/Drone.js
+  - ../src/main/js/vehicles/PlayerVehicle.js
+  - ../src/main/js/vehicles/DroneVehicle.js
   - ../src/main/js/vehicles/formations/Formation.js
-  - ../src/main/js/vehicles/formations/A5.js
-  - ../src/main/js/vehicles/formations/V5.js
+  - ../src/main/js/vehicles/formations/A5Formation.js
+  - ../src/main/js/vehicles/formations/V5Formation.js
   - ../src/main/js/ordnance/Bullet.js
   - ../src/main/js/ordnance/PlayerBullet.js
   - ../src/main/js/ordnance/SmallBullet.js
