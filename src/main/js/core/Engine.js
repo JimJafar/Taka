@@ -323,6 +323,8 @@ Taka.core.Engine = (function() {
         }
     };
 
+    var _timePaused = null;
+
     /**
      * @lends Taka.core.Engine
      */
@@ -439,6 +441,7 @@ Taka.core.Engine = (function() {
         Pause: function() {
             _paused = !_paused;
             if (_paused) {
+                _timePaused = new Date().getTime();
                 Taka.core.Timer.stop();
             } else {
                 Taka.core.Timer.start(Taka.core.Renderer.getCanvas());
