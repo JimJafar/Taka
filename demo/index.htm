@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Taka : A simple JavaScript SHMUP engine" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/taka-github-page.css">
+
+    <title>Taka</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <a id="forkme_banner" href="https://github.com/JimSangwine/Taka">View on GitHub</a>
+
+        <h1 id="project_title">Taka</h1>
+        <h2 id="project_tagline">A simple JavaScript SHMUP engine</h2>
+
+        <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/JimSangwine/Taka/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/JimSangwine/Taka/tarball/master">Download this project as a tar.gz file</a>
+        </section>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+        <ul id="taka-menu">
+            <li><a href="../index.html">home</a></li>
+            <li>demo</li>
+            <li><a href="../docs.html">API docs</a></li>
+            <li><a href="../test-coverage.html">test coverage</a></li>
+        </ul>
+        <h3>The Taka demo</h3>
+
+		<div style="width:100%">
+			<div style="width:300px; margin:10px auto;">
+				movement: arrow keys<br />
+				shoot: space<br />
+				pause: escape<br />
+				<canvas id="TakaCanvas" width="300" height="400"></canvas>
+				<div id="tracker"></div>
+			</div>
+		</div>
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.min.js"></script>
+        <script>
+            var useMinified = true;
+            if (useMinified) {
+                head.js('Taka-conf.js');
+                head.js('js/Taka-min.js');
+            } else {
+                head.js('js/TakaConfig.js');
+                head.js('js/Taka.js');
+                head.js('js/utils/BoxUtil.js');
+                head.js('js/core/Control.js');
+                head.js('js/core/Engine.js');
+                head.js('js/core/Renderer.js');
+                head.js('js/core/Timer.js');
+                head.js('js/assets/Cache.js');
+                head.js('js/assets/Assets.js');
+                head.js('js/vehicles/Vehicle.js');
+                head.js('js/vehicles/PlayerVehicle.js');
+                head.js('js/vehicles/DroneVehicle.js');
+                head.js('js/vehicles/formations/Formation.js');
+                head.js('js/vehicles/formations/A5Formation.js');
+                head.js('js/vehicles/formations/V5Formation.js');
+                head.js('js/ordnance/Bullet.js');
+                head.js('js/ordnance/PlayerBullet.js');
+                head.js('js/ordnance/SmallBullet.js');
+                head.js('js/effects/Effect.js');
+                head.js('js/effects/ExplosionEffect.js');
+                head.js('js/levels/Level.js');
+                head.js('js/levels/TestLevel.js');
+            }
+            head.ready(function() {
+                var framenum = 0;
+                var tracker = document.getElementById('tracker');
+                var canvas = document.getElementById('TakaCanvas');
+
+                Taka.core.Engine.Player(new Taka.vehicles.PlayerVehicle(121,300));
+                Taka.core.Engine.Level(new Taka.levels.TestLevel());
+
+                var callback = function() {
+                    framenum++;
+                    tracker.innerHTML = 'frame: ' + framenum +
+                            '<br />fps: ' + Taka.core.Engine.FPS() +
+                            '<br />life: ' + Taka.core.Engine.Player().life;
+                };
+
+                Taka.start(canvas, callback);
+            });
+        </script>
+    </section>
+</div>
+
+<!-- FOOTER    -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright">Taka maintained by <a href="https://github.com/JimSangwine">JimSangwine</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

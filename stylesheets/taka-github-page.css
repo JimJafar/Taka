@@ -1,0 +1,7 @@
+@import url(stylesheet.css);
+
+iframe {
+    width: 100%;
+    height: 100%;
+    overflow-y: visible;
+}
