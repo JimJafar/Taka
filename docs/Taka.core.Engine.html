@@ -1,0 +1,2456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>JSDoc: Class: Engine</title>
+	
+	<script src="http://shjs.sourceforge.net/sh_main.min.js"> </script>
+    <script src="http://shjs.sourceforge.net/lang/sh_javascript.min.js"> </script>
+    
+    <link type="text/css" rel="stylesheet" href="styles/node-dark.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Class: Engine</h1>
+    
+    
+    
+    <section>
+     
+    <header>
+        <h2><span class="ancestors"><a href="Taka.html">Taka</a><a href="Taka.core.html">.core</a>.</span>Engine</h2>
+        
+    </header>  
+    
+    <article>
+        <div class="container-overview">
+        <dt>
+    <h4 class="name" id="Engine"><span class="type-signature"></span>new Engine</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        The game engine
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 7</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            
+            <h3 class="subsection-title">Members</h3>
+            
+            <dl>
+<dt>
+    <h4 class="name" id="_eBullets"><span class="type-signature">&lt;private, static> </span>_eBullets<span class="type-signature"> :Array</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        A collection of all the onscreen enemy bullets
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 63</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_effects"><span class="type-signature">&lt;private, static> </span>_effects<span class="type-signature"> :Array</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        A collection of all the onscreen effects
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 79</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_enemies"><span class="type-signature">&lt;private, static> </span>_enemies<span class="type-signature"> :Array</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        A collection of all the onscreen enemy ships
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 47</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_formations"><span class="type-signature">&lt;private, static> </span>_formations<span class="type-signature"> :Array</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        A collection of all the onscreen enemy ships
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 55</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_fps"><span class="type-signature">&lt;private, static> </span>_fps<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        The current calculated FPS
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 103</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_framesAtLastFPSUpdate"><span class="type-signature">&lt;private, static> </span>_framesAtLastFPSUpdate<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        The frame count the last time the FPS was updated
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 95</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_lastFPSUpdate"><span class="type-signature">&lt;private, static> </span>_lastFPSUpdate<span class="type-signature"> :Date</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        The last time the FPS was updated (happens approx once per second)
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 87</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_level"><span class="type-signature">&lt;private, static> </span>_level<span class="type-signature"> :<a href="Taka.levels.Level.html">Taka.levels.Level</a></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        The level
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 31</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_paused"><span class="type-signature">&lt;private, static> </span>_paused<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        A flag indicating whether the engine is paused
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 111</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_pBullets"><span class="type-signature">&lt;private, static> </span>_pBullets<span class="type-signature"> :Array</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        A collection of all the onscreen player bullets
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 71</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_player"><span class="type-signature">&lt;private, static> </span>_player<span class="type-signature"> :<a href="Taka.vehicles.PlayerVehicle.html">Taka.vehicles.PlayerVehicle</a></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        The player's ship
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 39</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_screenHeight"><span class="type-signature">&lt;private, static> </span>_screenHeight<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        The height of the game screen (canvas) in pixels
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 23</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+<dt>
+    <h4 class="name" id="_screenWidth"><span class="type-signature">&lt;private, static> </span>_screenWidth<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <p class="description">
+        The width of the game screen (canvas) in pixels
+    </p>
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 15</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+</dl>
+            
+        
+        
+        
+            
+            <h3 class="subsection-title">Methods</h3>
+            
+            <dl><dt>
+    <h4 class="name" id="_doCollisions"><span class="type-signature">&lt;private, static> </span>_doCollisions</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Detects and actions collisions
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 259</li></ul></dd>
+	
+    
+    
+	
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+        <ul><li><a href="Taka.utils.BoxUtil.html">Taka.utils.BoxUtil</a></li></ul>
+	</dd>
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="_updateBullets"><span class="type-signature">&lt;private, static> </span>_updateBullets</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Updates all the on-screen bullets
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 152</li></ul></dd>
+	
+    
+    
+	
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+        <ul><li>Taka.ordnance.Bullet.updateVelocity</li></ul>
+	</dd>
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="_updateEffects"><span class="type-signature">&lt;private, static> </span>_updateEffects</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Updates all the on-screen effects
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 243</li></ul></dd>
+	
+    
+    
+	
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+        <ul><li><a href="Taka.effects.Effect.html">Taka.effects.Effect</a></li></ul>
+	</dd>
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="_updateEnemies"><span class="type-signature">&lt;private, static> </span>_updateEnemies</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Updates all the on-screen enemies
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 193</li></ul></dd>
+	
+    
+    
+	
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+        <ul><li>Taka.vehicles.Vehicle.update</li></ul>
+	</dd>
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="_updateFormations"><span class="type-signature">&lt;private, static> </span>_updateFormations</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Updates all the on-screen Vehicle formations
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>frame</code></td>
+            
+            
+            <td class="type">
+            Number
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The frame number</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 227</li></ul></dd>
+	
+    
+    
+	
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+        <ul><li>Taka.vehilces.formations.Formation.update</li></ul>
+	</dd>
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="_updateLevel"><span class="type-signature">&lt;private, static> </span>_updateLevel</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Updates the level (executes frame triggers) - called every frame
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>frame</code></td>
+            
+            
+            <td class="type">
+            Number
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The current frame number</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 305</li></ul></dd>
+	
+    
+    
+	
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+        <ul><li>Taka.levels.Level.update</li></ul>
+	</dd>
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="_updatePlayer"><span class="type-signature">&lt;private, static> </span>_updatePlayer</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Updates the player ship's position and state
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 119</li></ul></dd>
+	
+    
+    
+	
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+        <ul><li>Taka.vehicles.PlayerVehicle.update</li></ul>
+	</dd>
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="_updateStats"><span class="type-signature">&lt;private, static> </span>_updateStats</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Updates the game stats (FPS etc.) - called every frame
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>frame</code></td>
+            
+            
+            <td class="type">
+            Number
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The current frame number</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 315</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="addEnemy"><span class="type-signature">&lt;static> </span>addEnemy</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Adds a single enemy to the game - enemies are added just off-screen
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>enemy</code></td>
+            
+            
+            <td class="type">
+            <a href="Taka.vehicles.Vehicle.html">Taka.vehicles.Vehicle</a>
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The enemy to be added</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 417</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="addFormation"><span class="type-signature">&lt;static> </span>addFormation</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Adds a formation of enemies to the game - enemies are added just off-screen
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>formation</code></td>
+            
+            
+            <td class="type">
+            <a href="Taka.vehicles.formations.Formation.html">Taka.vehicles.formations.Formation</a>
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The formation to be added</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 425</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="Effects"><span class="type-signature">&lt;static> </span>Effects</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Gets the collection of effects
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 409</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">Array</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="Enemies"><span class="type-signature">&lt;static> </span>Enemies</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Gets the collection of enemies
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 401</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">Array</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="EnemyBullets"><span class="type-signature">&lt;static> </span>EnemyBullets</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Gets the collection of bullets fired by enemies
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 393</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">Array</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="FPS"><span class="type-signature">&lt;static> </span>FPS</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Gets the target Frames Per Second
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 433</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">Number</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="isPaused"><span class="type-signature">&lt;static> </span>isPaused</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Returns a boolean indication of whether the engine is paused or not
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 455</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">Boolean</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="Level"><span class="type-signature">&lt;static> </span>Level</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Gets or sets the level
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>level</code></td>
+            
+            
+            <td class="type">
+            <a href="Taka.levels.Level.html">Taka.levels.Level</a>
+            </td>
+            
+            
+                <td class="attributes">
+                &lt;optional><br>
+                </td>
+            
+            
+            
+            
+            <td class="description last">The level if setting</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 362</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">Taka.levels.Level</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="Pause"><span class="type-signature">&lt;static> </span>Pause</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Toggles pause state
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 441</li></ul></dd>
+	
+    
+    
+	
+	
+	<dt class="tag-see">See:</dt>
+	<dd class="tag-see">
+        <ul><li><a href="Taka.core.Timer.html">Taka.core.Timer</a></li></ul>
+	</dd>
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="Player"><span class="type-signature">&lt;static> </span>Player</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Gets or sets the player's ship
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>player</code></td>
+            
+            
+            <td class="type">
+            <a href="Taka.vehicles.PlayerVehicle.html">Taka.vehicles.PlayerVehicle</a>
+            </td>
+            
+            
+                <td class="attributes">
+                &lt;optional><br>
+                </td>
+            
+            
+            
+            
+            <td class="description last">The player's vehicle</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 374</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">Taka.vehicles.PlayerVehicle</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="PlayerBullets"><span class="type-signature">&lt;static> </span>PlayerBullets</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Gets the collection of bullets fired by the player
+    </p>
+    
+    
+    
+    
+    
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 385</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">Array</span> 
+		
+	</dd>
+</dl>
+
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="setGameDimensions"><span class="type-signature">&lt;static> </span>setGameDimensions</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Sets the screen (canvas) height and width
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+            
+            <td class="type">
+            Number
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The width of the screen (canvas) in pixels</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+            
+            <td class="type">
+            Number
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The height of the screen (canvas) in pixels</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 352</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+<dt>
+    <h4 class="name" id="Update"><span class="type-signature">&lt;static> </span>Update</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <p class="description">
+        Updates the game state - called every frame
+    </p>
+    
+    
+    
+    
+    <h5>Parameters:</h5>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>frame</code></td>
+            
+            
+            <td class="type">
+            Number
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The current frame number</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    <dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>Engine.js, line 336</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+</dd>
+</dl>
+            
+        
+        
+        
+        
+        
+    </article>
+    
+    </section>  
+    
+</div>
+
+<nav>
+    <h3>Classes</h3><ul><li><a href="Taka.assets.Assets.html">Assets</a></li><li><a href="Taka.assets.Cache.html">Cache</a></li><li><a href="Taka.core.Control.html">Control</a></li><li><a href="Taka.core.Engine.html">Engine</a></li><li><a href="Taka.core.Renderer.html">Renderer</a></li><li><a href="Taka.core.Timer.html">Timer</a></li><li><a href="Taka.effects.Effect.html">Effect</a></li><li><a href="Taka.effects.ExplosionEffect.html">ExplosionEffect</a></li><li><a href="Taka.levels.Level.html">Level</a></li><li><a href="Taka.levels.TestLevel.html">TestLevel</a></li><li><a href="Taka.ordnance.Bullet.html">Bullet</a></li><li><a href="Taka.ordnance.PlayerBullet.html">PlayerBullet</a></li><li><a href="Taka.ordnance.SmallBullet.html">SmallBullet</a></li><li><a href="Taka.utils.BoxUtil.html">BoxUtil</a></li><li><a href="Taka.vehicles.DroneVehicle.html">DroneVehicle</a></li><li><a href="Taka.vehicles.formations.A5Formation.html">A5Formation</a></li><li><a href="Taka.vehicles.formations.Formation.html">Formation</a></li><li><a href="Taka.vehicles.formations.V5Formation.html">V5Formation</a></li><li><a href="Taka.vehicles.PlayerVehicle.html">PlayerVehicle</a></li><li><a href="Taka.vehicles.Vehicle.html">Vehicle</a></li></ul><h3>Namespaces</h3><ul><li><a href="Taka.html">Taka</a></li><li><a href="Taka.assets.html">assets</a></li><li><a href="Taka.core.html">core</a></li><li><a href="Taka.effects.html">effects</a></li><li><a href="Taka.levels.html">levels</a></li><li><a href="Taka.ordnance.html">ordnance</a></li><li><a href="Taka.utils.html">utils</a></li><li><a href="Taka.vehicles.html">vehicles</a></li><li><a href="Taka.vehicles.formations.html">formations</a></li><li><a href="TakaConfig.html">TakaConfig</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/micmath/jsdoc">JSDoc 3</a> on Wed Jan 02 2013 03:21:53 GMT+0100 (CET)
+</footer>
+
+<script> sh_highlightDocument(); </script>
+</body>
+</html>
