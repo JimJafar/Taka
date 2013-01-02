@@ -11,7 +11,6 @@ groups {
     }
 
     core {
-        js("/core/Config.js")
         js("/core/Control.js")
         js("/core/Engine.js")
         js("/core/Renderer.js")

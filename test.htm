@@ -23,7 +23,8 @@
         <script>
             var useMinified = false;
             if (useMinified) {
-                head.js('build/js/Taka.js');
+                head.js('build/js/Taka-conf.js');
+                head.js('build/js/Taka-min.js');
             } else {
                 head.js('src/main/js/Taka.js');
                 head.js('src/main/js/utils/BoxUtil.js');

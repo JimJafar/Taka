@@ -10,7 +10,7 @@ var Taka = (Taka) ? Taka : {};
      * @constructor
      */
     Taka.ordnance.SmallBullet = function(x, y) {
-        var sprite = Taka.assets.Assets.load('SmallBullet', 'src/main/resources/ordnance/SmallBullet.png');
+        var sprite = Taka.assets.Assets.load('SmallBullet', 'ordnance/SmallBullet.png');
         var width = 17;
         var height = 16;
         var speed = 4;

@@ -13,7 +13,7 @@ var Taka = (Taka) ? Taka : {};
      * @constructor
      */
     Taka.vehicles.DroneVehicle = function(x, y, velX, velY) {
-        var sprite = Taka.assets.Assets.load('Drone', 'src/main/resources/vehicles/Drone.png');
+        var sprite = Taka.assets.Assets.load('Drone', 'vehicles/Drone.png');
         var width = 32;
         var height = 31;
         var speed = 2;

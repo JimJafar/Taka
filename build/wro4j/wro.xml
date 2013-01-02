@@ -15,7 +15,6 @@
     </group>
 
     <group name="core">
-        <js>/core/Config.js</js>
         <js>/core/Control.js</js>
         <js>/core/Engine.js</js>
         <js>/core/Renderer.js</js>

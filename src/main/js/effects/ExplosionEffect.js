@@ -15,7 +15,7 @@ var Taka = (Taka) ? Taka : {};
     Taka.effects.ExplosionEffect = function(x, y, velX, velY) {
         var sprites = [];
         for (var i=0; i<7; i++) {
-            sprites[i] = Taka.assets.Assets.load('ExplosionEffect'+i, 'src/main/resources/effects/explosion-0'+i+'.png');
+            sprites[i] = Taka.assets.Assets.load('ExplosionEffect'+i, 'effects/explosion-0'+i+'.png');
         }
 
         var width = 60;
