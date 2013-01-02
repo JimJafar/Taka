@@ -4,3 +4,36 @@ iframe {
     width: 100%;
     overflow-y: visible;
 }
+
+#taka-menu li {
+    list-style-type: none;
+    float: left;
+    margin-right: 10px;
+    padding: 0 10px 0 0;
+    border-right: 1px solid #000000;
+}
+
+#taka-menu li:last-of-type {
+    border-right: none;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
