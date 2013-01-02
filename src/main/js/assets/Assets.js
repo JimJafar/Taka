@@ -1,5 +1,6 @@
 /*global Image:false */
 var Taka = (Taka) ? Taka : {};
+var TakaConfig = (TakaConfig) ? TakaConfig : {};
 
 /**
  * Handles assets (e.g. images)
@@ -23,7 +24,7 @@ Taka.assets.Assets = (function() {
             var sprite = _cache.fetchSprite(key);
             if (sprite === null) {
                 sprite = new Image();
-                sprite.src = Taka.core.Config.resourcesBaseUrl + path;
+                sprite.src = TakaConfig.resourcesBaseUrl + path;
                 _cache.addSprite(sprite, key);
             }
             return sprite;

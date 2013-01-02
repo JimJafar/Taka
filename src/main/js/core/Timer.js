@@ -1,5 +1,6 @@
 /*global setTimeout:false */
 var Taka = (Taka) ? Taka : {};
+var TakaConfig = (TakaConfig) ? TakaConfig : {};
 
 /**
  * The main game timer (singleton)
@@ -19,10 +20,10 @@ Taka.core.Timer = (function() {
      * The tick interval in microseconds
      * @memberof Taka.core.Timer
      * @type Number
-     * @see Taka.core.Config.fps
+     * @see TakaConfig.fps
      * @private
      */
-    var _interval = 1000 / Taka.core.Config.fps;
+    var _interval = 1000 / TakaConfig.fps;
 
     /**
      * The current frame number

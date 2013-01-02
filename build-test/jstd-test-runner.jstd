@@ -3,7 +3,7 @@ load:
   - jstd-jasmine-lib/JasmineAdapter-1.1.2.js
   - ../src/main/js/Taka.js
   - ../src/main/js/utils/BoxUtil.js
-  - ../src/main/js/core/Config.js
+  - ../src/main/js/core/TakaConfig.js
   - ../src/main/js/core/Control.js
   - ../src/main/js/core/Engine.js
   - ../src/main/js/core/Renderer.js

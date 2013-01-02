@@ -53,9 +53,9 @@
                 <configuration>
                     <jsSrcDir>${project.basedir}/src/main/js</jsSrcDir>
                     <sourceIncludes>
+                        <include>TakaConfig.js</include>
                         <include>Taka.js</include>
                         <include>utils/BoxUtil.js</include>
-                        <include>core/Config.js</include>
                         <include>core/Control.js</include>
                         <include>core/Engine.js</include>
                         <include>core/Renderer.js</include>
@@ -182,7 +182,7 @@
                         <configuration>
                             <target name="rename" description="handles renaming, moving and copying stuff from other steps in the build">
                                 <rename src="${basedir}/build/js/Taka.js" dest="${basedir}/build/js/Taka-min.js" />
-                                <copy file="${basedir}/src/main/js/core/Config.js" tofile="${basedir}/build/js/Taka-conf.js" />
+                                <copy file="${basedir}/src/main/js/TakaConfig.js" tofile="${basedir}/build/js/Taka-conf.js" />
                             </target>
                         </configuration>
                     </execution>

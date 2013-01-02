@@ -1,9 +1,7 @@
-var Taka = (Taka) ? Taka : {};
-
 /**
  * @namespace
  */
-Taka.core.Config = {
+var TakaConfig = {
     /**
      * The url of the resources directory (ending in a slash)
      * @type string

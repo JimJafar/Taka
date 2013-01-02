@@ -21,14 +21,14 @@
 
         <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.min.js"></script>
         <script>
-            var useMinified = false;
+            var useMinified = true;
             if (useMinified) {
                 head.js('build/js/Taka-conf.js');
                 head.js('build/js/Taka-min.js');
             } else {
+                head.js('src/main/js/TakaConfig.js');
                 head.js('src/main/js/Taka.js');
                 head.js('src/main/js/utils/BoxUtil.js');
-                head.js('src/main/js/core/Config.js');
                 head.js('src/main/js/core/Control.js');
                 head.js('src/main/js/core/Engine.js');
                 head.js('src/main/js/core/Renderer.js');

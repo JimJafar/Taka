@@ -1,5 +1,6 @@
 /*global window:false */
 var Taka = (Taka) ? Taka : {};
+var TakaConfig = (TakaConfig) ? TakaConfig : {};
 
 /**
  * Handles user input (singleton)
@@ -18,22 +19,22 @@ Taka.core.Control = (function() {
         keyDown: function(e) {
             var code = (window.event) ? window.event.keyCode : e.which;
             switch(code) {
-                case Taka.core.Config.buttons.up:
+                case TakaConfig.buttons.up:
                     Taka.core.Engine.Player().moveUp = true;
                     break;
-                case Taka.core.Config.buttons.down:
+                case TakaConfig.buttons.down:
                     Taka.core.Engine.Player().moveDown = true;
                     break;
-                case Taka.core.Config.buttons.left:
+                case TakaConfig.buttons.left:
                     Taka.core.Engine.Player().moveLeft = true;
                     break;
-                case Taka.core.Config.buttons.right:
+                case TakaConfig.buttons.right:
                     Taka.core.Engine.Player().moveRight = true;
                     break;
-                case Taka.core.Config.buttons.fire:
+                case TakaConfig.buttons.fire:
                     Taka.core.Engine.Player().fire = true;
                     break;
-                case Taka.core.Config.buttons.pause:
+                case TakaConfig.buttons.pause:
                     Taka.core.Engine.Pause();
                     break;
             }
@@ -46,19 +47,19 @@ Taka.core.Control = (function() {
         keyUp: function(e) {
             var code = (window.event) ? window.event.keyCode : e.which;
             switch(code) {
-                case Taka.core.Config.buttons.up:
+                case TakaConfig.buttons.up:
                     Taka.core.Engine.Player().moveUp = false;
                     break;
-                case Taka.core.Config.buttons.down:
+                case TakaConfig.buttons.down:
                     Taka.core.Engine.Player().moveDown = false;
                     break;
-                case Taka.core.Config.buttons.left:
+                case TakaConfig.buttons.left:
                     Taka.core.Engine.Player().moveLeft = false;
                     break;
-                case Taka.core.Config.buttons.right:
+                case TakaConfig.buttons.right:
                     Taka.core.Engine.Player().moveRight = false;
                     break;
-                case Taka.core.Config.buttons.fire:
+                case TakaConfig.buttons.fire:
                     Taka.core.Engine.Player().fire = false;
                     break;
             }
