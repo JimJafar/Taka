@@ -12,7 +12,10 @@ For further information, a demo, API docs and more, please visit the [Taka proje
 FAQ's
 -----
 WTF is a "SHMUP"?
+
 *See [Wikipedia](http://en.wikipedia.org/wiki/Shmup)*
 
+
 WTF is a 2D game engine?
+
 *See Wikipedia's entries on [game engines](http://en.wikipedia.org/wiki/Game_engine), [2D graphics](http://en.wikipedia.org/wiki/2D_computer_graphics) and [collision detection](http://en.wikipedia.org/wiki/Collision_detection)*
