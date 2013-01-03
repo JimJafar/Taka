@@ -51,12 +51,12 @@
 
         <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.min.js"></script>
         <script>
-            var useMinified = true;
+            var useMinified = false;
             if (useMinified) {
                 head.js('Taka-conf.js');
                 head.js('js/Taka-min.js');
             } else {
-                head.js('js/TakaConfig.js');
+                head.js('Taka-conf.js');
                 head.js('js/Taka.js');
                 head.js('js/utils/BoxUtil.js');
                 head.js('js/core/Control.js');
