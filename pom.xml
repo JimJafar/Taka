@@ -174,27 +174,16 @@
                 <version>1.7</version>
                 <executions>
                     <execution>
-                        <id>rename</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target name="rename" description="handles renaming, moving and copying stuff from other steps in the build">
-                                <rename src="${basedir}/build/js/Taka.js" dest="${basedir}/build/js/Taka-min.js" />
-                                <copy file="${basedir}/src/main/js/TakaConfig.js" tofile="${basedir}/build/js/Taka-conf.js" />
-                            </target>
-                        </configuration>
-                    </execution>
-
-                    <execution>
                         <id>default-cli</id>
                         <phase>package</phase>
                         <goals>
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <target name="jsdoc3" description="jsdoc3 API docs auto-generation">
+                            <target name="antrun" description="antrun tasks including jsdoc3 API docs auto-generation">
+                                <move file="${basedir}/build/js/Taka.js" tofile="${basedir}/build/js/Taka-min.js" />
+                                <copy file="${basedir}/src/main/js/TakaConfig.js" tofile="${basedir}/build/js/Taka-conf.js" overwrite="true" />
+
                                 <delete dir="${jsdoc3BaseDir}/docs" />
                                 <mkdir dir="${jsdoc3BaseDir}/docs" />
                                 <mkdir dir="${jsdoc3BaseDir}/jsdoc3-ant-task-master/bin" />
