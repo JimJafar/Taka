@@ -37,3 +37,36 @@ html[xmlns] .clearfix {
 * html .clearfix {
     height: 1%;
 }
+
+#downloads {
+    width: 395px !important;
+}
+
+.zip_min_download_link {
+    display: block;
+    float: right;
+    width: 90px;
+    height:70px;
+    text-indent: -5000px;
+    overflow: hidden;
+    background: url(../images/sprite_min_download.png) no-repeat bottom left;
+}
+
+.tar_min_download_link {
+    display: block;
+    float: right;
+    width: 90px;
+    height:70px;
+    text-indent: -5000px;
+    overflow: hidden;
+    background: url(../images/sprite_min_download.png) no-repeat bottom right;
+    margin-left: 10px;
+}
+
+.zip_min_download_link:hover {
+    background: url(../images/sprite_min_download.png) no-repeat top left;
+}
+
+.tar_min_download_link:hover {
+    background: url(../images/sprite_min_download.png) no-repeat top right;
+}
