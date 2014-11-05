@@ -18,32 +18,32 @@ var TakaConfig = {
     buttons: {
         /**
          * The keycode for moving the player up
-         * @type integer
+         * @type number
          */
         up: 38,
         /**
          * The keycode for moving the player down
-         * @type integer
+         * @type number
          */
         down: 40,
         /**
          * The keycode for moving the player left
-         * @type integer
+         * @type number
          */
         left: 37,
         /**
          * The keycode for moving the player right
-         * @type integer
+         * @type number
          */
         right: 39,
         /**
          * The keycode for firing the player's guns
-         * @type integer
+         * @type number
          */
         fire: 32,
         /**
          * The keycode for pausing the game
-         * @type integer
+         * @type number
          */
         pause: 27
     }
