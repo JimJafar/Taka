@@ -62,6 +62,7 @@ var paths = {
         root : './build'
     },
     jasmine : {
+        coverage : 'coverage.html',
         reports : {
             in : 'TEST-*.xml',
             out : './test/js/reports'
@@ -97,7 +98,7 @@ gulp.task('js', function(callback) {
     runSequence('jshint', 'concat_js', 'minify_js', 'copy_config', 'archive', callback);
 });
 gulp.task('test', function(callback) {
-    runSequence('test_js', 'move_jasmine_reports', callback);
+    runSequence('test_js', 'move_jasmine_reports', 'move_coverage_reports', callback);
 });
 gulp.task('archive', function(callback) {
     runSequence('archive_tar', 'archive_zip', callback);
@@ -204,14 +205,14 @@ gulp.task('jsdoc', function() {
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 gulp.task('test_js', function() {
-    return gulp.src(paths.jasmine.specs)
+    return gulp.src(paths.jasmine.specrunner)
         .pipe(cover.instrument({
-            pattern: [paths.jasmine.specs],
+            pattern: [paths.jasmine.reports.in],
             debugDirectory: 'debug'
         }))
         .pipe(jasminePhantomJs({webSecurity: 'no'}))
         .pipe(cover.report({
-            outFile: paths.jasmine.reports.out+'/coverage.html'
+            outFile: paths.jasmine.coverage
         }));
 });
 
@@ -222,6 +223,17 @@ gulp.task('test_js', function() {
 
 gulp.task('move_jasmine_reports', function() {
     return gulp.src(paths.jasmine.reports.in)
+        .pipe(clean())
+        .pipe(gulp.dest(paths.jasmine.reports.out));
+});
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Task for moving test coverage report to the
+ * test/js/reports directory
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+gulp.task('move_coverage_reports', function() {
+    return gulp.src(paths.jasmine.coverage)
         .pipe(clean())
         .pipe(gulp.dest(paths.jasmine.reports.out));
 });
