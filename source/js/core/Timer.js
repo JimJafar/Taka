@@ -1,13 +1,11 @@
 /*global setTimeout:false */
-var Taka = (Taka) ? Taka : {};
-var TakaConfig = (TakaConfig) ? TakaConfig : {};
-
 /**
- * The main game timer (singleton)
- * @class
+ * The main game timer
  */
 Taka.core.Timer = (function() {
+
     "use strict";
+
     /**
      * A flag indicating whether the engine is/should be running
      * @memberof Taka.core.Timer
@@ -20,10 +18,10 @@ Taka.core.Timer = (function() {
      * The tick interval in microseconds
      * @memberof Taka.core.Timer
      * @type Number
-     * @see TakaConfig.fps
+     * @see Taka.Config.fps
      * @private
      */
-    var _interval = 1000 / TakaConfig.fps;
+    var _interval = 1000 / Taka.Config.fps;
 
     /**
      * The current frame number
@@ -48,7 +46,7 @@ Taka.core.Timer = (function() {
      * @see Taka.core.Renderer.Render
      * @private
      */
-    function _tick() {
+    var _tick = function() {
         if (_run) {
             _frame++;
 
@@ -65,7 +63,7 @@ Taka.core.Timer = (function() {
             // recurse
             setTimeout(_tick, _interval);
         }
-    }
+    };
 
     /**
      * @lends Taka.core.Timer

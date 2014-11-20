@@ -1,11 +1,10 @@
-var Taka = (Taka) ? Taka : {};
-
 /**
- * The game renderer (singleton)
- * @class
+ * The game renderer
  */
 Taka.core.Renderer = (function() {
+
     "use strict";
+
     /**
      * A reference to the canvas DOM object the game will be rendered in
      * @memberof Taka.core.Renderer

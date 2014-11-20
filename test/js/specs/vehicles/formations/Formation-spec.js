@@ -1,5 +1,3 @@
-var Taka = (Taka) ? Taka : {};
-
 describe('Taka.levels.Level', function() {
     "use strict";
 

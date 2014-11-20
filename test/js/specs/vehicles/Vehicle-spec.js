@@ -1,12 +1,13 @@
-var Taka = (Taka) ? Taka : {};
-
 describe('Taka.vehicles.Vehicle', function() {
     "use strict";
 
     var vehicle;
+    var onUpdate = {
+        callback : function() {}
+    };
 
     beforeEach(function() {
-        vehicle = new Taka.vehicles.Vehicle('theSprite', 1, 2, 3, 4, 5, 6, 7);
+        vehicle = new Taka.vehicles.Vehicle('theSprite', 1, 2, 3, 4, 5, 6, 7, Taka.ordnance.PlayerBullet, onUpdate.callback);
     });
 
     describe('constructor', function() {
@@ -32,30 +33,30 @@ describe('Taka.vehicles.Vehicle', function() {
     });
 
     describe('prototype', function() {
-        it('should call all the update methods', function() {
-            spyOn(vehicle, '_updateVelocity');
-            vehicle.update(42);
-            expect(vehicle._updateVelocity).toHaveBeenCalled();
-        });
-
         it('should update the velocity', function() {
             vehicle.moveUp = true;
-            vehicle._updateVelocity();
+            vehicle.update();
             expect(vehicle.velY).toBe(-5);
 
             vehicle.moveUp = false;
             vehicle.moveDown = true;
-            vehicle._updateVelocity();
+            vehicle.update();
             expect(vehicle.velY).toBe(5);
 
             vehicle.moveLeft = true;
-            vehicle._updateVelocity();
+            vehicle.update();
             expect(vehicle.velX).toBe(-5);
 
             vehicle.moveLeft = false;
             vehicle.moveRight = true;
-            vehicle._updateVelocity();
+            vehicle.update();
             expect(vehicle.velX).toBe(5);
+        });
+
+        if('should invoke the onUpdate callback', function() {
+            spyOn(onUpdate, 'callback');
+            vehicle.update();
+            expect(onUpdate.callback).toHaveBeenCalled();
         });
 
         it('should return the velocity', function() {
@@ -83,9 +84,8 @@ describe('Taka.vehicles.Vehicle', function() {
         });
 
         it('should get a new bullet instance', function() {
-            spyOn(Taka.ordnance, 'PlayerBullet');
-            vehicle._getBullet(Taka.ordnance.PlayerBullet);
-            expect(Taka.ordnance.PlayerBullet).toHaveBeenCalledWith(3.5, 4);
+            var bullet = vehicle.getBullet();
+            expect(bullet instanceof Taka.ordnance.Bullet).toBe(true);
         });
     });
 

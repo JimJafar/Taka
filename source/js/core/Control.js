@@ -1,12 +1,9 @@
 /*global window:false */
-var Taka = (Taka) ? Taka : {};
-var TakaConfig = (TakaConfig) ? TakaConfig : {};
-
 /**
- * Handles user input (singleton)
- * @class
+ * Handles user input
  */
 Taka.core.Control = (function() {
+
     "use strict";
 
     /**
@@ -67,27 +64,27 @@ Taka.core.Control = (function() {
         keyDown: function(e) {
             _getEventAndCode(e);
             switch(_code) {
-                case TakaConfig.buttons.up:
+                case Taka.Config.buttons.up:
                     Taka.core.Engine.Player().moveUp = true;
                     _stopPropagation(_event);
                     break;
-                case TakaConfig.buttons.down:
+                case Taka.Config.buttons.down:
                     Taka.core.Engine.Player().moveDown = true;
                     _stopPropagation(_event);
                     break;
-                case TakaConfig.buttons.left:
+                case Taka.Config.buttons.left:
                     Taka.core.Engine.Player().moveLeft = true;
                     _stopPropagation(_event);
                     break;
-                case TakaConfig.buttons.right:
+                case Taka.Config.buttons.right:
                     Taka.core.Engine.Player().moveRight = true;
                     _stopPropagation(_event);
                     break;
-                case TakaConfig.buttons.fire:
+                case Taka.Config.buttons.fire:
                     Taka.core.Engine.Player().fire = true;
                     _stopPropagation(_event);
                     break;
-                case TakaConfig.buttons.pause:
+                case Taka.Config.buttons.pause:
                     Taka.core.Engine.Pause();
                     _stopPropagation(_event);
                     break;
@@ -101,23 +98,23 @@ Taka.core.Control = (function() {
         keyUp: function(e) {
             _getEventAndCode(e);
             switch(_code) {
-                case TakaConfig.buttons.up:
+                case Taka.Config.buttons.up:
                     Taka.core.Engine.Player().moveUp = false;
                     _stopPropagation(_event);
                     break;
-                case TakaConfig.buttons.down:
+                case Taka.Config.buttons.down:
                     Taka.core.Engine.Player().moveDown = false;
                     _stopPropagation(_event);
                     break;
-                case TakaConfig.buttons.left:
+                case Taka.Config.buttons.left:
                     Taka.core.Engine.Player().moveLeft = false;
                     _stopPropagation(_event);
                     break;
-                case TakaConfig.buttons.right:
+                case Taka.Config.buttons.right:
                     Taka.core.Engine.Player().moveRight = false;
                     _stopPropagation(_event);
                     break;
-                case TakaConfig.buttons.fire:
+                case Taka.Config.buttons.fire:
                     Taka.core.Engine.Player().fire = false;
                     _stopPropagation(_event);
                     break;

@@ -1,7 +1,7 @@
-var Taka = (Taka) ? Taka : {};
-
 (function() {
+
     "use strict";
+
     /**
      * A formation shaped like an A (^) comprising 5 enemy vehicles
      * @class
@@ -13,21 +13,15 @@ var Taka = (Taka) ? Taka : {};
      * @constructor
      */
     Taka.vehicles.formations.A5Formation = function(shipType, startFrame, x, y) {
-        this.Super(shipType, startFrame, x, y);
-    };
-    Taka.extend(Taka.vehicles.formations.A5Formation, Taka.vehicles.formations.Formation);
+        var vehiclePosVels = [
+            { x: x,      y: -60, velX: -1, velY: 2 },
+            { x: x - 30, y: -40, velX: -1, velY: 2 },
+            { x: x + 30, y: -40, velX: -1, velY: 2 },
+            { x: x - 60, y: -20, velX: -1, velY: 2 },
+            { x: x + 60, y: -20, velX: -1, velY: 2 }
+        ];
 
-    /**
-     * Spawns the formation at the specified frame number
-     * @param {Number} frame The frame number
-     */
-    Taka.vehicles.formations.A5Formation.prototype.update = function(frame) {
-        if (frame === this.startFrame) {
-            Taka.core.Engine.addEnemy(new this.shipType(this.x, -60, -1, 2));
-            Taka.core.Engine.addEnemy(new this.shipType(this.x - 30, -40, -1, 2));
-            Taka.core.Engine.addEnemy(new this.shipType(this.x + 30, -40, -1, 2));
-            Taka.core.Engine.addEnemy(new this.shipType(this.x - 60, -20, -1, 2));
-            Taka.core.Engine.addEnemy(new this.shipType(this.x + 60, -20, -1, 2));
-        }
+        return new Taka.vehicles.formations.Formation(shipType, startFrame, x, y, vehiclePosVels);
     };
+
 })();

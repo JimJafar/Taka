@@ -1,6 +1,5 @@
-var Taka = (Taka) ? Taka : {};
-
 (function() {
+
     "use strict";
 
     /**
@@ -14,9 +13,11 @@ var Taka = (Taka) ? Taka : {};
      * @param {Number} speed Speed in pixels per frame
      * @param {Number} life Number of hit points
      * @param {Number} fireFreq Time between shots in microseconds
+     * @param {function} bulletType A class derived from Taka.ordnance.Bullet
+     * @param {function} [onUpdate] An optional callback to be invoked during update on every frame
      * @constructor
      */
-    Taka.vehicles.Vehicle = function(sprite, width, height, x, y, speed, life, fireFreq) {
+    Taka.vehicles.Vehicle = function(sprite, width, height, x, y, speed, life, fireFreq, bulletType, onUpdate) {
         this.sprite = sprite;
         this.width = width;
         this.height = height;
@@ -25,6 +26,8 @@ var Taka = (Taka) ? Taka : {};
         this.speed = speed;
         this.life = life;
         this.fireFreq = fireFreq;
+        this.bulletType = bulletType;
+        this.onUpdate = onUpdate;
 
         this.firedLast = new Date().getTime();
         this.moveUp = false;
@@ -41,14 +44,7 @@ var Taka = (Taka) ? Taka : {};
          * Updates the vehicle - called by Taka.core.Engine.Update
          */
         update : function() {
-            this._updateVelocity();
-        },
-
-        /**
-         * Updates the vehicles's velocity according to speed and direction
-         * @private
-         */
-        _updateVelocity : function() {
+            // Update the vehicle's velocity according to speed and direction
             this.velX = this.velY = 0;
             if (this.moveUp) {
                 this.velY = -this.speed;
@@ -61,6 +57,10 @@ var Taka = (Taka) ? Taka : {};
             }
             if (this.moveRight) {
                 this.velX = this.speed;
+            }
+
+            if (typeof this.onUpdate === 'function') {
+                this.onUpdate();
             }
         },
 
@@ -99,13 +99,11 @@ var Taka = (Taka) ? Taka : {};
         },
 
         /**
-         * Creates a new instance of Type
-         * @param {function} Type A class derived from Taka.ordnance.Bullet
-         * @return {Type}
-         * @private
+         * Creates a new bullet
+         * @return {*}
          */
-        _getBullet : function(Type) {
-            return new Type(this.x + (this.width / 2), this.y);
+        getBullet : function() {
+            return new this.bulletType(this.x + (this.width / 2), this.y);
         },
 
         /**

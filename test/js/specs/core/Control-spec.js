@@ -1,10 +1,8 @@
-var Taka = (Taka) ? Taka : {};
-
 describe('Taka.core.Control', function() {
     "use strict";
     var control = Taka.core.Control;
     var player;
-    var buttons = TakaConfig.buttons;
+    var buttons = Taka.Config.buttons;
 
     beforeEach(function() {
         player = { moveUp : null, moveDown : null, moveLeft : null, moveRight : null, fire : null };
@@ -48,16 +46,16 @@ describe('Taka.core.Control', function() {
         Taka.core.Engine.Player().moveLeft = true;
         Taka.core.Engine.Player().moveRight = true;
 
-        control.keyUp( { which : TakaConfig.buttons.up } );
+        control.keyUp( { which : Taka.Config.buttons.up } );
         expect(Taka.core.Engine.Player().moveUp).toBe(false);
 
-        control.keyUp( { which : TakaConfig.buttons.down } );
+        control.keyUp( { which : Taka.Config.buttons.down } );
         expect(Taka.core.Engine.Player().moveDown).toBe(false);
 
-        control.keyUp( { which : TakaConfig.buttons.left } );
+        control.keyUp( { which : Taka.Config.buttons.left } );
         expect(Taka.core.Engine.Player().moveLeft).toBe(false);
 
-        control.keyUp( { which : TakaConfig.buttons.right } );
+        control.keyUp( { which : Taka.Config.buttons.right } );
         expect(Taka.core.Engine.Player().moveRight).toBe(false);
     });
 });

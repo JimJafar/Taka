@@ -1,7 +1,7 @@
-var Taka = (Taka) ? Taka : {};
-
 (function() {
+
     "use strict";
+
     /**
      * The player's vehicle
      * @class
@@ -18,15 +18,6 @@ var Taka = (Taka) ? Taka : {};
         var life = 5;
         var fireFreq = 300;
 
-        this.Super(sprite, width, height, x, y, speed, life, fireFreq);
-    };
-    Taka.extend(Taka.vehicles.PlayerVehicle, Taka.vehicles.Vehicle);
-
-    /**
-     * Creates a new instance of PlayerBullet
-     * @return {Taka.ordnance.PlayerBullet}
-     */
-    Taka.vehicles.PlayerVehicle.prototype.getBullet = function() {
-        return this._getBullet(Taka.ordnance.PlayerBullet);
+        return new Taka.vehicles.Vehicle(sprite, width, height, x, y, speed, life, fireFreq, Taka.ordnance.PlayerBullet);
     };
 })();

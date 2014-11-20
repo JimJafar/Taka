@@ -1,11 +1,10 @@
-var Taka = (Taka) ? Taka : {};
-
 /**
  * The game engine
- * @class
  */
 Taka.core.Engine = (function() {
+
     "use strict";
+
     /**
      * The width of the game screen (canvas) in pixels
      * @memberof Taka.core.Engine

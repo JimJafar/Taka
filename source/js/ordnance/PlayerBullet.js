@@ -1,7 +1,7 @@
-var Taka = (Taka) ? Taka : {};
-
 (function() {
+
     "use strict";
+
     /**
      * Basic bullet for the player
      * @augments Taka.ordnance.Bullet
@@ -17,9 +17,10 @@ var Taka = (Taka) ? Taka : {};
         x -= 9;
         var damage = 1;
 
-        this.Super(sprite, width, height, x, y, speed, damage);
+        var bullet = new Taka.ordnance.Bullet(sprite, width, height, x, y, speed, damage);
+        bullet.moveUp = true;
 
-        this.moveUp = true;
+        return bullet;
     };
-    Taka.extend(Taka.ordnance.PlayerBullet, Taka.ordnance.Bullet);
+
 })();

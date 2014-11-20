@@ -30,7 +30,7 @@ var zip = require('gulp-zip');
 
 var paths = {
     in : {
-        config: './source/js/TakaConfig.js',
+        config: './source/js/Config.js',
         js : [
             './source/js/Taka.js',
             './source/js/utils/BoxUtil.js',
@@ -51,6 +51,7 @@ var paths = {
             './source/js/ordnance/SmallBullet.js',
             './source/js/effects/Effect.js',
             './source/js/effects/ExplosionEffect.js',
+            './source/js/levels/Trigger.js',
             './source/js/levels/Level.js'
         ],
         resources : './source/resources/**/*'
@@ -119,7 +120,7 @@ gulp.task('watch', function(cb) {
 
 gulp.task('jshint', function() {
     return gulp.src(paths.in.js)
-        .pipe(jshint({ devel: true, evil: true, noarg: true} ))
+        .pipe(jshint({ devel: true, noarg: true, strict: true } ))
         .pipe(jshint.reporter('default'));
 });
 

@@ -1,7 +1,7 @@
-var Taka = (Taka) ? Taka : {};
-
 (function() {
+
     "use strict";
+
     /**
      * An explosion effect - used for dying enemy vehicles
      * @class
@@ -21,7 +21,7 @@ var Taka = (Taka) ? Taka : {};
         var width = 60;
         var height = 60;
 
-        this.Super(sprites, width, height, x, y, velX, velY);
+        return new Taka.effects.Effect(sprites, width, height, x, y, velX, velY);
     };
-    Taka.extend(Taka.effects.ExplosionEffect, Taka.effects.Effect);
+
 })();

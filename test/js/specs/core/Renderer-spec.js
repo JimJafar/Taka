@@ -1,5 +1,3 @@
-var Taka = (Taka) ? Taka : {};
-
 describe('Taka.core.Renderer', function() {
     "use strict";
     var renderer = Taka.core.Renderer;

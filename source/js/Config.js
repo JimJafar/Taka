@@ -1,21 +1,27 @@
 /**
+ * The Config namespace
  * @namespace
  */
-var TakaConfig = {
+Taka.Config = (function() {
+
+    "use strict";
+
     /**
      * The url of the resources directory (ending in a slash)
      * @type string
      */
-    resourcesBaseUrl : 'src/main/resources/',
+    var _resourcesBaseUrl = 'src/main/resources/';
+
     /**
      * The target frames per second for the game engine
      */
-    fps: 60,
+    var _fps = 60;
+
     /**
      * A map of the keycodes for the various controls
      * @enum
      */
-    buttons: {
+    var _buttons = {
         /**
          * The keycode for moving the player up
          * @type number
@@ -46,5 +52,19 @@ var TakaConfig = {
          * @type number
          */
         pause: 27
-    }
-};
+    };
+
+    return {
+        get resourcesBaseUrl() {
+            return _resourcesBaseUrl;
+        },
+
+        get fps() {
+            return _fps;
+        },
+
+        get buttons() {
+            return _buttons;
+        }
+    };
+})();

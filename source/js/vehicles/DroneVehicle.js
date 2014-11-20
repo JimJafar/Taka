@@ -1,7 +1,7 @@
-var Taka = (Taka) ? Taka : {};
-
 (function() {
+
     "use strict";
+
     /**
      * A basic enemy drone
      * @class
@@ -20,28 +20,19 @@ var Taka = (Taka) ? Taka : {};
         var life = 1;
         var fireFreq = 3600;
 
-        this.Super(sprite, width, height, x, y, speed, life, fireFreq);
+        var onUpdate = function() {
+            // Fire periodically according to fireFreq
+            if (new Date().getTime() - this.firedLast > this.fireFreq) {
+                this.fire = true;
+            }
+        };
 
-        this.velX = velX;
-        this.velY = velY;
-    };
-    Taka.extend(Taka.vehicles.DroneVehicle, Taka.vehicles.Vehicle);
+        var drone = new Taka.vehicles.Vehicle(sprite, width, height, x, y, speed, life, fireFreq, Taka.ordnance.SmallBullet, onUpdate);
 
-    /**
-     * Updates the vehicle - called by Taka.core.Engine.Update
-     * Fires periodically according to fireFreq
-     */
-    Taka.vehicles.DroneVehicle.prototype.update = function() {
-        if (new Date().getTime() - this.firedLast > this.fireFreq) {
-            this.fire = true;
-        }
+        drone.velX = velX;
+        drone.velY = velY;
+
+        return drone;
     };
 
-    /**
-     * Creates a new instance of SmallBullet
-     * @return {Taka.ordnance.SmallBullet}
-     */
-    Taka.vehicles.DroneVehicle.prototype.getBullet = function() {
-        return new Taka.ordnance.SmallBullet(this.x + (this.width / 2), this.y + this.height);
-    };
 })();

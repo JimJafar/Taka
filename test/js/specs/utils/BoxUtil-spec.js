@@ -1,5 +1,3 @@
-var Taka = (Taka) ? Taka : {};
-
 describe('Taka.utils.BoxUtil', function() {
     "use strict";
 

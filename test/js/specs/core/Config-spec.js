@@ -1,8 +1,6 @@
-var Taka = (Taka) ? Taka : {};
-
-describe('TakaConfig', function() {
+describe('Taka.Config', function() {
     "use strict";
-    var config = TakaConfig;
+    var config = Taka.Config;
 
     it('should define fps', function() {
         expect(config.hasOwnProperty('fps')).toBe(true);

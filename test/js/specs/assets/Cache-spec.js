@@ -1,5 +1,3 @@
-var Taka = (Taka) ? Taka : {};
-
 describe('Taka.assets.Cache', function() {
     "use strict";
     var cache = Taka.assets.Cache;

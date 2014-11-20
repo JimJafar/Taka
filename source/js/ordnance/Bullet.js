@@ -1,14 +1,14 @@
-var Taka = (Taka) ? Taka : {};
-
 (function() {
+
     "use strict";
+
     /**
      * Base class for bullets
      * @param {Image} sprite The image asset
      * @param {Number} width Width in pixels
      * @param {Number} height Height in pixels
      * @param {Number} x Position in the X axis
-     * @param {Number} y Position in the Y axis
+     * @param {yumber} y Position in the Y axis
      * @param {Number} speed Speed in pixels per frame
      * @param {Number} damage The amount of hit points of damage dealt
      * @constructor

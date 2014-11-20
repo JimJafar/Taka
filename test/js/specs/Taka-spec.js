@@ -39,4 +39,10 @@ describe('Taka', function() {
         expect(document.onkeyup).toBe(null);
         expect(document.onkeydown).toBe(null);
     });
+
+    it('should stop the game engine on game over', function() {
+        spyOn(Taka, 'stop').and.returnValue(null);
+        Taka.gameOver();
+        expect(Taka.stop).toHaveBeenCalled();
+    });
 });

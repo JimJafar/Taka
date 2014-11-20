@@ -1,8 +1,5 @@
-var Taka = (Taka) ? Taka : {};
-
 /**
- * The game asset cache (singleton)
- * @class
+ * The game asset cache
  */
 Taka.assets.Cache = (function() {
     "use strict";
