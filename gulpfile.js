@@ -210,7 +210,7 @@ gulp.task('test_js', function() {
             pattern: [paths.jasmine.reports.in],
             debugDirectory: 'debug'
         }))
-        .pipe(jasminePhantomJs({webSecurity: 'no'}))
+        .pipe(jasminePhantomJs(['--web-security=false', '--load-images=false']))
         .pipe(cover.report({
             outFile: paths.jasmine.coverage
         }));
