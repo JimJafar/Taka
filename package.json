@@ -10,7 +10,7 @@
     "gulp-concat": "2.2.0",
     "gulp-coverage": "^0.3.31",
     "gulp-gzip": "0.0.8",
-    "gulp-jasmine2-phantomjs": "0.0.3",
+    "gulp-jasmine2-phantomjs": "0.2.0",
     "gulp-jsdoc": "0.1.4",
     "gulp-jshint": "1.6.1",
     "gulp-rename": "^1.2.0",
